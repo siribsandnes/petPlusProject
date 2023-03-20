@@ -46,10 +46,12 @@ public class ProductController {
             .orElseThrow(() -> new NoSuchElementException());
   }
 
-  public ResponseEntity<Object> findAllByProductNameContaining() {
-    logger.error("Getting all products");
-    Iterable<Product> products = productRepository.findAllByProductNameContaining("Katte genser");
-    return new ResponseEntity<>(products, HttpStatus.OK);
+  @DeleteMapping("/{id}")
+  @Operation(
+          summary = "Delete product with ID",
+          description = "Deletes the product with the corresponding ID"
+  )
+  void deleteProduct(@PathVariable int id) {
+    productRepository.deleteById(id);
   }
-
 }
