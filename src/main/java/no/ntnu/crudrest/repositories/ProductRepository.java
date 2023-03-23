@@ -2,6 +2,8 @@ package no.ntnu.crudrest.repositories;
 
 
 import no.ntnu.crudrest.models.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -14,4 +16,7 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
   Iterable<Product> findAllByProductNameContaining(String productName);
 
   Iterable<Product> findAllByProductPriceGreaterThanAndProductNameContaining(float productPrice, String productName);
+
+  Page<Product> findAll(Pageable pageable);
 }
+
