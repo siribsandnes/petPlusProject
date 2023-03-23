@@ -1,23 +1,19 @@
 package no.ntnu.crudrest.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
-@Schema(description = "A product in our store", title = "Product")
+
 @Entity
 public class Product {
   @Id
   @GeneratedValue
   private int productId;
-
   private String productName;
-
-  @Schema(description = "The price of the product")
   private float productPrice;
-
   private int productAmount;
-
 
   public Product() {
   }
