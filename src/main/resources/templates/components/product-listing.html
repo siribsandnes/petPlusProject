@@ -1,0 +1,8 @@
+<div class="product-container" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="card" th:each="product: ${products}">
+        <div class="product-image-container">
+            <img th:src="@{img/products/{id}.png(id=${product.productId})}" alt="A product picture" />
+        </div>
+        <p th:text="${product.productName}"></p>
+    </div>
+</div>

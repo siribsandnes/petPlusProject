@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head />
 <body>
+<nav></nav>
+<div class="main-container">
+    <main>
+        <section>
+            <h1>Welcome to our Store</h1>
+            <p>We sell pet products</p>
+        </section>
 
+        <section>
+            <h2>Products of the week</h2>
+            <div th:insert="components/product-listing"></div>
+        </section>
+    </main>
+</div>
 </body>
 </html>
