@@ -1,6 +1,7 @@
-package no.ntnu.crudrest;
+package no.ntnu.crudrest.repositories;
 
 
+import no.ntnu.crudrest.models.Product;
 import org.springframework.data.repository.CrudRepository;
 
 /**

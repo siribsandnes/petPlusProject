@@ -1,4 +1,4 @@
-package no.ntnu.crudrest;
+package no.ntnu.crudrest.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
