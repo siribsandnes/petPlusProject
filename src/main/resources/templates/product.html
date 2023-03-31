@@ -1,4 +1,15 @@
-<img th:src="@{img/products/{id}.png(id=${product.productId})}" alt="A product picture" />
+<!-- Shows the product image, name and price -->
+
+<img th:src="@{img/products/{id}.png(id=${product.productId})}"
+     onerror="this.onerror=null; this.src='img/products/No-Image-Placeholder.png'"
+/>
+
 <p id="Name" th:text="${product.productName}"></p>
 <p id="Price" th:text="${product.productPrice} + ',-'"></p>
 
+<!-- Shows the product categories -->
+<td>
+<span th:each="productCategory,iterStat : ${product.productCategory}">
+        <span th:text="${productCategory.name}"/><th:block th:if="${!iterStat.last}">,</th:block>
+        </span>
+</td>

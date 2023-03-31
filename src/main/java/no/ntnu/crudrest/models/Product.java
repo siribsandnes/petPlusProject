@@ -1,9 +1,10 @@
 package no.ntnu.crudrest.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -14,6 +15,11 @@ public class Product {
   private String productName;
   private float productPrice;
   private int productAmount;
+
+  @ManyToMany(mappedBy = "products")
+  private Set<ProductCategory> productCategories = new HashSet<>();
+
+
 
   public Product() {
   }
@@ -38,6 +44,12 @@ public class Product {
   public int getProductId() {
     return productId;
   }
+
+  public Set<ProductCategory> getProductCategory(){return productCategories;}
+
+  public void setProductCategory(Set<ProductCategory> productCategories){this.productCategories = productCategories;}
+
+  public void addProductCategory(ProductCategory productCategory){productCategories.add(productCategory);}
 
   public void setProductId(int id) {
     this.productId = id;
