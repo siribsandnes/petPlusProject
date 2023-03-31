@@ -33,4 +33,8 @@ public class ProductService {
   public Iterable<Product> getFirst(int n) {
     return productRepository.findAll(PageRequest.of(0, n));
   }
+
+  public Product findById(Integer id){
+    return productRepository.findById(id).orElse(null);
+  }
 }
