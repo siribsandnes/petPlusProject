@@ -1,0 +1,4 @@
+<img th:src="@{img/products/{id}.png(id=${product.productId})}" alt="A product picture" />
+<p id="Name" th:text="${product.productName}"></p>
+<p id="Price" th:text="${product.productPrice} + ',-'"></p>
+

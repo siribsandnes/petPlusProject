@@ -1,8 +1,12 @@
-<div class="product-container" xmlns:th="http://www.w3.org/1999/xhtml">
+<div class="product-container" xmlns:th="http://www.w3.org/1999/xhtml" >
     <div class="card" th:each="product: ${products}">
         <div class="product-image-container">
-            <img th:src="@{img/products/{id}.png(id=${product.productId})}" alt="A product picture" />
+            <img th:src="@{img/products/{id}.png(id=${product.productId})}"
+                 onerror="this.onerror=null; this.src='img/products/No-Image-Placeholder.png'"
+                 />
         </div>
-        <p th:text="${product.productName}"></p>
+        <p id="Name" th:text="${product.productName}"></p>
+        <p id="Price" th:text="${product.productPrice} + ',-'"></p>
+        <a th:href="@{/{id}(id=${product.productId})}"></a>
     </div>
 </div>

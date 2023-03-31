@@ -1,0 +1,81 @@
+
+html {
+    background-color: aqua;
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+p {
+    font-size: 2rem;
+}
+.Name{
+    horiz-align: left;
+}
+.Price{
+    horiz-align: right;
+}
+.card a::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+
+body {
+    margin: 2rem;
+}
+
+.card {
+    position: relative;
+    width: 25rem;
+    height: 40rem;
+    margin: 4rem 2rem 0 2rem;
+    border: 1px dashed gray;
+    border-radius: 1rem;
+}
+
+.card-description {
+    margin: 1.5rem;
+}
+
+.card {
+    overflow: hidden;
+    box-shadow: 0 0 0.5rem 0 lightgray;
+}
+
+.highlighted {
+    box-shadow: 0 0 2rem 1rem rgba(200, 200, 200, 0.75);
+}
+html {
+    font-family: "Poppins", sans-serif;
+}
+
+.card {
+    /* We want the cards to be side-by side. We will use flexbox for it later,
+        but we have not learned it yet. */
+    float: left;
+}
+
+img {
+    /* We set display:block for the images to avoid a space right
+        after the image */
+    display: block;
+    height: 350px;
+    width: 250px;
+
+}
