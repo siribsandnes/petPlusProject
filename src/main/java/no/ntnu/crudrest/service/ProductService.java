@@ -27,7 +27,7 @@ public class ProductService {
 
   /**
    * Gets the n first products stored in the database
-   * @param n - the amount of books to return
+   * @param n - the amount of products to return
    * @return n first products in the database
    */
   public Iterable<Product> getFirst(int n) {

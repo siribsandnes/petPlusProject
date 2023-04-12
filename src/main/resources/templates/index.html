@@ -1,23 +1,23 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head
-        th:insert="components/head">
-        <link rel="stylesheet" th:href="@{/styles/style.css}" />
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Security demo</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<nav></nav>
-<div class="main-container">
-    <main>
-        <section>
-            <h1>Welcome to our Store</h1>
-            <p>We sell pet products</p>
-        </section>
+<nav th:insert="~{components/navigation}"></nav>
+<main>
+    <h1>Welcome!</h1>
+    <p>Welcome to our store!</p>
+    <section>
 
-        <section>
-            <h2>Products of the week</h2>
-            <div th:insert="components/product-listing"></div>
-        </section>
-    </main>
-</div>
+    </section>
+    <p th:if="${user != null}">You can try to access a <a th:href="@{/users/} + 'john'">profile page
+        of another user</a>.
+        It will fail.</p>
+</main>
 </body>
 </html>

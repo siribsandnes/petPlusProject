@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<nav th:insert="~{components/navigation}"></nav>
+<main>
+    <form action="" method="post" class="bio">
+        <h1 th:text="'Welcome, ' + ${user.username}"></h1>
+        <p>Here you can see and modify your profile:</p>
+        <label for="bio" class="sr-only"></label>
+        <textarea name="bio" id="bio" th:text="${user.bio}"></textarea>
+        <p th:if="${errorMessage != null}" th:text="${errorMessage}" class="alert"></p>
+        <p th:if="${successMessage != null}" th:text="${successMessage}" class="success"></p>
+        <input type="submit" value="Save">
+    </form>
+</main>
+</body>
+</html>
