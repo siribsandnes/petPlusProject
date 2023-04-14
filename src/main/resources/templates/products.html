@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="/js/product-data-loader.js"></script>
+    <link rel="stylesheet" th:href="@{/styles/style.css}">
 </head>
-<body onload="sendProductDataRequest()">
 <nav th:insert="~{components/navigation}"></nav>
 <main>
     <h1>Products</h1>

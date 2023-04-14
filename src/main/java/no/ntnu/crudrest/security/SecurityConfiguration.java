@@ -54,6 +54,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/users/**").hasAnyRole("USER", "ADMIN")
                 .requestMatchers("/").permitAll()
                 .requestMatchers("/products").permitAll()
+                .requestMatchers("/products/**").permitAll()
                 .requestMatchers("/api/products").permitAll()
                 .requestMatchers("/login").permitAll()
                 .requestMatchers("/signup").permitAll()
@@ -62,6 +63,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/favicon.ico").permitAll()
                 .requestMatchers("/").permitAll()
                 .requestMatchers("/img/**").permitAll()
+                .requestMatchers("/styles/**").permitAll()
                 // /error is needed or else getting weird redirect on login, found solution here: https://github.com/spring-projects/spring-security/issues/12635#issuecomment-1429055478
                 .requestMatchers("/error").permitAll()
                 .and().formLogin().loginPage("/login")

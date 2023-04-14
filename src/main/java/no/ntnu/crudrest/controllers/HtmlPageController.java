@@ -2,6 +2,7 @@ package no.ntnu.crudrest.controllers;
 
 import no.ntnu.crudrest.dto.SignupDto;
 import no.ntnu.crudrest.dto.UserProfileDto;
+import no.ntnu.crudrest.models.Product;
 import no.ntnu.crudrest.models.User;
 import no.ntnu.crudrest.service.AccessUserService;
 import no.ntnu.crudrest.service.ProductService;
@@ -97,13 +98,20 @@ public class HtmlPageController {
         return "admin";
     }
 
-
         @GetMapping("/products")
         public String getProductPage(Model model) {
             model.addAttribute("user", userService.getSessionUser());
             model.addAttribute("products", productService.getFirst(5));
             return "products";
         }
+
+    @GetMapping(path = "/products/{id}")
+    public String getproductById(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("user", userService.getSessionUser());
+        Product product = productService.findById(id);
+        model.addAttribute("product", product);
+        return "product";
+    }
 
 
 
