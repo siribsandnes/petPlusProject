@@ -15,6 +15,18 @@ public class User {
     private String username;
     private String password;
     private String bio;
+
+    //TODO: USER INFO
+    private String email;
+    private String firstName;
+    private String lastName;
+    private int phoneNumber;
+
+    //TODO: ADDRESS
+    private String address;
+    private int postalCode;
+    private String city;
+
     private boolean active = true;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
@@ -34,10 +46,16 @@ public class User {
         this.password = password;
     }
 
-    public User(String username, String password, String bio) {
+    public User(String username, String password, String bio, String email, String firstName, String lastName, int phoneNumber, String address, int postalCode,  String city) {
         this.username = username;
         this.password = password;
         this.bio = bio;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.city = city;
     }
 
     public void setRoles(Set<Role> roles) {
@@ -116,12 +134,68 @@ public class User {
         }
         return found;
     }
-
+    //TODO: REMOVE BIO
     public String getBio() {
         return bio;
     }
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(int postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
