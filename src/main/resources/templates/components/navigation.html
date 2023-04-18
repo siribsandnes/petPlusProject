@@ -1,8 +1,3 @@
-<head>
-  <meta charset="UTF-8">
-  <title>Products</title>
-  <link rel="stylesheet" th:href="@{/styles/style.css}">
-</head>
 <nav>
   <ul class="navigation">
     <li><a th:href="@{/}">Home</a></li>
@@ -14,18 +9,14 @@
       <li><a th:href="@{/logout}">Logout</a></li>
     </th:block>
     <th:block th:if="${user == null}">
-      <li><a th:href="@{/signup}">Sign up</a></li>
-      <li><a th:href="@{/login}">Login</a></li>
+        <form method="post" th:action="@{/login}">
+          <label class="sr-only" for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Username">
+          <label class="sr-only" for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Password">
+          <button type="submit">Sign in</button>
+        </form>
     </th:block>
-    <th:block th:if="${user == null}">
-    <form method="post" th:action="@{/login}">
-      <label class="sr-only" for="username">Username</label>
-      <input type="text" id="username" name="username" placeholder="Username">
-      <label class="sr-only" for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Password">
-      <p th:if="${param.error}" class="alert">Invalid username or password</p>
-      <button type="submit">Sign in</button>
-      </th:block>
-    </form>
+    <li><a th:href="@{/shoppingCart}">Cart</a></li>
   </ul>
 </nav>

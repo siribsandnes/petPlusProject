@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 /**
  * Business logic related to products
  */
@@ -34,7 +36,7 @@ public class ProductService {
     return productRepository.findAll(PageRequest.of(0, n));
   }
 
-  public Product findById(Integer id){
-    return productRepository.findById(id).orElse(null);
+  public Optional<Product> findById(Integer id){
+    return productRepository.findById(id);
   }
 }

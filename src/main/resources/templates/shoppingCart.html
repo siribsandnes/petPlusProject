@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/styles/style.css}">
+</head>
+<nav th:insert="~{components/navigation}"></nav>
+<body>
+
+<th:block th:if="${user != null}">
+    <p th:text="'Hello, ' + ${user.username} + '! These items are in your Cart:'"></p>
+</th:block>
+
+<th:block th:if="${user == null}">
+    <p th:text="'Hello! These items are in your Cart:'"></p>
+</th:block>
+<div class="alert alert-info" th:if="${outOfStockMessage}" th:utext="${outOfStockMessage}"></div>
+
+<div th:if="${products != null}">
+    <div class="panel-default well" th:each="product: ${products.entrySet()}">
+        <div class="panel-heading">
+            <h1><a th:text="${product.getKey().productName}" th:href="@{'/products/' + ${product.getKey().productId}}">Title</a></h1>
+        </div>
+        <div class="row panel-body">
+            <div th:inline="text" class="col-md-2">Price: [[${product.getKey().productPrice}]],- NOK</div>
+            <div th:inline="text" class="col-md-9">Quantity: [[${product.getValue()}]]</div>
+            <a th:href="@{'/shoppingCart/removeProduct/{id}'(id=${product.getKey().productId})}" class="col-md-1">
+                <button type="button" class="btn btn-primary" th:text="Remove">Remove</button>
+            </a>
+        </div>
+    </div>
+
+</div>
+<div th:if="${products.entrySet().isEmpty()}">
+    <p> Your cart seems to be empty. Go take a look at our <a th:href="@{'/products'}"> products</a>!</p>
+</div>
+<br></br>
+<div class="row panel-body">
+    <h2 class="col-md-11" th:inline="text">Total NOK: [[${total}]],-</h2>
+    <a th:href="@{'/shoppingCart/checkout'}" class="col-md-1">
+        <button type="button" class="btn btn-danger" th:text="Checkout">Checkout</button>
+    </a>
+</div>
+
+
+</body>
+</html>

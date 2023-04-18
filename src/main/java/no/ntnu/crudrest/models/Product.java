@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -87,6 +88,19 @@ public class Product {
 
   public void setProductAmount(int amount) {
     this.productAmount = amount;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (!(obj instanceof Product)) return false;
+    Product other = (Product) obj;
+    return productId == other.productId;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(productId);
   }
 
 }

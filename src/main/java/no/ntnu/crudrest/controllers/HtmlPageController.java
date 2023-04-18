@@ -2,19 +2,18 @@ package no.ntnu.crudrest.controllers;
 
 import no.ntnu.crudrest.dto.SignupDto;
 import no.ntnu.crudrest.dto.UserProfileDto;
+import no.ntnu.crudrest.exception.NotEnoughProductsInStockException;
 import no.ntnu.crudrest.models.Product;
 import no.ntnu.crudrest.models.User;
+import no.ntnu.crudrest.service.ShoppingCartService;
 import no.ntnu.crudrest.service.AccessUserService;
 import no.ntnu.crudrest.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Deque;
+import java.util.Optional;
 
 /**
  * A controller serving our HTML pages
@@ -25,6 +24,10 @@ public class HtmlPageController {
     private AccessUserService userService;
     @Autowired
     private ProductService productService;
+    @Autowired
+    private ShoppingCartService shoppingCartService;
+
+
 
     /**
      * Home page.
@@ -108,9 +111,14 @@ public class HtmlPageController {
     @GetMapping(path = "/products/{id}")
     public String getproductById(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("user", userService.getSessionUser());
-        Product product = productService.findById(id);
-        model.addAttribute("product", product);
-        return "product";
+        Optional<Product> productOptional = productService.findById(id);
+        if (productOptional.isPresent()) {
+            Product product = productOptional.get();
+            model.addAttribute("product", product);
+            return "product";
+        } else {
+            return "error"; // or some other error page
+        }
     }
 
 
@@ -147,4 +155,38 @@ public class HtmlPageController {
             return "signup-form";
         }
     }
+
+    @GetMapping("/shoppingCart")
+    public String shoppingCart(Model model) {
+        model.addAttribute("user", userService.getSessionUser());
+        model.addAttribute("products", shoppingCartService.getProductsInCart());
+        model.addAttribute("total", shoppingCartService.getTotal().toString());
+        return "/shoppingCart";
+    }
+
+    @GetMapping("/shoppingCart/addProduct/{productId}")
+    public String addProductToCart(@PathVariable("productId") int productId, Model model) {
+        model.addAttribute("user", userService.getSessionUser());
+        productService.findById(productId).ifPresent(shoppingCartService::addProduct);
+        return "redirect:/shoppingCart";
+    }
+
+    @GetMapping("/shoppingCart/removeProduct/{productId}")
+    public String removeProductFromCart(@PathVariable("productId") int productId, Model model) {
+        model.addAttribute("user", userService.getSessionUser());
+        productService.findById(productId).ifPresent(product -> shoppingCartService.removeProduct(product));
+        return "redirect:/shoppingCart";
+    }
+
+    @GetMapping("/shoppingCart/checkout")
+    public String checkout(Model model) {
+        try {
+            shoppingCartService.checkout();
+        } catch (NotEnoughProductsInStockException e) {
+            model.addAttribute("outOfStockMessage", e.getMessage());
+            return "forward:/shoppingCart";
+        }
+        return "redirect:/shoppingCart";
+    }
+
 }

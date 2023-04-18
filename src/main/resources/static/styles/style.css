@@ -26,14 +26,7 @@ p {
 .Price{
     horiz-align: right;
 }
-.card a::before {
-    content: "";
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-}
+
 
 body {
     margin: 2rem;
@@ -42,19 +35,48 @@ body {
 .card {
     position: relative;
     width: 25rem;
-    height: 40rem;
+    height: 45rem;
     margin: 4rem 2rem 0 2rem;
     border: 1px dashed gray;
     border-radius: 1rem;
-}
-
-.card-description {
-    margin: 1.5rem;
-}
-
-.card {
     overflow: hidden;
     box-shadow: 0 0 0.5rem 0 lightgray;
+}
+
+.product-image-container {
+    position: relative;
+}
+
+.product-details-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.product-details-container #Name {
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.product-details-container #Price {
+    font-size: 2rem;
+}
+
+.product-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.button-container {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
 }
 
 .highlighted {
