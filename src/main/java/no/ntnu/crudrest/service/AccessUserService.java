@@ -139,6 +139,12 @@ public class AccessUserService implements UserDetailsService {
      */
     public boolean updateProfile(User user, UserProfileDto profileData) {
         user.setBio(profileData.getBio());
+        user.setFirstName(profileData.getFirstName());
+        user.setLastName(profileData.getLastName());
+        user.setPhoneNumber(profileData.getPhoneNumber());
+        user.setAddress(profileData.getAddress());
+        user.setPostalCode(profileData.getPostalCode());
+        user.setCity(profileData.getCity());
         userRepository.save(user);
         return true;
     }
