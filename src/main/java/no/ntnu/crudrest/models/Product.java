@@ -15,7 +15,8 @@ public class Product {
   private int productId;
   private String productName;
   private float productPrice;
-  private int productAmount;
+  private int productAmountInStock;
+
 
   @ManyToMany(mappedBy = "products")
   private Set<ProductCategory> productCategories = new HashSet<>();
@@ -25,10 +26,10 @@ public class Product {
   public Product() {
   }
 
-  public Product(int productId, String productName, float productPrice, int productAmount) {
+  public Product(int productId, String productName, float productPrice, int productAmountInStock) {
     this.productId = productId;
     this.productName = productName;
-    this.productAmount = productAmount;
+    this.productAmountInStock = productAmountInStock;
     this.productPrice = productPrice;
   }
 
@@ -41,6 +42,8 @@ public class Product {
   public boolean isValid() {
     return productName != null && !productName.equals("");
   }
+
+  //GETTERS AND SETTERS
 
   public int getProductId() {
     return productId;
@@ -82,13 +85,15 @@ public class Product {
     this.productPrice = price;
   }
 
-  public int getProductAmount() {
-    return productAmount;
+  public int getProductAmountInStock() {
+    return productAmountInStock;
   }
 
-  public void setProductAmount(int amount) {
-    this.productAmount = amount;
+  public void setProductAmountInStock(int amount) {
+    this.productAmountInStock = amount;
   }
+
+
 
   @Override
   public boolean equals(Object obj) {

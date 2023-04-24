@@ -58,6 +58,8 @@ public class User {
         this.city = city;
     }
 
+    //GETTERS AND SETTERS
+
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }

@@ -3,8 +3,11 @@ package no.ntnu.crudrest.service.impl;
 import no.ntnu.crudrest.exception.NotEnoughProductsInStockException;
 
 
+import no.ntnu.crudrest.models.Order;
 import no.ntnu.crudrest.models.Product;
+import no.ntnu.crudrest.repositories.OrderRepository;
 import no.ntnu.crudrest.repositories.ProductRepository;
+import no.ntnu.crudrest.service.AccessUserService;
 import no.ntnu.crudrest.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -14,10 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
@@ -25,12 +25,19 @@ import java.util.Optional;
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     private final ProductRepository productRepository;
+    private final OrderRepository orderRepository;
+
+    private final AccessUserService userService;
+
+
 
     private Map<Product, Integer> products = new HashMap<>();
 
     @Autowired
-    public ShoppingCartServiceImpl(ProductRepository productRepository) {
+    public ShoppingCartServiceImpl(ProductRepository productRepository, OrderRepository orderRepository, AccessUserService userService) {
         this.productRepository = productRepository;
+        this.orderRepository = orderRepository;
+        this.userService = userService;
     }
 
     /**
@@ -81,16 +88,29 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Override
     public void checkout() throws NotEnoughProductsInStockException {
         Optional<Product> product;
+        Order order = new Order();
         for (Map.Entry<Product, Integer> entry : products.entrySet()) {
             product = productRepository.findById(entry.getKey().getProductId());
-            if (product.isPresent() && product.get().getProductAmount() < entry.getValue()) {
+            if (product.isPresent() && product.get().getProductAmountInStock() < entry.getValue()) {
                 throw new NotEnoughProductsInStockException(product);
             }
-            entry.getKey().setProductAmount(product.get().getProductAmount() - entry.getValue());
+            entry.getKey().setProductAmountInStock(product.get().getProductAmountInStock() - entry.getValue());
+            order.addProduct(entry.getKey(), entry.getValue());
         }
         productRepository.saveAll(products.keySet());
+
+
+        order.setUser(userService.getSessionUser());
+        order.setProducts(products.keySet());
+        Double totalCost = products.entrySet().stream()
+                .mapToDouble(entry -> entry.getKey().getProductPrice() * entry.getValue())
+                .sum();
+        order.setTotalCost(totalCost);
+        orderRepository.save(order);
+
         products.clear();
     }
+
 
 
     @Override

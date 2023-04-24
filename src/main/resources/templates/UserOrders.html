@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+    <link rel="stylesheet" th:href="@{/styles/style.css}">
+</head>
+
+
+<body>
+<nav th:insert="~{components/navigation}"></nav>
+<h1>User Orders</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Order ID</th>
+        <th>Date</th>
+        <th>Total Cost</th>
+        <th>Products</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.createdTime}"></td>
+        <td th:text="${order.totalCost}"></td>
+        <td>
+            <ul>
+                <li th:each="product : ${order.products}">
+                    <span th:text="${product.productName}"></span>
+                    <span th:text="${order.getTotalCost}"></span>
+                    <span th:text="${order.getQuantity(product)}"></span>
+                </li>
+            </ul>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -10,6 +10,10 @@
 <main>
     <form action="" method="post" class="bio">
         <h1 th:text="'Welcome, ' + ${user.username}"></h1>
+        <br>
+        <a th:href="@{/users/{username}/orders(username=${user.username})}">Want to see past orders?</a>
+        <br>
+
         <p>Here you can see and modify your profile:</p>
 
         <label for="bio">Bio: </label>

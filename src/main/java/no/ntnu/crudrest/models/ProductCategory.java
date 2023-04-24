@@ -36,6 +36,7 @@ public class ProductCategory {
         return !"".equals(name) && (id == null || id > 0);
     }
 
+    //GETTERS AND SETTERS
     public Integer getId() {
         return id;
     }

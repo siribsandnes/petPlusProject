@@ -2,6 +2,7 @@ package no.ntnu.crudrest.service;
 
 import no.ntnu.crudrest.exception.NotEnoughProductsInStockException;
 import no.ntnu.crudrest.models.Product;
+import no.ntnu.crudrest.models.User;
 
 import java.math.BigDecimal;
 import java.util.Map;
