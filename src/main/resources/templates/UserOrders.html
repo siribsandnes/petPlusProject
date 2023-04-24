@@ -24,15 +24,14 @@
         <td th:text="${order.id}"></td>
         <td th:text="${order.createdTime}"></td>
         <td th:text="${order.totalCost}"></td>
+
         <td>
             <ul>
                 <li th:each="product : ${order.products}">
-                    <span th:text="${product.productName}"></span>
-                    <span th:text="${order.getTotalCost}"></span>
-                    <span th:text="${order.getQuantity(product)}"></span>
+                    <span th:text="${product.productName} + ' x ' + ${order.getQuantity(product)}"></span>
                 </li>
             </ul>
-
+        </td>
     </tr>
     </tbody>
 </table>
