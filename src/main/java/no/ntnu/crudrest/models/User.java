@@ -14,10 +14,8 @@ public class User {
     private Long id;
     private String username;
     private String password;
-    private String bio;
 
     //TODO: USER INFO
-    private String email;
     private String firstName;
     private String lastName;
     private int phoneNumber;
@@ -46,10 +44,9 @@ public class User {
         this.password = password;
     }
 
-    public User(String username, String password, String bio, String email, String firstName, String lastName, int phoneNumber, String address, int postalCode,  String city) {
+    public User(String username, String password, String firstName, String lastName, int phoneNumber, String address, int postalCode,  String city) {
         this.username = username;
         this.password = password;
-        this.bio = bio;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -136,14 +133,6 @@ public class User {
         }
         return found;
     }
-    //TODO: REMOVE BIO
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -191,13 +180,5 @@ public class User {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 }

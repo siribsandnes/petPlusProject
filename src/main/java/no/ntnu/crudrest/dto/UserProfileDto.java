@@ -3,9 +3,7 @@ package no.ntnu.crudrest.dto;
  * Data transfer object (DTO) for submitting changes to user profile data
  */
 
-//TODO: REMOVE BIO
 public class UserProfileDto {
-    private final String bio;
     private final String firstName;
     private final String lastName;
     private final int phoneNumber;
@@ -15,8 +13,7 @@ public class UserProfileDto {
 
 
 
-    public UserProfileDto(String bio, String firstName, String lastName, int phoneNumber, String address, int postalCode, String city) {
-        this.bio = bio;
+    public UserProfileDto(String firstName, String lastName, int phoneNumber, String address, int postalCode, String city) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -25,12 +22,6 @@ public class UserProfileDto {
         this.city = city;
 
     }
-
-    public String getBio() {
-        return bio;
-    }
-
-
     public String getFirstName() {
         return firstName;
     }

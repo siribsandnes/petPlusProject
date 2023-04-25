@@ -138,7 +138,6 @@ public class AccessUserService implements UserDetailsService {
      * @return True on success, false otherwise
      */
     public boolean updateProfile(User user, UserProfileDto profileData) {
-        user.setBio(profileData.getBio());
         user.setFirstName(profileData.getFirstName());
         user.setLastName(profileData.getLastName());
         user.setPhoneNumber(profileData.getPhoneNumber());
