@@ -3,13 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin page</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" th:href="@{/styles/style.css}">
 </head>
 <body>
 <nav th:insert="~{components/navigation}"></nav>
 <main>
     <h1>Administration</h1>
-    <p>Here you can do the admin stuff...</p>
+    <p>Here you can restock products:</p>
+    <br>
+
+    <tbody>
+        <tr th:each="product : ${products}">
+            <b  th:text="'ID: ' +${product.productId}"></b>
+            <td th:text="'Item: ' +${product.productName}"></td>
+            <b th:text="'In Stock: ' +${product.getProductAmountInStock()}"></b>
+            <br>
+        </tr>
+    </tbody>
+    <br>
+
+    <form method="post" action="/admin/restock">
+        <label for="product_id">Product ID:</label>
+        <input type="text" name="product_id" id="product_id" required>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" id="quantity" required>
+
+        <button type="submit">Restock</button>
+    </form>
+
 </main>
 </body>
 </html>

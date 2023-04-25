@@ -39,4 +39,8 @@ public class ProductService {
   public Optional<Product> findById(Integer id){
     return productRepository.findById(id);
   }
+  public void save(Product product) {
+    productRepository.save(product);
+  }
+
 }

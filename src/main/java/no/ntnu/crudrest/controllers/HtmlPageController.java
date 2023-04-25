@@ -102,20 +102,33 @@ public class HtmlPageController {
 
     @GetMapping("admin")
     public String adminPage(Model model) {
-        // We still need the user for the navigation, even when we don't use it for the main content
         model.addAttribute("user", userService.getSessionUser());
+        model.addAttribute("products", productService.getAll());
         return "admin";
     }
 
-        @GetMapping("/products")
-        public String getProductPage(Model model) {
-            model.addAttribute("user", userService.getSessionUser());
-            model.addAttribute("products", productService.getFirst(5));
-            return "products";
+    @PostMapping("admin/restock")
+    public String adminPage(@RequestParam Integer product_id, @RequestParam Integer quantity) {
+        Optional<Product> productOpt = productService.findById(product_id);
+        if (productOpt.isPresent()) {
+            Product product = productOpt.get();
+            product.setProductAmountInStock(product.getProductAmountInStock() + quantity);
+            productService.save(product);
         }
+        return "redirect:/admin";
+    }
+
+
+
+    @GetMapping("/products")
+    public String getProductPage(Model model) {
+        model.addAttribute("user", userService.getSessionUser());
+        model.addAttribute("products", productService.getFirst(5));
+        return "products";
+    }
 
     @GetMapping(path = "/products/{id}")
-    public String getproductById(@PathVariable("id") Integer id, Model model) {
+    public String getProductById(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("user", userService.getSessionUser());
         Optional<Product> productOptional = productService.findById(id);
         if (productOptional.isPresent()) {
@@ -205,7 +218,7 @@ public class HtmlPageController {
         }
         List<Order> orders = orderRepository.findByUser(user);
         model.addAttribute("orders", orders);
-        return "userOrders";
+        return "UserOrders";
     }
 
 
