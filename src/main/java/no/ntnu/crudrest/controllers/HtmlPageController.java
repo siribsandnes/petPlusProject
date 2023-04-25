@@ -107,6 +107,15 @@ public class HtmlPageController {
         return "admin";
     }
 
+    @GetMapping("admin/orders")
+    public String adminOrderPage(Model model) {
+        model.addAttribute("user", userService.getSessionUser());
+        model.addAttribute("products", productService.getAll());
+        List<Order> orders = orderRepository.findAll();
+        model.addAttribute("orders", orders);
+        return "UserOrders";
+    }
+
     @PostMapping("admin/restock")
     public String adminPage(@RequestParam Integer product_id, @RequestParam Integer quantity) {
         Optional<Product> productOpt = productService.findById(product_id);
