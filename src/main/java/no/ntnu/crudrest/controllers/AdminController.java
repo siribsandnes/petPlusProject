@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -42,8 +43,18 @@ public class AdminController {
     }
 
     @PostMapping("admin/restock")
-    public String adminPage(@RequestParam Integer product_id, @RequestParam Integer quantity) {
+    public String adminRestockPage(@RequestParam Integer product_id, @RequestParam Integer quantity, RedirectAttributes rm) {
         Optional<Product> productOpt = productService.findById(product_id);
+        if (quantity <= 0){
+            //restock shouldn't remove stock if negative
+            return "redirect:/admin";
+        }
+        if (productOpt.isEmpty()) {
+                //Gives user an error if they type a non-existent product_ID
+                rm.addFlashAttribute("errorMessage", "ProductID does not exist!");
+                return "redirect:/admin";
+            }
+
         if (productOpt.isPresent()) {
             Product product = productOpt.get();
             product.setProductAmountInStock(product.getProductAmountInStock() + quantity);

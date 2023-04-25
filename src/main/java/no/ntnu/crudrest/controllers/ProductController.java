@@ -20,7 +20,7 @@ public class ProductController {
     @GetMapping("/products")
     public String getProductPage(Model model) {
         model.addAttribute("user", userService.getSessionUser());
-        model.addAttribute("products", productService.getFirst(5));
+        model.addAttribute("products", productService.getAll());
         return "products";
     }
 

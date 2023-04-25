@@ -22,13 +22,13 @@
         </tr>
     </tbody>
     <br>
-
+    <p th:if="${errorMessage != null}" class="alert" th:text="${errorMessage}"></p>
     <form method="post" action="/admin/restock">
         <label for="product_id">Product ID:</label>
-        <input type="text" name="product_id" id="product_id" required>
+        <input type="number" min="1" name="product_id" id="product_id" required>
 
         <label for="quantity">Quantity:</label>
-        <input type="number" name="quantity" id="quantity" required>
+        <input type="number" min="1" name="quantity" id="quantity" required>
 
         <button type="submit">Restock</button>
     </form>
