@@ -23,7 +23,7 @@
     <tbody>
     <tr th:each="order : ${orders}">
         <td th:text="${order.id}"></td>
-        <td th:text="${order.getUser().getId()}"></td>
+        <td th:text="${order.getUser()?.getId()}"></td>
         <td th:text="${order.createdTime.getDayOfMonth()} +'/' + ${order.createdTime.getMonthValue()}+ '/' +${order.createdTime.getYear()}"></td>
         <td th:text="${order.totalCost}"></td>
         <td>
