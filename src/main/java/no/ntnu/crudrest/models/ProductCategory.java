@@ -27,8 +27,7 @@ public class ProductCategory {
     public ProductCategory() {
     }
 
-    public ProductCategory(Integer id, String name){
-        this.id = id;
+    public ProductCategory(String name){
         this.name = name;
     }
     @JsonIgnore // This annotation makes sure we don't include "valid" in the JSON

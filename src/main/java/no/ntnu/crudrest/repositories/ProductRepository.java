@@ -2,6 +2,7 @@ package no.ntnu.crudrest.repositories;
 
 
 import no.ntnu.crudrest.models.Product;
+import no.ntnu.crudrest.models.ProductCategory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
@@ -11,7 +12,7 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface ProductRepository extends CrudRepository<Product, Integer> {
   // SELECT * FROM product WHERE name = ?
-  Iterable<Product> findAllByProductName(String productName);
+  Product findProductByProductName(String productName);
 
   Iterable<Product> findAllByProductNameContaining(String productName);
 
