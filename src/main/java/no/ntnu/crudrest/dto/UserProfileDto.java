@@ -6,14 +6,14 @@ package no.ntnu.crudrest.dto;
 public class UserProfileDto {
     private final String firstName;
     private final String lastName;
-    private final int phoneNumber;
+    private final String phoneNumber;
     private final String streetAddress;
     private final String postalCode;
     private final String city;
 
 
 
-    public UserProfileDto(String firstName, String lastName, int phoneNumber, String streetAddress, String postalCode, String city) {
+    public UserProfileDto(String firstName, String lastName, String phoneNumber, String streetAddress, String postalCode, String city) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -30,7 +30,7 @@ public class UserProfileDto {
         return lastName;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 

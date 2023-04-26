@@ -10,7 +10,6 @@ public class Address {
     private String streetAddress;
     private String postalCode;
     private String city;
-
     public Address(){
 
     }

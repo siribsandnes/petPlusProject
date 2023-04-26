@@ -93,6 +93,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Override
     public void checkout(HttpServletRequest request) throws NotEnoughProductsInStockException {
         Optional<Product> product;
+
         Order order = new Order();
         for (Map.Entry<Product, Integer> entry : products.entrySet()) {
             product = productRepository.findById(entry.getKey().getProductId());
@@ -103,25 +104,15 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             order.addProduct(entry.getKey(), entry.getValue());
         }
         productRepository.saveAll(products.keySet());
-
-
         order.setUser(userService.getSessionUser());
-        if(userService.getSessionUser() == null){
-            Address address = new Address();
-            address.setStreetAddress(request.getParameter("streetAddress"));
-            address.setPostalCode(request.getParameter("postalCode"));
-            address.setCity(request.getParameter("city"));
-            addressRepository.save(address);
-            order.setAddress(address);
-        }
-        else {
-           Address address = userService.getSessionUser().getAddress();
-            address.setStreetAddress(request.getParameter("streetAddress"));
-            address.setPostalCode(request.getParameter("postalCode"));
-            address.setCity(request.getParameter("city"));
-            addressRepository.save(address);
-            order.setAddress(address);
-        }
+        //We need to make a new address for the order even if the user has one
+        // because they might change their stored address in the future but their old orders still need to have the old address
+        Address address = new Address();
+        address.setStreetAddress(request.getParameter("streetAddress"));
+        address.setPostalCode(request.getParameter("postalCode"));
+        address.setCity(request.getParameter("city"));
+        addressRepository.save(address);
+        order.setAddress(address);
 
         order.setProducts(products.keySet());
         Double totalCost = products.entrySet().stream()

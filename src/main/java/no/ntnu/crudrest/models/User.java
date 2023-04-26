@@ -18,7 +18,7 @@ public class User {
     //TODO: USER INFO
     private String firstName;
     private String lastName;
-    private int phoneNumber;
+    private String phoneNumber;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
@@ -42,7 +42,7 @@ public class User {
         this.password = password;
     }
 
-    public User(String username, String password, String firstName, String lastName, int phoneNumber, Address address) {
+    public User(String username, String password, String firstName, String lastName, String phoneNumber, Address address) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -146,11 +146,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

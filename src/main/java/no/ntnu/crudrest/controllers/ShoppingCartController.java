@@ -46,12 +46,13 @@ public class ShoppingCartController {
 
     @PostMapping("/shoppingCart/checkout")
     public String checkout(Model model,HttpServletRequest request) {
+        model.addAttribute("user", userService.getSessionUser());
         try {
             shoppingCartService.checkout(request);
+            return "checkoutSuccess";
         } catch (NotEnoughProductsInStockException e) {
             model.addAttribute("outOfStockMessage", e.getMessage());
             return "forward:/shoppingCart";
         }
-        return "redirect:/shoppingCart";
     }
 }
