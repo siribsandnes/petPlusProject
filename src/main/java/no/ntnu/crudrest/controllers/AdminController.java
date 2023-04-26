@@ -5,7 +5,6 @@ import no.ntnu.crudrest.models.Product;
 import no.ntnu.crudrest.repositories.OrderRepository;
 import no.ntnu.crudrest.service.AccessUserService;
 import no.ntnu.crudrest.service.ProductService;
-import no.ntnu.crudrest.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,13 +52,10 @@ public class AdminController {
                 //Gives user an error if they type a non-existent product_ID
                 rm.addFlashAttribute("errorMessage", "ProductID does not exist!");
                 return "redirect:/admin";
-            }
-
-        if (productOpt.isPresent()) {
-            Product product = productOpt.get();
-            product.setProductAmountInStock(product.getProductAmountInStock() + quantity);
-            productService.save(product);
         }
+        Product product = productOpt.get();
+        product.setProductAmountInStock(product.getProductAmountInStock() + quantity);
+        productService.save(product);
         return "redirect:/admin";
     }
 
