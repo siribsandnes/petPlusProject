@@ -2,6 +2,7 @@ package no.ntnu.crudrest.service;
 
 
 import no.ntnu.crudrest.dto.UserProfileDto;
+import no.ntnu.crudrest.models.Address;
 import no.ntnu.crudrest.models.Role;
 import no.ntnu.crudrest.models.User;
 import no.ntnu.crudrest.repositories.RoleRepository;
@@ -141,9 +142,14 @@ public class AccessUserService implements UserDetailsService {
         user.setFirstName(profileData.getFirstName());
         user.setLastName(profileData.getLastName());
         user.setPhoneNumber(profileData.getPhoneNumber());
-        user.setAddress(profileData.getAddress());
-        user.setPostalCode(profileData.getPostalCode());
-        user.setCity(profileData.getCity());
+        Address address = user.getAddress();
+        if (address == null){
+            address = new Address();
+        }
+        address.setStreetAddress(profileData.getStreetAddress());
+        address.setPostalCode(profileData.getPostalCode());
+        address.setCity(profileData.getCity());
+        user.setAddress(address);
         userRepository.save(user);
         return true;
     }

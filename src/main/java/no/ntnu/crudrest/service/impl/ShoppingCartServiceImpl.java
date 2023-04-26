@@ -1,10 +1,13 @@
 package no.ntnu.crudrest.service.impl;
 
+import jakarta.servlet.http.HttpServletRequest;
 import no.ntnu.crudrest.exception.NotEnoughProductsInStockException;
 
 
+import no.ntnu.crudrest.models.Address;
 import no.ntnu.crudrest.models.Order;
 import no.ntnu.crudrest.models.Product;
+import no.ntnu.crudrest.repositories.AddressRepository;
 import no.ntnu.crudrest.repositories.OrderRepository;
 import no.ntnu.crudrest.repositories.ProductRepository;
 import no.ntnu.crudrest.service.AccessUserService;
@@ -27,6 +30,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     private final ProductRepository productRepository;
     private final OrderRepository orderRepository;
 
+    private final AddressRepository addressRepository;
     private final AccessUserService userService;
 
 
@@ -34,9 +38,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     private Map<Product, Integer> products = new HashMap<>();
 
     @Autowired
-    public ShoppingCartServiceImpl(ProductRepository productRepository, OrderRepository orderRepository, AccessUserService userService) {
+    public ShoppingCartServiceImpl(ProductRepository productRepository, OrderRepository orderRepository, AddressRepository addressRepository, AccessUserService userService) {
         this.productRepository = productRepository;
         this.orderRepository = orderRepository;
+        this.addressRepository = addressRepository;
         this.userService = userService;
     }
 
@@ -86,7 +91,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
      * @throws NotEnoughProductsInStockException
      */
     @Override
-    public void checkout() throws NotEnoughProductsInStockException {
+    public void checkout(HttpServletRequest request) throws NotEnoughProductsInStockException {
         Optional<Product> product;
         Order order = new Order();
         for (Map.Entry<Product, Integer> entry : products.entrySet()) {
@@ -101,6 +106,23 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
 
         order.setUser(userService.getSessionUser());
+        if(userService.getSessionUser() == null){
+            Address address = new Address();
+            address.setStreetAddress(request.getParameter("streetAddress"));
+            address.setPostalCode(request.getParameter("postalCode"));
+            address.setCity(request.getParameter("city"));
+            addressRepository.save(address);
+            order.setAddress(address);
+        }
+        else {
+           Address address = userService.getSessionUser().getAddress();
+            address.setStreetAddress(request.getParameter("streetAddress"));
+            address.setPostalCode(request.getParameter("postalCode"));
+            address.setCity(request.getParameter("city"));
+            addressRepository.save(address);
+            order.setAddress(address);
+        }
+
         order.setProducts(products.keySet());
         Double totalCost = products.entrySet().stream()
                 .mapToDouble(entry -> entry.getKey().getProductPrice() * entry.getValue())

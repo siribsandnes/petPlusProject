@@ -1,5 +1,6 @@
 package no.ntnu.crudrest.service;
 
+import jakarta.servlet.http.HttpServletRequest;
 import no.ntnu.crudrest.exception.NotEnoughProductsInStockException;
 import no.ntnu.crudrest.models.Product;
 import no.ntnu.crudrest.models.User;
@@ -15,7 +16,7 @@ public interface ShoppingCartService {
 
     Map<Product, Integer> getProductsInCart();
 
-    void checkout() throws NotEnoughProductsInStockException;
+    void checkout(HttpServletRequest request) throws NotEnoughProductsInStockException;
 
     BigDecimal getTotal();
 }

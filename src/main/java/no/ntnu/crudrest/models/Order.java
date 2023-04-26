@@ -28,6 +28,9 @@ public class Order {
     @Column(nullable = false)
     private LocalDateTime createdTime = LocalDateTime.now();
 
+    @ManyToOne
+    private Address address;
+
     //GETTERS AND SETTERS
     public void addProduct(Product product, int quantity) {
         products.add(product);
@@ -80,5 +83,7 @@ public class Order {
         this.createdTime = createdTime;
     }
 
+    public Address getAddress() { return address; }
 
+    public void setAddress(Address address) { this.address = address; }
 }

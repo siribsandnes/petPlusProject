@@ -1,5 +1,6 @@
 package no.ntnu.crudrest.controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
 import no.ntnu.crudrest.exception.NotEnoughProductsInStockException;
 import no.ntnu.crudrest.service.AccessUserService;
 import no.ntnu.crudrest.service.ProductService;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
 @Controller
 public class ShoppingCartController {
 
@@ -41,10 +44,10 @@ public class ShoppingCartController {
         return "redirect:/shoppingCart";
     }
 
-    @GetMapping("/shoppingCart/checkout")
-    public String checkout(Model model) {
+    @PostMapping("/shoppingCart/checkout")
+    public String checkout(Model model,HttpServletRequest request) {
         try {
-            shoppingCartService.checkout();
+            shoppingCartService.checkout(request);
         } catch (NotEnoughProductsInStockException e) {
             model.addAttribute("outOfStockMessage", e.getMessage());
             return "forward:/shoppingCart";

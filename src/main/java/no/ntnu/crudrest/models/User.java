@@ -20,10 +20,8 @@ public class User {
     private String lastName;
     private int phoneNumber;
 
-    //TODO: ADDRESS
-    private String address;
-    private int postalCode;
-    private String city;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
 
     private boolean active = true;
     @ManyToMany(fetch = FetchType.EAGER)
@@ -44,15 +42,13 @@ public class User {
         this.password = password;
     }
 
-    public User(String username, String password, String firstName, String lastName, int phoneNumber, String address, int postalCode,  String city) {
+    public User(String username, String password, String firstName, String lastName, int phoneNumber, Address address) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.address = address;
-        this.postalCode = postalCode;
-        this.city = city;
     }
 
     //GETTERS AND SETTERS
@@ -158,27 +154,11 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public int getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(int postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 }

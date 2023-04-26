@@ -7,17 +7,17 @@ public class UserProfileDto {
     private final String firstName;
     private final String lastName;
     private final int phoneNumber;
-    private final String address;
-    private final int postalCode;
+    private final String streetAddress;
+    private final String postalCode;
     private final String city;
 
 
 
-    public UserProfileDto(String firstName, String lastName, int phoneNumber, String address, int postalCode, String city) {
+    public UserProfileDto(String firstName, String lastName, int phoneNumber, String streetAddress, String postalCode, String city) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
-        this.address = address;
+        this.streetAddress = streetAddress;
         this.postalCode = postalCode;
         this.city = city;
 
@@ -34,11 +34,11 @@ public class UserProfileDto {
         return phoneNumber;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStreetAddress() {
+        return streetAddress;
     }
 
-    public int getPostalCode() {
+    public String getPostalCode() {
         return postalCode;
     }
 

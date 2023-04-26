@@ -18,6 +18,9 @@
         <th>Date</th>
         <th>Total Cost</th>
         <th>Products</th>
+        <th>Street Address</th>
+        <th>City</th>
+        <th>Postal Code</th>
     </tr>
     </thead>
     <tbody>
@@ -33,6 +36,10 @@
                 </li>
             </ul>
         </td>
+        <td th:text="${order.getAddress()?.streetAddress}"></td>
+        <td th:text="${order.getAddress()?.city}"></td>
+        <td th:text="${order.getAddress()?.postalCode}"></td>
+
 
     </tr>
     </tbody>
