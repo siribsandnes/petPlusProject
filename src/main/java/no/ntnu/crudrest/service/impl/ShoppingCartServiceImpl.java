@@ -33,8 +33,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     private final AddressRepository addressRepository;
     private final AccessUserService userService;
 
-
-
     private Map<Product, Integer> products = new HashMap<>();
 
     @Autowired
@@ -136,5 +134,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             total = total.add(subtotal);
         }
         return total;
+    }
+
+    @Override
+    public int getAmountInCart(){
+        return products.values().stream().mapToInt(i -> i).sum();
+
     }
 }

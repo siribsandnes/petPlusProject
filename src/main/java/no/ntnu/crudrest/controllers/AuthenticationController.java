@@ -4,6 +4,7 @@ import no.ntnu.crudrest.dto.SignupDto;
 import no.ntnu.crudrest.dto.UserProfileDto;
 import no.ntnu.crudrest.models.User;
 import no.ntnu.crudrest.service.AccessUserService;
+import no.ntnu.crudrest.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,9 @@ public class AuthenticationController {
 
     @Autowired
     private AccessUserService userService;
+    @Autowired
+    private ShoppingCartService shoppingCartService;
+
 
 
     /**
@@ -25,12 +29,14 @@ public class AuthenticationController {
      */
     @GetMapping("/")
     public String home(Model model) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         model.addAttribute("user", userService.getSessionUser());
         return "index";
     }
 
     @GetMapping("/login")
-    public String loginForm() {
+    public String loginForm(Model model) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         return "login";
     }
 
@@ -41,7 +47,8 @@ public class AuthenticationController {
      * @return NAme of Thymeleaf template to use
      */
     @GetMapping("/signup")
-    public String signupForm() {
+    public String signupForm(Model model) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         return "signup-form";
     }
 
@@ -52,6 +59,7 @@ public class AuthenticationController {
      */
     @PostMapping("/signup")
     public String signupProcess(@ModelAttribute SignupDto signupData, Model model) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         model.addAttribute("signupData", signupData);
         String errorMessage = userService.tryCreateNewUser(signupData.getUsername(), signupData.getPassword());
         if (errorMessage == null) {
@@ -74,6 +82,7 @@ public class AuthenticationController {
 
     @GetMapping("users/{username}")
     public String userPage(Model model, @PathVariable String username) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         return handleProfilePageRequest(username, null, model);
     }
 
@@ -86,6 +95,7 @@ public class AuthenticationController {
      */
     @PostMapping("users/{username}")
     public String userPagePost(@ModelAttribute UserProfileDto profileData, @PathVariable String username, Model model) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         return handleProfilePageRequest(username, profileData, model);
     }
 

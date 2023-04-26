@@ -19,8 +19,8 @@
       <form th:action="@{/signup}">
         <button type="submit">Sign up</button>
       </form>
-
     </th:block>
-    <li><a th:href="@{/shoppingCart}">Cart</a></li>
+
+    <li><a href="/shoppingCart">Cart ( <span th:text="${cartProducts}"></span> )</a></li>
   </ul>
 </nav>

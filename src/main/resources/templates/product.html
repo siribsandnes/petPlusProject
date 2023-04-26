@@ -25,11 +25,11 @@
                         </li>
                         <li>
                                 <div>
-                                        <a th:href="@{/shoppingCart/addProduct/{id}(id=${product.productId})}">
-                                                <button type="button" class="" th:text="Buy">Buy</button>
-                                        </a>
+                                        <form th:action="@{/shoppingCart/addProduct/{id}(id=${product.productId})}" method="post">
+                                                <input type="hidden" name="productId" th:value="${product.productId}" />
+                                                <button type="submit" class="">Buy</button>
+                                        </form>
                                 </div>
-
                         </li>
 
                 </ul>

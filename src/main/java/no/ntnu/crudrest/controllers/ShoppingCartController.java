@@ -24,6 +24,7 @@ public class ShoppingCartController {
 
     @GetMapping("/shoppingCart")
     public String shoppingCart(Model model) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         model.addAttribute("user", userService.getSessionUser());
         model.addAttribute("products", shoppingCartService.getProductsInCart());
         model.addAttribute("total", shoppingCartService.getTotal().toString());
@@ -32,13 +33,21 @@ public class ShoppingCartController {
 
     @GetMapping("/shoppingCart/addProduct/{productId}")
     public String addProductToCart(@PathVariable("productId") int productId, Model model) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         model.addAttribute("user", userService.getSessionUser());
         productService.findById(productId).ifPresent(shoppingCartService::addProduct);
         return "redirect:/shoppingCart";
     }
 
+    @PostMapping("/shoppingCart/addProduct/{productId}")
+    public String addProductToCart(@PathVariable("productId") int productId, HttpServletRequest request) {
+        productService.findById(productId).ifPresent(shoppingCartService::addProduct);
+        return "redirect:" + request.getHeader("Referer");
+    }
+
     @GetMapping("/shoppingCart/removeProduct/{productId}")
     public String removeProductFromCart(@PathVariable("productId") int productId, Model model) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         model.addAttribute("user", userService.getSessionUser());
         productService.findById(productId).ifPresent(product -> shoppingCartService.removeProduct(product));
         return "redirect:/shoppingCart";
@@ -46,6 +55,7 @@ public class ShoppingCartController {
 
     @PostMapping("/shoppingCart/checkout")
     public String checkout(Model model,HttpServletRequest request) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         model.addAttribute("user", userService.getSessionUser());
         try {
             shoppingCartService.checkout(request);

@@ -20,9 +20,13 @@ public class UserController {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private ShoppingCartService shoppingCartService;
+
 
     @GetMapping("users/{username}/orders")
     public String getUserOrders(Model model, @PathVariable String username) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         model.addAttribute("user", userService.getSessionUser());
         User user = userService.getSessionUser();
         if (!user.getUsername().equals(username)) {

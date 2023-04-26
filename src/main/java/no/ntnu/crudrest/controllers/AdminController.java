@@ -5,6 +5,7 @@ import no.ntnu.crudrest.models.Product;
 import no.ntnu.crudrest.repositories.OrderRepository;
 import no.ntnu.crudrest.service.AccessUserService;
 import no.ntnu.crudrest.service.ProductService;
+import no.ntnu.crudrest.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,9 +25,13 @@ public class AdminController {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private ShoppingCartService shoppingCartService;
+
 
     @GetMapping("admin")
     public String adminPage(Model model) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         model.addAttribute("user", userService.getSessionUser());
         model.addAttribute("products", productService.getAll());
         return "admin";
@@ -34,6 +39,7 @@ public class AdminController {
 
     @GetMapping("admin/orders")
     public String adminOrderPage(Model model) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         model.addAttribute("user", userService.getSessionUser());
         model.addAttribute("products", productService.getAll());
         List<Order> orders = orderRepository.findAll();
@@ -42,7 +48,8 @@ public class AdminController {
     }
 
     @PostMapping("admin/restock")
-    public String adminRestockPage(@RequestParam Integer product_id, @RequestParam Integer quantity, RedirectAttributes rm) {
+    public String adminRestockPage(@RequestParam Integer product_id, @RequestParam Integer quantity, RedirectAttributes rm, Model model) {
+        model.addAttribute("cartProducts", shoppingCartService.getAmountInCart());
         Optional<Product> productOpt = productService.findById(product_id);
         if (quantity <= 0){
             //restock shouldn't remove stock if negative

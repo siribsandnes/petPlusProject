@@ -33,6 +33,14 @@
         </div>
     </div>
 
+    <br>
+
+    <div class="total">
+        <h2 th:inline="text">Total NOK: [[${total}]],-</h2>
+    </div>
+
+    <br>
+
     <div class="container">
         <h1>Checkout</h1>
         <form action="/shoppingCart/checkout" method="POST">
