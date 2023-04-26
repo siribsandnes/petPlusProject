@@ -12,6 +12,8 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -31,9 +33,7 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
         makeUsers();
-        makeCategories();
-        makeProducts();
-
+        makeCategoriesAndProducts();
     }
 
     private void makeUsers(){
@@ -58,66 +58,81 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             logger.info("User data already in database, no need to import");
         }
     }
-    private void makeCategories(){
+    private void makeCategoriesAndProducts(){
         if(categoryRepository.count() == 0){
             logger.info("Importing Product Categories");
-            categoryRepository.save(new ProductCategory("Dog"));
-            categoryRepository.save(new ProductCategory("Dog Clothing"));
-            categoryRepository.save(new ProductCategory("Dog Treats"));
-            categoryRepository.save(new ProductCategory("Dog Food"));
-            categoryRepository.save(new ProductCategory("Dog Accessories"));
+            ProductCategory dog = new ProductCategory("Dog");
+            ProductCategory dogClothing = new ProductCategory("Dog Clothing");
+            ProductCategory dogTreats = new ProductCategory("Dog Treats");
+            ProductCategory dogFood = new ProductCategory("Dog Food");
+            ProductCategory dogAccessories = new ProductCategory("Dog Accessories");
 
-            categoryRepository.save(new ProductCategory("Cat"));
-            categoryRepository.save(new ProductCategory("Cat Clothing"));
-            categoryRepository.save(new ProductCategory("Cat Treats"));
-            categoryRepository.save(new ProductCategory("Cat Food"));
-            categoryRepository.save(new ProductCategory("Cat  Accessories"));
+            ProductCategory cat = new ProductCategory("Cat");
+            ProductCategory catClothing = new ProductCategory("Cat Clothing");
+            ProductCategory catTreats = new ProductCategory("Cat Treats");
+            ProductCategory catFood = new ProductCategory("Cat Food");
+            ProductCategory catAccessories = new ProductCategory("Cat  Accessories");
             logger.info("Product Categories finished importing");
-        }
-        else {
-            logger.info("Product Categories already in database, no need to import");
-        }
-    }
-    private void makeProducts(){
-        if(productRepository.count() == 0){
-            logger.info("Importing Products");
 
             //Make Products
-            productRepository.save(new Product(1,"Dog Winter Wear Set",999,50));
-            productRepository.save(new Product(2,"Dog Winter Boots",349,40));
-            productRepository.save(new Product(3,"Eco-Friendly Dog Leash",299,30));
-            productRepository.save(new Product(4,"Sweater for cats",79,20));
+            Product dogWinterWearSet = new Product(1,"Dog Winter Wear Set",999,50);
+            Product dogWinterBoots = new Product(2,"Dog Winter Boots",349,40);
+            Product ecoFriendlyDogLeash = new Product(3,"Eco-Friendly Dog Leash",299,30);
+            Product sweaterForCats = new Product(4,"Sweater for cats",79,20);
 
-            //Find Categories
-            ProductCategory dog = categoryRepository.findByName("Dog");
-            ProductCategory dogClothing = categoryRepository.findByName("Dog Clothing");
-            ProductCategory dogTreats = categoryRepository.findByName("Dog Treats");
-            ProductCategory dogFood = categoryRepository.findByName("Dog Food");
-            ProductCategory dogAccessories = categoryRepository.findByName("Dog Accessories");
+            List<Product> productList = new ArrayList<>();
+            productList.add(dogWinterWearSet);
+            productList.add(dogWinterBoots);
+            productList.add(ecoFriendlyDogLeash);
+            productList.add(sweaterForCats);
 
-            ProductCategory cat = categoryRepository.findByName("Cat");
-            ProductCategory catClothing = categoryRepository.findByName("Cat Clothing");
-            ProductCategory catTreats = categoryRepository.findByName("Cat Treats");
-            ProductCategory catFood = categoryRepository.findByName("Cat Food");
-            ProductCategory catAccessories = categoryRepository.findByName("Cat Accessories");
+            List<ProductCategory> categoryList = new ArrayList<>();
+            categoryList.add(dog);
+            categoryList.add(dogClothing);
+            categoryList.add(dogAccessories);
+            categoryList.add(dogTreats);
+            categoryList.add(dogFood);
+            categoryList.add(cat);
+            categoryList.add(catClothing);
+            categoryList.add(catAccessories);
+            categoryList.add(catTreats);
+            categoryList.add(catFood);
 
-            //Apply Categories
-            dog.addProduct(productRepository.findProductByProductName("Dog Winter Wear Set"));
-            dogClothing.addProduct(productRepository.findProductByProductName("Dog Winter Wear Set"));
+            //Apply Product to Category
+            dog.addProduct(dogWinterWearSet);
+            dogClothing.addProduct(dogWinterWearSet);
 
-            dog.addProduct(productRepository.findProductByProductName("Dog Winter Boots"));
-            dogClothing.addProduct(productRepository.findProductByProductName("Dog Winter Boots"));
-            dogAccessories.addProduct(productRepository.findProductByProductName("Dog Winter Boots"));
+            dog.addProduct(dogWinterBoots);
+            dogClothing.addProduct(dogWinterBoots);
+            dogAccessories.addProduct(dogWinterBoots);
 
-            dog.addProduct(productRepository.findProductByProductName("Eco-Friendly Dog Leash"));
-            dogAccessories.addProduct(productRepository.findProductByProductName("Eco-Friendly Dog Leash"));
+            dog.addProduct(ecoFriendlyDogLeash);
+            dogAccessories.addProduct(ecoFriendlyDogLeash);
 
-            cat.addProduct(productRepository.findProductByProductName("Sweater for cats"));
-            catClothing.addProduct(productRepository.findProductByProductName("Sweater for cats"));
-            logger.info("Products finished importing");
+            cat.addProduct(sweaterForCats);
+            catClothing.addProduct(sweaterForCats);
+
+            //Apply Category to Product
+            dogWinterWearSet.addProductCategory(dog);
+            dogWinterWearSet.addProductCategory(dogClothing);
+
+            dogWinterBoots.addProductCategory(dog);
+            dogWinterBoots.addProductCategory(dogClothing);
+            dogWinterBoots.addProductCategory(dogAccessories);
+
+            ecoFriendlyDogLeash.addProductCategory(dog);
+            ecoFriendlyDogLeash.addProductCategory(dogAccessories);
+
+            sweaterForCats.addProductCategory(cat);
+            sweaterForCats.addProductCategory(catClothing);
+
+            productRepository.saveAll(productList);
+            categoryRepository.saveAll(categoryList);
+
+            logger.info("Products and categories finished importing");
         }
         else {
-            logger.info("Products already in database, no need to import");
+            logger.info("Products and categories already in database, no need to import");
         }
     }
 }
