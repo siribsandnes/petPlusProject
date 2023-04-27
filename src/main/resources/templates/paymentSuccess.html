@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment Success</title>
+</head>
+<body>
+<nav th:insert="~{components/navigation}"></nav>
+<main>
+<h1>Payment Successful</h1>
+<p>Your payment has been processed successfully. Thank you for your order!</p>
+<p>Order ID: <span th:text="${orderId}"></span></p>
+<p>Total Cost: <span th:text="${totalCost}"></span></p>
+</body>
+</html>

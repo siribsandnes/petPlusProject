@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Payment ERROR</title>
+  <link rel="stylesheet" th:href="@{/styles/style.css}">
+</head>
+<body>
+<nav th:insert="~{components/navigation}"></nav>
+<h1>Order Processing Error</h1>
+<p>There was an error processing your order.</p>
+<p>Error message: <span th:text="${outOfStockMessage}"></span>
+  <span th:text="${paymentFailedMessage}"></span>
+</p>
+</body>
+</html>

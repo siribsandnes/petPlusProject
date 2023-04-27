@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <link rel="stylesheet" th:href="@{/styles/style.css}">
+</head>
+<body>
+<nav th:insert="~{components/navigation}"></nav>
+<h1>Payment Page</h1>
+<form action="/shoppingCart/payment" method="post">
+  <input type="hidden" name="orderId" value="${order.orderId}">
+  <label for="cardNumber">Card Number:</label>
+  <input type="text" name="cardNumber" id="cardNumber" required><br><br>
+  <label for="expiryDate">Expiry Date:</label>
+  <input type="text" name="expiryDate" id="expiryDate" required><br><br>
+  <label for="cvv">CVV:</label>
+  <input type="text" name="cvv" id="cvv" required><br><br>
+  <input type="submit" value="Pay">
+</form>
+</body>
+</html>

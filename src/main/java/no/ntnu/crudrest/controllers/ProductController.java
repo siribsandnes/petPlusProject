@@ -29,7 +29,7 @@ public class ProductController {
             model.addAttribute("product", product);
             return "product";
         } else {
-            return "error";
+            return "notFoundError";
         }
     }
 

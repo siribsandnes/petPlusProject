@@ -2,6 +2,8 @@ package no.ntnu.crudrest.service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import no.ntnu.crudrest.exception.NotEnoughProductsInStockException;
+import no.ntnu.crudrest.exception.PaymentFailedException;
+import no.ntnu.crudrest.models.Order;
 import no.ntnu.crudrest.models.Product;
 
 import java.math.BigDecimal;
@@ -15,7 +17,8 @@ public interface ShoppingCartService {
 
     Map<Product, Integer> getProductsInCart();
 
-    void checkout(HttpServletRequest request) throws NotEnoughProductsInStockException;
+
+    Order processPayment(HttpServletRequest request) throws NotEnoughProductsInStockException, PaymentFailedException;
 
     BigDecimal getTotal();
 
