@@ -34,8 +34,11 @@ public class ShoppingCartController {
 
     @PostMapping("/shoppingCart/addProduct/{productId}")
     public String addProductToCart(@PathVariable("productId") int productId, HttpServletRequest request) {
+        String referer = request.getHeader("Referer");
+        String updatedReferer = referer.replaceAll("[?&]cartProducts=[^&]+", "");
         productService.findById(productId).ifPresent(shoppingCartService::addProduct);
-        return "redirect:" + request.getHeader("Referer");
+        System.out.println(updatedReferer);
+        return "redirect:" + updatedReferer;
     }
 
     @GetMapping("/shoppingCart/removeProduct/{productId}")
