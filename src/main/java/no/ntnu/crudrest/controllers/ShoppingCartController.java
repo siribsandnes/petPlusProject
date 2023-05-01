@@ -28,6 +28,9 @@ public class ShoppingCartController {
     public String shoppingCart(Model model) {
         model.addAttribute("products", shoppingCartService.getProductsInCart());
         model.addAttribute("total", shoppingCartService.getTotal().toString());
+        model.addAttribute("shipping", shoppingCartService.checkShippingCost(shoppingCartService.getTotal()).toString());
+        model.addAttribute("finalPrice", shoppingCartService.getTotal().add(shoppingCartService.checkShippingCost(shoppingCartService.getTotal())).toString());
+
         return "/shoppingCart";
     }
 
@@ -43,7 +46,6 @@ public class ShoppingCartController {
         //just so the link won't get extremely long
         String updatedReferer = referer.replaceAll("[?&]cartProducts=[^&]+", "");
         productService.findById(productId).ifPresent(shoppingCartService::addProduct);
-        System.out.println(updatedReferer);
         return "redirect:" + updatedReferer;
     }
 

@@ -23,4 +23,6 @@ public interface ShoppingCartService {
     BigDecimal getTotal();
 
     int getAmountInCart();
+
+    BigDecimal checkShippingCost(BigDecimal total);
 }

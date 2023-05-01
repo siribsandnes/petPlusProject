@@ -36,7 +36,16 @@
     <br>
 
     <div class="total">
-        <h2 th:inline="text">Total NOK: [[${total}]],-</h2>
+        <h3 th:inline="text">Price of products: [[${total}]],-</h3>
+    </div>
+
+    <div class="shipping">
+        <h3 th:inline="text">Price of shipping: [[${shipping}]],-</h3>
+    </div>
+
+
+    <div class="shipping">
+        <h2 th:inline="text">TOTAL: [[${finalPrice}]],-</h2>
     </div>
 
     <br>
