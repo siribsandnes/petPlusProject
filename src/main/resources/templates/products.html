@@ -5,13 +5,14 @@
     <title>Products</title>
     <link rel="stylesheet" th:href="@{/styles/style.css}">
 </head>
-<nav th:insert="~{components/navigation}"></nav>
+<nav id="nav" th:insert="~{components/navigation}"></nav>
 <main>
     <h1>Products</h1>
     <p>Here you can see all our products.</p>
     <ul id="product-container">
-        <div th:insert="components/product-listing"></div>
+        <li><div th:insert="components/product-listing"></div></li>
     </ul>
 </main>
 </body>
+<footer id="footer" th:insert="~{components/footer}"></footer>
 </html>

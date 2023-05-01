@@ -7,11 +7,19 @@
     <title>PetPlus shop</title>
     <link rel="stylesheet" th:href="@{/styles/style.css}">
 </head>
-<body>
 <nav th:insert="~{components/navigation}"></nav>
+<body>
+<div id="wrap">
+    <div id="main">
+
+        <h1>Welcome!</h1>
+        <p>Welcome to our store!</p>
+
+    </div>
+    <footer id="footer" th:insert="~{components/footer}"></footer>
+</div>
 <main>
-    <h1>Welcome!</h1>
-    <p>Welcome to our store!</p>
+
 </main>
 </body>
 </html>
