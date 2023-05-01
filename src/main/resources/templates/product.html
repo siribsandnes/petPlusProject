@@ -24,6 +24,10 @@
                                 <p id="Price" th:text="${product.productPrice} + ',-'"></p>
                         </li>
                         <li>
+                                <p id="Description" th:text="${product.productDescription}"></p>
+                        </li>
+
+                        <li>
                                 <div>
                                         <form th:action="@{/shoppingCart/addProduct/{id}(id=${product.productId})}" method="post">
                                                 <input type="hidden" name="productId" th:value="${product.productId}" />
@@ -41,5 +45,6 @@
         </td>
 
 </main>
+<footer id="footer" th:insert="~{components/footer}"></footer>
 </html>
 

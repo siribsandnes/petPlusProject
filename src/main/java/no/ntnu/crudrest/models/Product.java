@@ -15,6 +15,8 @@ public class Product {
   private int productId;
   private String productName;
   private float productPrice;
+  @Column(columnDefinition = "TEXT")
+  private String productDescription;
   private int productAmountInStock;
 
 
@@ -26,11 +28,12 @@ public class Product {
   public Product() {
   }
 
-  public Product(int productId, String productName, float productPrice, int productAmountInStock) {
+  public Product(int productId, String productName, String productDescription, float productPrice, int productAmountInStock) {
     this.productId = productId;
     this.productName = productName;
     this.productAmountInStock = productAmountInStock;
     this.productPrice = productPrice;
+    this.productDescription = productDescription;
   }
 
   /**
@@ -92,6 +95,10 @@ public class Product {
   public void setProductAmountInStock(int amount) {
     this.productAmountInStock = amount;
   }
+
+  public String getProductDescription(){return productDescription;}
+
+  public void setProductDescription(String description){this.productDescription = description;}
 
 
 
