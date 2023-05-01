@@ -139,13 +139,13 @@ public class AccessUserService implements UserDetailsService {
      * @return True on success, false otherwise
      */
     public boolean updateProfile(User user, UserProfileDto profileData) {
-        user.setFirstName(profileData.getFirstName());
-        user.setLastName(profileData.getLastName());
-        user.setPhoneNumber(profileData.getPhoneNumber());
         Address address = user.getAddress();
         if (address == null){
             address = new Address();
         }
+        address.setFirstName(profileData.getFirstName());
+        address.setLastName(profileData.getLastName());
+        address.setPhoneNumber(profileData.getPhoneNumber());
         address.setStreetAddress(profileData.getStreetAddress());
         address.setPostalCode(profileData.getPostalCode());
         address.setCity(profileData.getCity());

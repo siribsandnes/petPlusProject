@@ -21,6 +21,9 @@
         <th>Street Address</th>
         <th>City</th>
         <th>Postal Code</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
     </tr>
     </thead>
     <tbody>
@@ -38,8 +41,9 @@
         </td>
         <td th:text="${order.getAddress()?.streetAddress}"></td>
         <td th:text="${order.getAddress()?.city}"></td>
-        <td th:text="${order.getAddress()?.postalCode}"></td>
-
+        <td th:text="${order.getAddress()?.firstName}"></td>
+        <td th:text="${order.getAddress()?.lastName}"></td>
+        <td th:text="${order.getAddress()?.phoneNumber}"></td>
 
     </tr>
     </tbody>

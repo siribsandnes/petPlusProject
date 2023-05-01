@@ -39,8 +39,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
         Optional<User> rootUserExist = userRepository.findByUsername("root@root.com");
         if(rootUserExist.isEmpty()){
             logger.info("Importing user data");
-            Address rootAddress = new Address("Root Street Address", "0000", "Root City");
-            User root = new User("root@root.com", "$2a$10$oC/uXSY8Y28EjkjeZBGc7.CZILWH3CMSX8dWNIr.CMpTDG.T9ANrC", "Root first name", "Root last name","12345678", rootAddress);
+            Address rootAddress = new Address("Root Street Address", "0000", "Root City", "Root firstname", "Root last name", "12345678");
+            User root = new User("root@root.com", "$2a$10$oC/uXSY8Y28EjkjeZBGc7.CZILWH3CMSX8dWNIr.CMpTDG.T9ANrC",  rootAddress);
 
             Role user = new Role("ROLE_USER");
             Role admin = new Role("ROLE_ADMIN");

@@ -62,6 +62,10 @@ public class ShoppingCartController {
         session.setAttribute("streetAddress", request.getParameter("streetAddress"));
         session.setAttribute("postalCode", request.getParameter("postalCode"));
         session.setAttribute("city", request.getParameter("city"));
+        session.setAttribute("firstName", request.getParameter("firstName"));
+        session.setAttribute("lastName", request.getParameter("lastName"));
+        session.setAttribute("phoneNumber", request.getParameter("phoneNumber"));
+
 
         return "redirect:/shoppingCart/payment";
     }

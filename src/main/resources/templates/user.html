@@ -16,15 +16,15 @@
 
         <p>Here you can see and modify your profile:</p>
         <label for="firstName">First Name: </label>
-        <textarea name="firstName" id="firstName" placeholder="First Name" th:text="${user.firstName}"></textarea>
+        <textarea name="firstName" id="firstName" placeholder="First Name" th:text="${user.getAddress()?.firstName}"></textarea>
         <br></br>
 
         <label for="lastName">Last Name: </label>
-        <textarea name="lastName" id="lastName" placeholder="Last Name" th:text="${user.lastName}"></textarea>
+        <textarea name="lastName" id="lastName" placeholder="Last Name" th:text="${user.getAddress()?.lastName}"></textarea>
         <br></br>
 
         <label for="phoneNumber">Phone Number: </label>
-        <textarea name="phoneNumber" id="phoneNumber" placeholder="Phone Number" th:text="${user.phoneNumber}"></textarea>
+        <textarea name="phoneNumber" id="phoneNumber" placeholder="Phone Number" th:text="${user.getAddress()?.phoneNumber}"></textarea>
         <br></br>
 
         <label for="streetAddress">Street Address: </label>

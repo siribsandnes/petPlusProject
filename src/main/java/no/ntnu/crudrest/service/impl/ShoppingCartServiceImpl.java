@@ -152,6 +152,9 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         address.setStreetAddress((String) request.getSession().getAttribute("streetAddress"));
         address.setPostalCode((String) request.getSession().getAttribute("postalCode"));
         address.setCity((String) request.getSession().getAttribute("city"));
+        address.setFirstName((String) request.getSession().getAttribute("firstName"));
+        address.setLastName((String) request.getSession().getAttribute("lastName"));
+        address.setPhoneNumber((String) request.getSession().getAttribute("phoneNumber"));
         addressRepository.save(address);
         order.setAddress(address);
         order.setProducts(products.keySet());
