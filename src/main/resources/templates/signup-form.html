@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/styles/style.css}">
 </head>
 <body>
-<nav th:insert="~{components/navigation}"></nav>
+<nav id="navigation" th:insert="~{components/navigation}"></nav>
 <main>
     <form method="post" th:action="@{/signup}" th:object="${signupData}">
         <h2>Sign up</h2>

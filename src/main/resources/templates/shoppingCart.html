@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
   <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <title>Shopping Cart</title>
 </head>
-<nav th:insert="~{components/navigation}"></nav>
+<nav id="navigation" th:insert="~{components/navigation}"></nav>
 <body>
 
 <th:block th:if="${user != null}">
