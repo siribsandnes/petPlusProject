@@ -1,3 +1,14 @@
+
+/*****************************
+    Header
+ *****************************/
+#main-container h2{
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+
+}
+
 /*****************************
     Labels
  *****************************/
@@ -9,6 +20,7 @@
     min-width: 20rem;
     width:70%;
     margin-top: 2rem;
+    padding-bottom:1rem;
 
 }
 
@@ -17,7 +29,7 @@
  *****************************/
 
 .text-input{
-    height: 3.5rem;
+    height: 4rem;
     min-width: 20rem;
     width:70%;
 }
