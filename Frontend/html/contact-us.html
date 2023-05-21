@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Log in</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <title>Reset password</title>
+    <link rel="stylesheet" href="../css/contact-us.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/input-form-design.css">
@@ -47,19 +47,24 @@
 </nav>
 <main>
     <div id="main-container">
-        <div class="log-in-container">
-            <h2>Welcome Back!</h2>
-            <label for="username" class="input-label">E-mail:</label>
-            <input type="text" id="username" class="text-input" name="username">
-            <label for="pwd" class="input-label">Password:</label>
-            <input type="password" id="pwd" name="pwd" class="text-input" >
-            <button class="white-outlined-btn-small">LOG IN</button>
-            <button class="action-question-btn" onclick="location.href='reset-password.html'">Forgot your password?</button>
-        </div>
-        <div class="new-account-container">
-            <h2>Don't have an account?</h2>
-            <p class="action-explanation">Click here to register as a costumer<br>and create an account</p>
-            <button class=white-outlined-btn-big onclick="location.href='register.html'">REGISTER</button>
+        <div id="contact-us-container">
+            <h2>Create an account</h2>
+            <label for="email" class="input-label">E-mail:</label>
+            <input type="text" id="email" class="text-input" name="email">
+            <label for="category" class="input-label">Category:</label>
+            <select name="category" id="category" class="select-item">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+            </select>
+            <label for="message" class="input-label">Message:</label>
+            <textarea id="message" class="text-area"></textarea>
+            <label for="order-nmb" class="input-label">Order number</label>
+            <input type="text" id="order-nmb" class="text-input" name="order-nmb">
+            <p class="action-explanation">
+                Click the button below to submit your question.<br>
+                Any responce will be recieve on given mail
+            </p>
+            <button class="white-outlined-btn-big">SUBMIT</button>
         </div>
     </div>
 </main>
