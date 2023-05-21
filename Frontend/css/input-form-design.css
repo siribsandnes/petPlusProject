@@ -40,7 +40,7 @@
 
 .white-outlined-btn-small{
     text-align: center;
-    border:2px solid #094A4F;
+    border:1.5px solid #094A4F;
     background-color: white;
     border-radius: 10rem;
     font-size: 1.6rem;
@@ -51,7 +51,7 @@
 
 .white-outlined-btn-big{
     text-align: center;
-    border:2px solid #094A4F;
+    border:1.5px solid #094A4F;
     background-color: white;
     border-radius: 10rem;
     font-size: 1.6rem;
@@ -59,6 +59,16 @@
     width:20rem;
 
 
+}
+
+.white-outlined-btn-big:hover{
+    border: 2px solid #094A4F;
+    padding: 0.95rem 3.95rem 0.95rem 3.95rem;
+}
+
+.white-outlined-btn-small:hover{
+    border: 2px solid #094A4F;
+    padding: 0.95rem 3.95rem 0.95rem 3.95rem;
 }
 
 /*****************************
