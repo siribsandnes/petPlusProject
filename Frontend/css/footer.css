@@ -1,0 +1,86 @@
+
+/*****************************
+    Footer
+ *****************************/
+footer{
+    background-color: #094A4F;
+    color: white;
+    display:grid;
+    grid-template-rows: 2fr 1em 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+            "logo links links"
+            "border border border"
+            "socialmedia socialmedia socialmedia";
+
+}
+
+#footer-logo{
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+    grid-area: logo;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer-column-container{
+    grid-area: links;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.footer-column{
+    min-width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+
+}
+
+.footer-column-header{
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.footer-column a{
+    color: white;
+    text-decoration: none;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+#footer-border-container{
+    grid-area: border;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer-border-line{
+    width:90%;
+    border: 0.05rem solid white;
+
+}
+
+#socialmedia-container{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    grid-area: socialmedia;
+}
+
+#socialmedia-container button{
+    height: 4rem;
+    width: 4rem;
+    margin: 0 1rem;
+}
