@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Log in</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <title>Reset password</title>
+    <link rel="stylesheet" href="../css/register.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/input-form-design.css">
@@ -47,19 +47,19 @@
 </nav>
 <main>
     <div id="main-container">
-        <div class="log-in-container">
-            <h2>Welcome Back!</h2>
+        <div id="register-container">
+            <h2>Create an account</h2>
             <label for="username" class="input-label">E-mail:</label>
             <input type="text" id="username" class="text-input" name="username">
             <label for="pwd" class="input-label">Password:</label>
             <input type="password" id="pwd" name="pwd" class="text-input" >
-            <button class="white-outlined-btn-small">LOG IN</button>
-            <button class="action-question-btn" onclick="location.href='reset-password.html'">Forgot your password?</button>
-        </div>
-        <div class="new-account-container">
-            <h2>Don't have an account?</h2>
-            <p class="action-explanation">Click here to register as a costumer<br>and create an account</p>
-            <button class=white-outlined-btn-big onclick="location.href='register.html'">REGISTER</button>
+            <label for="pwd" class="input-label">Repeat password:</label>
+            <input type="password" id="pwd" name="pwd" class="text-input" >
+            <p class="action-explanation">
+                Already have an account?
+                <button>Log in</button>
+            </p>
+            <button class="white-outlined-btn-big">SUBMIT</button>
         </div>
     </div>
 </main>
