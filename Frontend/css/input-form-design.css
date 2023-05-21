@@ -24,12 +24,26 @@
 
 }
 
+
+
 /*****************************
-    Text Input
+ Input
  *****************************/
 
 .text-input{
     height: 4rem;
+    min-width: 20rem;
+    width:70%;
+}
+
+.select-item{
+    height: 4rem;
+    min-width: 20rem;
+    width:70%;
+}
+
+.text-area{
+    min-height: 15rem;
     min-width: 20rem;
     width:70%;
 }
