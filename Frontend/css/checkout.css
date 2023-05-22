@@ -71,54 +71,92 @@ footer{
     grid-area: footer;
 }
 
-
 /*****************************
-    Main layout
+    Body Layout (Grid)
  *****************************/
 
 #main-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin: 5rem 0;
+}
+
+
+.header-container{
+    width:90%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    padding:10rem;
-
 }
 
-#product-container{
-    max-width:80%;
+.section-container{
+    width:90%;
+    border:1px solid yellow;
+}
+
+.button-container{
+    width:90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/*****************************
+    ITEMS CONTAINER
+ *****************************/
+
+/*****************************
+    INFORMATION CONTAINER
+ *****************************/
+#information-form{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "product-img product-description";
-
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+            "first-name last-name birth"
+            "phone-number mail mail"
+            "post-code adress country";
 }
 
-#product-image{
-    grid-area: product-img;
-    text-align: center;
+
+.form-cell{
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem
 }
 
-#product-image img{
-    max-height: 100%;
-    max-width: 100%;
-    padding: 0 2rem;
+#email-cell{
+    grid-area: mail;
 }
 
- #product-information{
-     grid-area: product-description;
-     display: flex;
-     flex-direction: column;
- }
+#birth-cell{
+    display: flex;
+    flex-direction: column;
+}
 
- form{
-     display: flex;
-     flex-direction: column;
- }
+#date-select-container{
+    display: flex;
+    justify-content: space-between;
+}
+#birth-cell select{
+    height: 4rem;
+    width:30%;
+    font-weight: bold;
+    margin-bottom: 2.5rem;
+}
 
- .product-description{
-     font-size: 1.6rem;
-     margin-bottom: 4rem;
-     max-width: 40rem;
+/*****************************
+    SHIPPING CONTAINER
+ *****************************/
 
- }
+#shipping-container{
+    background-color: white;
+}
+
+/*****************************
+    BUTTON
+ *****************************/
+.coloured-square-btn{
+    max-width: 30rem;
+}
