@@ -55,12 +55,70 @@
             <div id="items-container">
                 <div class="item-element">
                         <button class="item-img-btn">
-                            BILDE
-                            <img>
+                            <img src="../img/cat-sweater-smaller.jpg">
                         </button>
                         <div class="item-info">
-                            HERE COMES ITEM INFO
+                            <div class="item-name">
+                                HOODIE FOR CATS
+                            </div>
+                            <div class="item-price">
+                                299,- stk
+                            </div>
+                            <div class="item-color">
+                                Color: Pink
+                            </div>
+                            <div class="item-select-container">
+                                <div class="select-size">
+                                    <label for="size">Size:</label>
+                                    <select id="size" class="item-select-selector">
+                                        <option>Small</option>
+                                    </select>
+                                </div>
+                                <div class="select-quantity">
+                                    <label for="size">Quantity:</label>
+                                    <input type="number" class="item-select-selector">
+                                </div>
+                            </div>
+                            <div class="total-item-price">
+                                Totalt: 299,-
+                            </div>
                         </div>
+                    <button class="delete-item-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="item-element">
+                    <button class="item-img-btn">
+                        <img src="../img/cat-sweater-smaller.jpg">
+                    </button>
+                    <div class="item-info">
+                        <div class="item-name">
+                            HOODIE FOR CATS
+                        </div>
+                        <div class="item-price">
+                            299,- stk
+                        </div>
+                        <div class="item-color">
+                            Color: Pink
+                        </div>
+                        <div class="item-select-container">
+                            <div class="select-size">
+                                <label for="size">Size:</label>
+                                <select id="size" class="item-select-selector">
+                                    <option>Small</option>
+                                </select>
+                            </div>
+                            <div class="select-quantity">
+                                <label for="size">Quantity:</label>
+                                <input type="number" class="item-select-selector">
+                            </div>
+                        </div>
+                        <div class="total-item-price">
+                            Totalt: 299,-
+                        </div>
+                    </div>
                     <button class="delete-item-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
@@ -69,10 +127,10 @@
                 </div>
                 <div id="price-container">
                     <div class="shipping-price">
-                        Shipping cost:
+                        Shipping cost:  59,-
                     </div>
                     <div class="total-price">
-                        Total:
+                        Total: 499,-
                     </div>
                 </div>
             </div>
@@ -111,7 +169,7 @@
                 </div>
                 <div class="form-cell" id="email-cell">
                     <label for="mail" class="input-label">E-mail:</label>
-                    <input type="text" id=mail" name="mail" class="text-input">
+                    <input type="email" id=mail" name="mail" class="text-input">
                 </div>
                 <div class="form-cell">
                     <label for="postal-code" class="input-label">Post Code:</label>
@@ -131,31 +189,43 @@
             <h3>Shipping</h3>
             <div id="shipping-container">
                 <div class="shipping-selector">
-                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>
-                    <div class="shipping-information">
-                        <h4>Standard Shipping</h4>
-                        <p>5-10 working days</p>
+                    <div class="shipping-selector-box-left">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>
+                        <div class="shipping-information">
+                            <h4>Standard Shipping</h4>
+                            <p>5-10 working days</p>
+                        </div>
                     </div>
-                    <div class="shipping-price">FREE</div>
-                    <input type="radio" name="shipping" class="radio-item">
+                    <div class="shipping-selector-box-right">
+                        <div class="shipping-price">FREE</div>
+                        <input type="radio" name="shipping" class="radio-item">
+                    </div>
                 </div>
                 <div class="shipping-selector">
-                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>
-                    <div class="shipping-information">
-                        <h4>Standard Shipping</h4>
-                        <p>5-10 working days</p>
+                    <div class="shipping-selector-box-left">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>
+                        <div class="shipping-information">
+                            <h4>Standard Shipping</h4>
+                            <p>5-10 working days</p>
+                        </div>
                     </div>
-                    <div class="shipping-price">FREE</div>
-                    <input type="radio" name="shipping" class="radio-item">
+                    <div class="shipping-selector-box-right">
+                        <div class="shipping-price">FREE</div>
+                        <input type="radio" name="shipping" class="radio-item">
+                    </div>
                 </div>
                 <div class="shipping-selector">
-                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>
-                    <div class="shipping-information">
-                        <h4>Standard Shipping</h4>
-                        <p>5-10 working days</p>
+                    <div class="shipping-selector-box-left">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>
+                        <div class="shipping-information">
+                            <h4>Standard Shipping</h4>
+                            <p>5-10 working days</p>
+                        </div>
                     </div>
-                    <div class="shipping-price">FREE</div>
-                    <input type="radio" name="shipping" class="radio-item">
+                    <div class="shipping-selector-box-right">
+                        <div class="shipping-price">FREE</div>
+                        <input type="radio" name="shipping" class="radio-item">
+                    </div>
                 </div>
             </div>
         </div>
