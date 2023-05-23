@@ -1,0 +1,79 @@
+
+/*****************************
+    Header
+ *****************************/
+#main-container h2{
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+
+}
+#main-container h3{
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+#main-container h4{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+
+
+/*****************************
+    Labels
+ *****************************/
+
+.input-label{
+    color: #094A4F;
+    font-weight: bold;
+    font-size: 1.4rem;
+    width:70%;
+    padding-bottom: 1rem;
+
+}
+
+
+
+/*****************************
+ Input
+ *****************************/
+
+
+.number-input{
+    height: 4rem;
+    width:20%;
+    font-weight: bold;
+    margin-bottom: 2.5rem;
+    border: 1px solid rgba(9, 74, 79, 0.49);
+}
+
+.select-item{
+    height: 4rem;
+    width:60%;
+    font-weight: bold;
+    margin-bottom: 2.5rem;
+    border: 1px solid rgba(9, 74, 79, 0.49);
+}
+
+.text-input{
+    height: 4rem;
+    width:100%;
+    border: 1px solid rgba(9, 74, 79, 0.49);
+}
+
+.radio-item{
+    accent-color: #094A4F;
+}
+
+/*****************************
+   Button
+ *****************************/
+
+.coloured-square-btn{
+    text-align: center;
+    color:white;
+    background-color: #094A4F;
+    font-size: 1.6rem;
+    padding: 1.6rem 2rem 1.6rem 2rem;
+}
