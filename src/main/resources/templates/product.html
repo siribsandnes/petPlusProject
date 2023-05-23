@@ -14,8 +14,8 @@
                 <ul>
                         <!-- Shows the product image, name and price -->
                         <li>
-                                <img th:src="@{../img/products/{id}.png(id=${product.productId})}"
-                                 onerror="this.onerror=null; this.src='img/products/No-Image-Placeholder.png'"/>
+                                <img th:src='${product.productPicture}'
+                                     onerror="this.onerror=null; this.src='../img/products/No-Image-Placeholder.png'"/>
                         </li>
                         <li>
                                 <p id="Name" th:text="${product.productName}"></p>
