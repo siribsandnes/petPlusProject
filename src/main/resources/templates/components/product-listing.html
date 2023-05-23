@@ -1,20 +1,16 @@
-<div class="product-container" xmlns:th="http://www.w3.org/1999/xhtml"
-     xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-    <div class="card" th:each="product: ${products}">
-        <div class="product-image-container">
-            <img th:src='${product.productPicture}'
-                 onerror="this.onerror=null; this.src='../img/products/No-Image-Placeholder.png'"/>
-        </div>
-        <div class="product-details-container">
-            <p id="Name" th:text="${product.productName}"></p>
-            <p id="Price" th:text="${product.productPrice} + ',-'"></p>
-        </div>
-        <a th:href="@{products/{id}(id=${product.productId})}" class="product-link"></a>
-        <div class="button-container">
-            <form th:action="@{/shoppingCart/addProduct/{id}(id=${product.productId})}" method="post">
-                <input type="hidden" name="productId" th:value="${product.productId}" />
-                <button type="submit" class="btn btn-primary">Buy</button>
-            </form>
+<div class="top-pick-card" th:each="product: ${products}">
+    <div class="top-pick-card-picture">
+        <img th:src='${product.productPicture}'
+             onerror="this.onerror=null; this.src='../img/products/No-Image-Placeholder.png'"/>
+        <div class="card-overlay"></div>
+        <form th:action="@{/shoppingCart/addProduct/{id}(id=${product.productId})}" method="post">
+            <input type="hidden" name="productId" th:value="${product.productId}" />
+            <button class="add-to-cart-btn" type="submit">Add to cart</button>
+        </form>
+    </div>
+    <div class="top-pick-card-text">
+        <h3 id="Name" th:text="${product.productName}"></h3>
+        <div class="top-pick-card-price" id="Price" th:text="${product.productPrice} + ',-'">
         </div>
     </div>
 </div>

@@ -4,6 +4,8 @@ import no.ntnu.crudrest.dto.SignupDto;
 import no.ntnu.crudrest.dto.UserProfileDto;
 import no.ntnu.crudrest.models.User;
 import no.ntnu.crudrest.service.AccessUserService;
+import no.ntnu.crudrest.service.OrderService;
+import no.ntnu.crudrest.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +19,17 @@ public class AuthenticationController {
     @Autowired
     private AccessUserService userService;
 
+    @Autowired
+    private ProductService productService;
+
     /**
      * Home page.
      *
      * @return the index.html Thymeleaf template name
      */
     @GetMapping("/")
-    public String home() {
+    public String home(Model model) {
+        model.addAttribute("products", productService.getFirst(4));
         return "index";
     }
 
@@ -31,6 +37,9 @@ public class AuthenticationController {
     public String loginForm() {
         return "login";
     }
+
+    @GetMapping("/forgotPassword")
+    public String resetPassword(Model model){return "reset-password";}
 
 
     /**

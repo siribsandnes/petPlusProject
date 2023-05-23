@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>No access!</title>
-    <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <link rel="stylesheet" th:href="@{/styles/index.css}">
+    <link rel="stylesheet" th:href="@{/styles/footer.css}">
+    <link rel="stylesheet" th:href="@{/styles/header.css}">
 </head>
-<nav id="navigation" th:insert="~{components/navigation}"></nav>
 <body>
+<header th:replace="components/header"></header>
+<nav th:replace="components/navigation"></nav>
 <p>You don't have access to this page!</p>
 <a th:href="@{/}">Back to main page</a>
 </body>

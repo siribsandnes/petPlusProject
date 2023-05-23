@@ -5,23 +5,145 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <title>PetPlus shop</title>
-    <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <link rel="stylesheet" th:href="@{/styles/index.css}">
+    <link rel="stylesheet" th:href="@{/styles/input-form-design.css}">
+    <link rel="stylesheet" th:href="@{/styles/footer.css}">
+    <link rel="stylesheet" th:href="@{/styles/header.css}">
 </head>
-<nav id="navigation" th:insert="~{components/navigation}"></nav>
 <body>
-<div id="wrap">
-    <div id="main">
-
-        <h1>Welcome!</h1>
-        <p>Welcome to our store!</p>
-
-        <p>Free shippig on orders over 750</p>
-
-    </div>
-    <footer id="footer" th:insert="~{components/footer}"></footer>
-</div>
+<header th:replace="components/header"></header>
+<nav th:replace="components/navigation"></nav>
 <main>
+    <section id="hero-section">
+        <h2>Treat Your<br>Pet Today!</h2>
+        <div id="hero-buttons-container">
+            <a th:href="@{/products}">
+                <button class="hero-btn" id="eye-catcher-btn">SHOP</button>
+            </a>
 
+            <a th:href="@{/about}">
+                <button class="hero-btn" type="button">ABOUT US</button>
+            </a>
+        </div>
+    </section>
+    <section id="top-picks-section">
+        <h2>TOP PICKS</h2>
+        <div id="top-picks-container">
+            <button div class="top-picks-btn btn-left">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+            </button>
+            <button div class="top-picks-btn btn-right">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+
+
+                <div class="top-pick-card" th:replace="components/product-listing"></div>
+
+            </div>
+        </div>
+    </section>
+    <section id="testimonials-section">
+        <h2>TESTIMONIALS</h2>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="quotation-mark">
+                    "
+                </div>
+                <div class="testimonial-text">
+                    <p>
+                        "My pup's birthday is coming up and I found the perfect costume at Pet Clothes Plus. Their prices are reasonable, and the items are made with great care. Thanks for making my pup's birthday extra special!"
+                    </p>
+                </div>
+                <div class="testimonial-person">
+                    <div class="testimonial-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                        </svg>
+                    </div>
+                    <div class="testimonial-person-text">
+                        <div class="testimonial-name">John Snow</div>
+                        <div class="testimonial-age">30</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quotation-mark">
+                    "
+                </div>
+                <div class="testimonial-text">
+                    <p>
+                        "My pup's birthday is coming up and I found the perfect costume at Pet Clothes Plus. Their prices are reasonable, and the items are made with great care. Thanks for making my pup's birthday extra special!"
+                    </p>
+                </div>
+                <div class="testimonial-person">
+                    <div class="testimonial-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                        </svg>
+                    </div>
+                    <div class="testimonial-person-text">
+                        <div class="testimonial-name">John Snow</div>
+                        <div class="testimonial-age">30</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quotation-mark">
+                    "
+                </div>
+                <div class="testimonial-text">
+                    <p>
+                        "My pup's birthday is coming up and I found the perfect costume at Pet Clothes Plus. Their prices are reasonable, and the items are made with great care. Thanks for making my pup's birthday extra special!"
+                    </p>
+                </div>
+                <div class="testimonial-person">
+                    <div class="testimonial-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                        </svg>
+                    </div>
+                    <div class="testimonial-person-text">
+                        <div class="testimonial-name">John Snow</div>
+                        <div class="testimonial-age">30</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="popular-categories-sections">
+        <div id="popular-categories-header-container">
+            <h2>POPULAR CATEGORIES</h2>
+        </div>
+        <div id="large-img-container">
+            <form action="/products/search" method="get">
+                <input hidden id="searchQueryInput" type="text" name="searchQuery" placeholder="Search" value="dog beds" />
+                <button type="submit">
+                    <img src="../img/dog-bed.jpg">
+                    <div class="img-text">DOG BEDS</div>
+                </button>
+            </form>
+        </div>
+        <div id="small-img-container">
+            <form action="/products/search" method="get">
+                <input hidden id="searchQueryInput" type="text" name="searchQuery" placeholder="Search" value="dog treats" />
+                <button type="submit">
+                    <img src="../img/dog-treats.jpg"/>
+                    <div class="img-text">DOG TREATS</div>
+                </button>
+            </form>
+            <form action="/products/search" method="get">
+                <input hidden id="searchQueryInput" type="text" name="searchQuery" placeholder="Search" value="cat toys" />
+                <button type="submit">
+                    <img src="../img/cat-toys.jpg"/>
+                    <div class="img-text">CAT TOYS</div>
+                </button>
+        </div>
+    </section>
 </main>
+
 </body>
 </html>

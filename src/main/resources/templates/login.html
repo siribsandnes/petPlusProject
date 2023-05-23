@@ -1,22 +1,40 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Log in</title>
-    <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <link rel="stylesheet" th:href="@{/styles/login.css}">
+    <link rel="stylesheet" th:href="@{/styles/input-form-design.css}">
+    <link rel="stylesheet" th:href="@{/styles/footer.css}">
+    <link rel="stylesheet" th:href="@{/styles/header.css}">
 </head>
 <body>
-<nav id="navigation" th:insert="~{components/navigation}"></nav>
+<header th:replace="components/header"></header>
+<nav th:replace="components/navigation"></nav>
 <main>
-    <form method="post" th:action="@{/login}">
-        <h2>Sign in</h2>
-        <label class="sr-only" for="username">Email</label>
-        <input type="email" id="username" name="username" placeholder="Email">
-        <label class="sr-only" for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Password">
-        <p th:if="${param.error}" class="alert">Invalid email or password</p>
-        <button type="submit">Sign in</button>
-    </form>
+    <div id="main-container">
+        <form class="log-in-container" method="post" th:action="@{/login}">
+            <h2>Welcome Back!</h2>
+            <label for="username" class="input-label">E-mail:</label>
+            <input type="text" id="username" class="text-input" name="username">
+            <label for="password" class="input-label">Password:</label>
+            <input type="password" id="password" name="password" class="text-input" >
+            <p th:if="${param.error}" class="alert">Invalid email or password</p>
+            <button type="submit" class="white-outlined-btn-small">LOG IN</button>
+            <a th:href="@{/forgotPassword}">
+                <button type="button" class="action-question-btn">Forgot your password?</button>
+            </a>
+        </form>
+
+        <div class="new-account-container">
+            <h2>Don't have an account?</h2>
+            <p class="action-explanation">Click here to register as a costumer<br>and create an account</p>
+            <a th:href="@{/signup}">
+            <button class=white-outlined-btn-big>REGISTER</button>
+            </a>
+        </div>
+    </div>
 </main>
 <footer id="footer" th:insert="~{components/footer}"></footer>
 </body>

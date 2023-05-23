@@ -61,6 +61,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/api/products").permitAll()
                 .requestMatchers("/login").permitAll()
                 .requestMatchers("/signup").permitAll()
+                .requestMatchers("/forgotPassword").permitAll()
                 .requestMatchers("/css/**").permitAll()
                 .requestMatchers("/js/**").permitAll()
                 .requestMatchers("/favicon.ico").permitAll()

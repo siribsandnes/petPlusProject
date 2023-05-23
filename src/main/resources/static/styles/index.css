@@ -1,0 +1,382 @@
+/*****************************
+    Resetting default styles
+ *****************************/
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@400;500;600;800&display=swap');
+/*****************************
+    Base Styles
+    (colors, fonts and such)
+ *****************************/
+body{
+    background-color: #58E8E6;
+}
+
+*{
+    font-family: 'Outfit', sans-serif;
+    color: #094A4F;
+}
+
+button{              /*Ha denne her?*/
+    border:none;
+    background: none;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*****************************
+    Body Layout (Grid)
+ *****************************/
+body{
+    display: grid;
+    grid-template-rows: 2.5rem 10rem 1fr 30rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+            "top-color top-color top-color top-color"
+            "header nav nav nav"
+            "main main main main"
+            "footer footer footer footer";
+    min-height: 100vh;
+}
+
+header{
+    grid-area: header;
+}
+
+nav{
+    grid-area: nav;
+}
+
+main{
+    grid-area: main;
+}
+
+footer{
+    grid-area: footer;
+}
+#top-color{
+    grid-area: top-color;
+}
+
+/*****************************
+    Main
+ *****************************/
+
+#hero-section {
+    background-image: url("../img/hero-section-1600*800.jpg");
+    background-size: 100%;
+    min-width: 100vw;
+    height: 40vw;
+    background-size: 100%;
+    min-height: 42rem;
+    max-height: 80rem;
+    position: relative;
+
+}
+
+/**Hero section*/
+#hero-section h2{
+    font-size: 6rem;
+    font-weight: bolder;
+    position: absolute;
+    top: 30%;
+    left:15%;
+}
+
+#hero-buttons-container{
+    position: absolute;
+    top: 58%;
+    left:15%;
+    width: 30rem;
+}
+
+.hero-btn{
+    background: #DCFFFD;
+    border: #DCFFFD;
+    padding: 1.5rem 3rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    margin:0 1rem;
+}
+
+.hero-btn:hover{
+    background: rgba(255, 255, 255, 0.61);
+
+}
+
+#eye-catcher-btn{
+    background: #FAB3C8;
+    border: #FAB3C8;
+}
+
+#eye-catcher-btn:hover{
+    background: #fac6d5;
+    border: #fac6d5;
+}
+
+/**TOP PICKS*/
+
+#top-picks-section{
+    background-color: #DCFFFD;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 4rem;
+}
+
+#top-picks-section h2{
+    font-size: 3.5rem;
+    text-align: center;
+    margin: 4rem 0;
+}
+.top-picks-btn{
+    background-color: #FFFFFF;
+    border: 0.1rem solid #094A4F;
+    height: 6rem;
+    width: 6rem;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.btn-left{
+    top:50%;
+    left:2%;
+    z-index: 2;
+}
+
+.btn-right{
+    top:50%;
+    right: 2%;
+    z-index: 2;
+}
+
+#top-picks-container{
+    display: flex;
+    flex-direction: row;
+    padding: 0 6rem;
+    justify-content: space-evenly;
+
+}
+
+.top-pick-card{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+.top-pick-card img{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.top-pick-card-picture{
+    position: relative;
+}
+
+.top-pick-card:hover .card-overlay{
+    display: block;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.card-overlay{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0);
+    transition: background 0.5s ease;
+
+}
+
+.add-to-cart-btn{
+    position: absolute;
+    left:25%;
+    top: 45%;
+    text-align: center;
+    border:2px solid #094A4F;
+    background-color: white;
+    border-radius: 10rem;
+    font-size: 2rem;
+    width:50%;
+    height: 10%;
+    opacity: 0;
+    transition: opacity .35s ease;
+
+}
+
+.top-pick-card-picture:hover .add-to-cart-btn{
+    opacity: 1;
+}
+
+.top-pick-card-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.top-pick-card-text h3{
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.top-pick-card-price{
+    font-size: 2.4rem;
+}
+
+
+
+
+/**TESTIMONIALS*/
+
+#testimonials-section{
+    background-color: #5AE9E5;
+}
+
+#testimonials-section h2{
+    font-size: 3.5rem;
+    text-align: center;
+    margin-top: 6rem;
+}
+
+.testimonials-container{
+    margin: 4rem 0;
+    padding-bottom: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.testimonial-card{
+    background-color: #DCFFFD;
+    display: flex;
+    flex-direction: column;
+    width: 35rem;
+    border-radius: 2rem;
+    padding: 5rem 2rem;
+    position: relative;
+}
+
+.quotation-mark{
+    font-size: 5rem;
+    text-align: center;
+    padding: 0;
+}
+
+.testimonial-text{
+    font-size:1.6rem ;
+}
+
+.testimonial-img{
+    border:0.1rem solid #094A4F;
+    width:5rem;
+    padding:0.4rem;
+    position: absolute;
+    border-radius: 10rem;
+    background-color:#DCFFFD ;
+    top: 90%;
+    left: 15rem;
+}
+
+.testimonial-person-text{
+    width: 10rem;
+    position: absolute;
+    top:110%;
+    left: 12.5rem;
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+.testimonial-name{
+    font-weight: 600;
+}
+
+/**POPULAR CATEGORIES*/
+
+#popular-categories-sections{
+    background-color: #DCFFFD;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+            "header large-img small-img";
+    padding: 8rem 0;
+}
+
+#popular-categories-header-container{
+    padding: 0 10rem;
+    display: flex;
+    align-items: center;
+
+}
+
+#popular-categories-sections h2{
+    font-size: 3.5rem;
+    border-top: 0.35rem solid #094A4F;
+    border-bottom: 0.35rem solid #094A4F;
+    text-align: center;
+}
+
+#large-img-container{
+    grid-area:large-img;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding:0 2rem;
+}
+
+#large-img-container button{
+    position: relative;
+}
+
+#popular-categories-sections button img{
+    height: 100%;
+    width: 100%;
+}
+
+.img-text{
+    position: absolute;
+    top:75%;
+    width: 90%;
+    height: 20%;
+    left: 5%;
+    font-size: 2.8rem;
+    background-color: rgba(255, 255, 255, 0.80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+
+}
+
+#small-img-container{
+    grid-area:small-img;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+#small-img-container button{
+    position: relative;
+
+}
+
+
+
+
+
