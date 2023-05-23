@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 @Controller
@@ -56,6 +57,30 @@ public class ProductController {
     @GetMapping("/products/sale")
     public String getSalePage(Model model) {
         Iterable<Product> products = productService.getAllByProductCategoryContaining("sale");
+        model.addAttribute("products", products);
+        return "products";
+    }
+
+
+    /**
+     * Method for handling searches.
+     *
+     * Searches both Product Name and ProductCategory for products containing the query.
+     *
+     * If no search query is provided returns all products.
+     *
+     * @param model model object to be populated with data for the view
+     * @param searchQuery query we are searching for
+     * @return the name of the view to be rendered
+     */
+    @GetMapping("/products/search")
+    public String getProductPage(Model model, @RequestParam(required = false) String searchQuery) {
+        Iterable<Product> products;
+        if (searchQuery != null && !searchQuery.isEmpty()) {
+            products = productService.searchProducts(searchQuery);
+        } else {
+            products = productService.getAll();
+        }
         model.addAttribute("products", products);
         return "products";
     }

@@ -30,6 +30,10 @@ public class ProductService {
     return productRepository.findAllByProductCategoriesNameContaining(category);
   }
 
+  public Iterable<Product> searchProducts(String query) {
+    return productRepository.findAllByProductNameContainingOrProductCategoriesNameContaining(query, query);
+  }
+
   /**
    * Gets the n first products stored in the database
    * @param n - the amount of products to return

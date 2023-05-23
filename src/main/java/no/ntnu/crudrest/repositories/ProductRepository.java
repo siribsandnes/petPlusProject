@@ -20,6 +20,8 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 
   Iterable<Product> findAllByProductPriceGreaterThanAndProductNameContaining(float productPrice, String productName);
 
+  Iterable<Product> findAllByProductNameContainingOrProductCategoriesNameContaining(String productName, String categoryName);
+
   Iterable<Product> findAllByProductCategoriesNameContaining(String categoryName);
   Page<Product> findAll(Pageable pageable);
 }
