@@ -34,18 +34,21 @@
     height: 4rem;
     min-width: 20rem;
     width:70%;
+    border: 1px solid rgba(9, 74, 79, 0.49);
 }
 
 .select-item{
     height: 4rem;
     min-width: 20rem;
     width:70%;
+    border: 1px solid rgba(9, 74, 79, 0.49);
 }
 
 .text-area{
     min-height: 15rem;
     min-width: 20rem;
     width:70%;
+    border: 1px solid rgba(9, 74, 79, 0.49);
 }
 
 /*****************************
