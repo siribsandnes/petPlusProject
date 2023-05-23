@@ -26,6 +26,9 @@ public class ProductService {
     return productRepository.findAll();
   }
 
+  public Iterable<Product> getAllByProductCategoryContaining(String category) {
+    return productRepository.findAllByProductCategoriesNameContaining(category);
+  }
 
   /**
    * Gets the n first products stored in the database
@@ -39,6 +42,7 @@ public class ProductService {
   public Optional<Product> findById(Integer id){
     return productRepository.findById(id);
   }
+
   public void save(Product product) {
     productRepository.save(product);
   }

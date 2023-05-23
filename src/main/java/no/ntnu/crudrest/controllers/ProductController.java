@@ -33,4 +33,31 @@ public class ProductController {
         }
     }
 
+    @GetMapping("/products/dogs")
+    public String getDogPage(Model model) {
+        Iterable<Product> products = productService.getAllByProductCategoryContaining("dog");
+        model.addAttribute("products", products);
+        return "products";
+    }
+    @GetMapping("/products/cats")
+    public String getCatPage(Model model) {
+        Iterable<Product> products = productService.getAllByProductCategoryContaining("cat");
+        model.addAttribute("products", products);
+        return "products";
+    }
+
+    @GetMapping("/products/smallpets")
+    public String getSmallPetsPage(Model model) {
+        Iterable<Product> products = productService.getAllByProductCategoryContaining("small pets");
+        model.addAttribute("products", products);
+        return "products";
+    }
+
+    @GetMapping("/products/sale")
+    public String getSalePage(Model model) {
+        Iterable<Product> products = productService.getAllByProductCategoryContaining("sale");
+        model.addAttribute("products", products);
+        return "products";
+    }
+
 }
