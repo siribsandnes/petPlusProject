@@ -12,7 +12,6 @@ footer{
             "logo links links"
             "border border border"
             "socialmedia socialmedia socialmedia";
-
 }
 
 #footer-logo{
@@ -41,6 +40,15 @@ footer{
     justify-content: center;
     text-align: start;
 
+}
+
+#footer-text {
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    grid-area: socialmedia;
 }
 
 .footer-column-header{

@@ -3,14 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>FAQ</title>
-    <link rel="stylesheet" th:href="@{/styles/index.css}">
+    <link rel="stylesheet" th:href="@{/styles/about-us.css}">
     <link rel="stylesheet" th:href="@{/styles/footer.css}">
     <link rel="stylesheet" th:href="@{/styles/header.css}">
+    <style>
+        #about-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .about-us {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .about-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .about-content {
+            text-align: left;
+        }
+
+        .faq-item {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .faq-item h2 {
+            margin-bottom: 5px;
+            font-weight: bold;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
+<main>
+    <div id="about-container">
+        <div class="about-us">
+            <h2 class="about-title">Frequently Asked Questions</h2>
+            <div class="about-content">
+                <div class="faq-item">
+                    <h2>Q: What types of pets do you offer clothing and accessories for?</h2>
+                    <p>A: We mainly offer clothing and accessories for dogs and cats. However, we do also offer some accessories for other small pets too.</p>
+                </div>
+                <div class="faq-item">
+                    <h2>Q: What is your return policy?</h2>
+                    <p>A: If you're not satisfied with your purchase, you can return the unused and undamaged items within 30 days of receiving your order. Please refer to our Returns and Exchanges policy on our website for detailed instructions on how to initiate a return.</p>
+                </div>
 
+                <div class="faq-item">
+                    <h2>Q: Do you offer free shipping?</h2>
+                    <p>A: Yes, we offer free shipping on orders over 750 NOK, allowing you to stock up on pet fashion and accessories without breaking the bank!</p>
+                </div>
+                <!-- Add more FAQ items as needed -->
+            </div>
+        </div>
+    </div>
+</main>
 </body>
 <footer th:replace="components/footer"></footer>
 </html>
