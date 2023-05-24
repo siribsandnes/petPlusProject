@@ -49,6 +49,7 @@ body{
             "main main main main"
             "footer footer footer footer";
     min-height: 100vh;
+    background-color: #58E8E6;
 }
 
 header{

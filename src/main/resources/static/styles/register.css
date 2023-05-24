@@ -18,7 +18,7 @@ html{
     (colors, fonts and such)
  *****************************/
 body{
-    background-color:#EAFFFE;
+    background-color:#58E8E6;
 }
 
 *{
@@ -65,6 +65,7 @@ nav{
 
 main{
     grid-area: main;
+    background-color: #EAFFFE;
 }
 
 footer{
@@ -83,6 +84,7 @@ footer{
     align-items: center;
     height: 100%;
     padding:10rem;
+    background-color: #EAFFFE;
 }
 
 

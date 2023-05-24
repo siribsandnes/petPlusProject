@@ -95,7 +95,7 @@
                     <label for="phoneNumber" class="input-label">Phone Number:</label>
                     <input type="text" class="text-input" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" th:value="${#objects.nullSafe(user?.getAddress()?.phoneNumber,'')}" required>
                 </div>
-                <div class="form-cell" id="email-cell">
+                <div class="form-cell">
                     <label for="username" class="input-label">Email:</label>
                     <input type="email" class="text-input" id="username" name="username" placeholder="Email" th:value="${#objects.nullSafe(user?.username,'')}" required>
                 </div>

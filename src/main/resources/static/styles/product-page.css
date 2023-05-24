@@ -18,7 +18,7 @@ html{
     (colors, fonts and such)
  *****************************/
 body{
-    background-color:#EAFFFE;
+    background-color:#58E8E6;
 }
 
 *{
@@ -83,6 +83,7 @@ footer{
     align-items: center;
     height: 100%;
     padding:10rem;
+    background-color: #EAFFFE;
 
 }
 
