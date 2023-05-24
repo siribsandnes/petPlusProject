@@ -31,7 +31,7 @@
     </div>
     <br>
     <p th:if="${errorMessage != null}" class="alert" th:text="${errorMessage}"></p>
-    <form method="post" action="/admin/restock">
+    <form method="post" action="/admin/restock" id="restock">
         <label for="product_id" class="input-label">Product ID:</label>
         <input type="number" min="1" name="product_id" id="product_id" class="number-input"  required>
         <label  for="quantity" class="input-label">Quantity:</label>
@@ -39,7 +39,7 @@
         <br>
     </form>
     <br>
-        <button class="white-outlined-btn-big" type="submit">RESTOCK</button>
+        <button class="white-outlined-btn-big" type="submit" form="restock">RESTOCK</button>
         <br>
     <a th:href="@{/admin/orders}">
         <button class="white-outlined-btn-big">ALL ORDERS</button>

@@ -75,14 +75,15 @@ footer{
  *****************************/
 
 #hero-section {
-    background-image: url("../img/hero-section-1600*800.jpg");
-    background-size: 100%;
-    min-width: 100vw;
+    background-image: url("../img/hero-section-1600-800.jpg");
+    background-size: cover;
+    min-width: 99vw;
     height: 40vw;
-    background-size: 100%;
     min-height: 42rem;
     max-height: 80rem;
     position: relative;
+    overflow-x: hidden;
+    clear: both;
 
 }
 

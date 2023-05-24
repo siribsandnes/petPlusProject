@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Products</title>
     <link rel="stylesheet" th:href="@{/styles/index.css}">
+    <link rel="stylesheet" th:href="@{/styles/input-form-design.css}">
     <link rel="stylesheet" th:href="@{/styles/footer.css}">
     <link rel="stylesheet" th:href="@{/styles/header.css}">
 
@@ -51,6 +52,9 @@
                 align-content: flex-start;
             }
         }
+        main{
+            background-color: #DCFFFD;
+        }
     </style>
 </head>
 <header th:replace="components/header"></header>
@@ -59,6 +63,18 @@
 <main>
     <section id="top-picks-section">
         <div id="products-container">
+            <div th:if="${products.isEmpty()}" style="display: flex; flex-direction: column; align-items: center;">
+                <H2>Oops, this is empty.</H2>
+                <br>
+                <H1>We might not have this in stock.</H1>
+                <br>
+                <h1>Please check back later.</h1>
+                <br>
+                <a th:href="@{/}">
+                    <button class="white-outlined-btn-big">BACK TO SAFETY</button>
+                </a>
+                <br>
+            </div>
             <div id="products-card" class="products-card" th:replace="components/product-listing"></div>
         </div>
         </div>
