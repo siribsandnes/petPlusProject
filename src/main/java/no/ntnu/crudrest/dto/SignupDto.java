@@ -8,10 +8,12 @@ package no.ntnu.crudrest.dto;
 public class SignupDto {
     private final String username;
     private final String password;
+    private final String repeat;
 
-    public SignupDto(String username, String password) {
+    public SignupDto(String username, String password, String repeat) {
         this.username = username;
         this.password = password;
+        this.repeat = repeat;
     }
 
     public String getUsername() {
@@ -20,5 +22,9 @@ public class SignupDto {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getRepeat() {
+        return repeat;
     }
 }

@@ -21,9 +21,10 @@
             <input type="email" class="input-label" id="username" name="username">
             <label for="password" class="input-label">Password:</label>
             <input type="password" id="password" name="password" class="text-input" >
-            <label for="password" class="input-label">Repeat password:</label>
-            <input type="password" id="pwd" name="pwd" class="text-input" >
-            <p th:if="${errorMessage != null}" class="alert" th:text="${errorMessage}"></p>
+            <label for="repeat" class="input-label">Repeat password:</label>
+            <input type="password" id="repeat" name="repeat" class="text-input" >
+            <br>
+            <h3 th:if="${errorMessage != null}" class="alert" th:text="${errorMessage}"></h3>
             <p class="action-explanation">
                 Already have an account?
                 <a th:href="@{/login}">

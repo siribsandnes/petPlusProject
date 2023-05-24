@@ -60,6 +60,10 @@ public class AuthenticationController {
     @PostMapping("/signup")
     public String signupProcess(@ModelAttribute SignupDto signupData, Model model) {
         model.addAttribute("signupData", signupData);
+        if (!signupData.getPassword().equals(signupData.getRepeat())) {
+            model.addAttribute("errorMessage", "Passwords do not match");
+            return "signup-form";
+        }
         String errorMessage = userService.tryCreateNewUser(signupData.getUsername(), signupData.getPassword());
         if (errorMessage == null) {
             return "signup-success";
