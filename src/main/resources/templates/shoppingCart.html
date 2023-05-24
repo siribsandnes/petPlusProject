@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <link rel="stylesheet" th:href="@{/styles/checkout.css}">
+    <link rel="stylesheet" th:href="@{/styles/input-form-design.css}">
+    <link rel="stylesheet" th:href="@{/styles/footer.css}">
+    <link rel="stylesheet" th:href="@{/styles/header.css}">
     <title>Shopping Cart</title>
 </head>
-<nav id="navigation" th:insert="~{components/navigation}"></nav>
 <body>
-
+<header th:replace="components/header"></header>
+<nav th:replace="components/navigation"></nav>
+<main>
 <th:block th:if="${user != null}">
     <p th:text="'Hello, ' + ${user.username} + '! These items are in your Cart:'"></p>
 </th:block>
@@ -95,7 +99,7 @@
 <br>
 
 
-
+</main>
 </body>
-<footer id="footer" th:insert="~{components/footer}"></footer>
+<footer th:replace="components/footer"></footer>
 </html>

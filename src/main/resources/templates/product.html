@@ -4,47 +4,43 @@
 <head>
         <meta charset="UTF-8">
         <title th:text="${product.productName}"> </title>
-        <link rel="stylesheet" th:href="@{/styles/style.css}">
+        <link rel="stylesheet" th:href="@{/styles/product-page.css}">
+        <link rel="stylesheet" th:href="@{/styles/footer.css}">
+        <link rel="stylesheet" th:href="@{/styles/header.css}">
+        <link rel="stylesheet" th:href="@{/styles/input-form-design-v2.css}">
 </head>
-<nav id="navigation" th:insert="~{components/navigation}"></nav>
+<header th:replace="components/header"></header>
+<nav th:replace="components/navigation"></nav>
+
+
+
 <main>
-
-
-        <td>
-                <ul>
-                        <!-- Shows the product image, name and price -->
-                        <li>
+        <div id="main-container">
+                <div id="product-container">
+                        <div id="product-image">
                                 <img th:src='${product.productPicture}'
                                      onerror="this.onerror=null; this.src='../img/products/No-Image-Placeholder.png'"/>
-                        </li>
-                        <li>
-                                <p id="Name" th:text="${product.productName}"></p>
-                        </li>
-                        <li>
-                                <p id="Price" th:text="${product.productPrice} + ',-'"></p>
-                        </li>
-                        <li>
-                                <p id="Description" th:text="${product.productDescription}"></p>
-                        </li>
-
-                        <li>
-                                <div>
-                                        <form th:action="@{/shoppingCart/addProduct/{id}(id=${product.productId})}" method="post">
-                                                <input type="hidden" name="productId" th:value="${product.productId}" />
-                                                <button type="submit" class="">Buy</button>
-                                        </form>
-                                </div>
-                        </li>
-
-                </ul>
-
-                <span th:each="productCategory,iterStat : ${product.productCategory}">
-                <span th:text="${productCategory.name}"/><th:block th:if="${!iterStat.last}">,</th:block>
-                </span>
-
-        </td>
-
+                        </div>
+                        <div id="product-information">
+                                <h2 id="Name" th:text="${product.productName}"></h2>
+                                <h3 id="Price" th:text="${product.productPrice} + ',-'"></h3>
+                                <h4>Product description</h4>
+                                <p class="product-description" id="Description" th:text="${product.productDescription}"></p>
+                                <form th:action="@{/shoppingCart/addProduct/{id}(id=${product.productId})}" method="post">
+                                        <select class="select-item">
+                                                <option value="" disabled selected>CHOOSE SIZE</option>
+                                                <option>Option 1</option>
+                                                <option>Option 2</option>
+                                        </select>
+                                        <input type="number" class="number-input" name="amount" value="1" min="1" />
+                                        <input type="hidden" name="productId" th:value="${product.productId}" />
+                                        <button type="submit" class="coloured-square-btn">ADD TO CART</button>
+                                </form>
+                        </div>
+                </div>
+        </div>
 </main>
-<footer id="footer" th:insert="~{components/footer}"></footer>
+<footer th:replace="components/footer"></footer>
 </html>
+
 

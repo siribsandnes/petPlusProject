@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Order</title>
-    <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <link rel="stylesheet" th:href="@{/styles/register.css}">
+    <link rel="stylesheet" th:href="@{/styles/footer.css}">
+    <link rel="stylesheet" th:href="@{/styles/header.css}">
 </head>
-
-
 <body>
-<nav id="navigation" th:insert="~{components/navigation}"></nav>
+<header th:replace="components/header"></header>
+<nav th:replace="components/navigation"></nav>
+
+<main>
 <h1>User Orders</h1>
 <table>
     <thead>
@@ -48,6 +51,7 @@
     </tr>
     </tbody>
 </table>
+</main>
 </body>
-<footer id="footer" th:insert="~{components/footer}"></footer>
+<footer th:replace="components/footer"></footer>
 </html>

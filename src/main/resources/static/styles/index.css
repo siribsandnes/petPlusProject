@@ -162,6 +162,7 @@ footer{
     z-index: 2;
 }
 
+
 #top-picks-container{
     display: flex;
     flex-direction: row;
@@ -175,6 +176,7 @@ footer{
     flex-direction: column;
     width: 20%;
 }
+
 .top-pick-card img{
     max-height: 100%;
     max-width: 100%;

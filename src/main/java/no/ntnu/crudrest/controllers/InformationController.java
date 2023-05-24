@@ -18,10 +18,10 @@ public class InformationController {
 
     @GetMapping("/values")
     public String ourValuesPage() {
-        return "values";
+        return "about";
     }
     @GetMapping("/customerservice")
-    public String costumerservicePage(Model model) {
+    public String costumerservicePage() {
         return "customer-service";
     }
 }

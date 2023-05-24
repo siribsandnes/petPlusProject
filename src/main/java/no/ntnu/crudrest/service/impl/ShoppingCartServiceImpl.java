@@ -59,6 +59,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         }
     }
 
+
     /**
      * If product is in the map with quantity > 1, just decrement quantity by 1.
      * If product is in the map with quantity 1, remove it from map

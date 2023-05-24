@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin page</title>
-    <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <link rel="stylesheet" th:href="@{/styles/register.css}">
+    <link rel="stylesheet" th:href="@{/styles/input-form-design.css}">
+    <link rel="stylesheet" th:href="@{/styles/footer.css}">
+    <link rel="stylesheet" th:href="@{/styles/header.css}">
 </head>
 <body>
-<nav id="navigation" th:insert="~{components/navigation}"></nav>
+<header th:replace="components/header"></header>
+<nav th:replace="components/navigation"></nav>
 <main>
     <h1>Administration</h1>
-    <a th:href="@{/admin/orders}">Want to see all orders?</a>
-    <p>Here you can restock products:</p>
     <br>
-
+    <a th:href="@{/admin/orders}">
+        <button class="white-outlined-btn-big">ALL ORDERS</button>
+    </a>
+    <br>
+    <br>
+    <div>
     <tbody>
         <tr th:each="product : ${products}">
             <b  th:text="'ID: ' +${product.productId}"></b>
@@ -21,19 +28,21 @@
             <br>
         </tr>
     </tbody>
+    </div>
     <br>
     <p th:if="${errorMessage != null}" class="alert" th:text="${errorMessage}"></p>
     <form method="post" action="/admin/restock">
-        <label for="product_id">Product ID:</label>
+        <label for="product_id" class="input-label">Product ID:</label>
         <input type="number" min="1" name="product_id" id="product_id" required>
 
-        <label for="quantity">Quantity:</label>
+        <label for="quantity" class="input-label">Quantity:</label>
         <input type="number" min="1" name="quantity" id="quantity" required>
-
-        <button type="submit">Restock</button>
+        <br>
+        <br>
+        <button class="white-outlined-btn-big" type="submit">RESTOCK</button>
     </form>
 
 </main>
 </body>
-<footer id="footer" th:insert="~{components/footer}"></footer>
+<footer th:replace="components/footer"></footer>
 </html>

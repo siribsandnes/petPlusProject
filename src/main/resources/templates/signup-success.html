@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign up successful!</title>
-    <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <link rel="stylesheet" th:href="@{/styles/register.css}">
+    <link rel="stylesheet" th:href="@{/styles/input-form-design.css}">
+    <link rel="stylesheet" th:href="@{/styles/footer.css}">
+    <link rel="stylesheet" th:href="@{/styles/header.css}">
 </head>
-<nav id="navigation" th:insert="~{components/navigation}"></nav>
 <body>
+<header th:replace="components/header"></header>
+<nav th:replace="components/navigation"></nav>
 
 <main>
     <h1>Sign up successful!</h1>
@@ -14,5 +18,5 @@
 </main>
 
 </body>
-<footer id="footer" th:insert="~{components/footer}"></footer>
+<footer th:replace="components/footer"></footer>
 </html>

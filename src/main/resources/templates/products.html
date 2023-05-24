@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
-    <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <link rel="stylesheet" th:href="@{/styles/index.css}">
+    <link rel="stylesheet" th:href="@{/styles/footer.css}">
+    <link rel="stylesheet" th:href="@{/styles/header.css}">
 </head>
-<nav id="navigation" th:insert="~{components/navigation}"></nav>
+<header th:replace="components/header"></header>
+<nav th:replace="components/navigation"></nav>
+
 <main>
-    <h1>Products</h1>
-    <p>Here you can see all our products.</p>
-    <ul id="product-container">
-        <li><div th:insert="components/product-listing"></div></li>
-    </ul>
+    <section id="top-picks-section">
+        <div id="products-container">
+            <div id="products-card" class="products-card" th:replace="components/product-listing"></div>
+        </div>
+        </div>
+    </section>
 </main>
-</body>
-<footer id="footer" th:insert="~{components/footer}"></footer>
+
+<footer th:replace="components/footer"></footer>
 </html>

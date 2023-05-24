@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpSession;
 import no.ntnu.crudrest.exception.NotEnoughProductsInStockException;
 import no.ntnu.crudrest.exception.PaymentFailedException;
 import no.ntnu.crudrest.models.Order;
+import no.ntnu.crudrest.models.Product;
 import no.ntnu.crudrest.service.ProductService;
 import no.ntnu.crudrest.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -36,7 +38,7 @@ public class ShoppingCartController {
 
     @GetMapping("/shoppingCart/addProduct/{productId}")
     public String addProductToCart(@PathVariable("productId") int productId) {
-        productService.findById(productId).ifPresent(shoppingCartService::addProduct);
+            productService.findById(productId).ifPresent(shoppingCartService::addProduct);
         return "redirect:/shoppingCart";
     }
 
