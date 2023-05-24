@@ -2,10 +2,9 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+
   <title>Payment ERROR</title>
-  <link rel="stylesheet" th:href="@{/styles/index.css}">
+  <link rel="stylesheet" th:href="@{/styles/register.css}">
   <link rel="stylesheet" th:href="@{/styles/footer.css}">
   <link rel="stylesheet" th:href="@{/styles/header.css}">
 </head>
@@ -13,12 +12,17 @@
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
 <main>
-<nav id="navigation" th:insert="~{components/navigation}"></nav>
-<h1>Order Processing Error</h1>
-<p>There was an error processing your order.</p>
-<p>Error message: <span th:text="${outOfStockMessage}"></span>
-  <span th:text="${paymentFailedMessage}"></span>
-</p>
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <br>
+    <h1>Order Processing Error</h1>
+    <br>
+    <h2>There was an error processing your order.</h2>
+    <br>
+    <h3>Error message: <span th:text="${outOfStockMessage}"></span>
+      <span th:text="${paymentFailedMessage}"></span>
+    </h3>
+    <br>
+  </div>
 </main>
 </body>
 <footer th:replace="components/footer"></footer>
