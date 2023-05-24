@@ -3,19 +3,15 @@ package no.ntnu.crudrest.config;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import no.ntnu.crudrest.service.ShoppingCartService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 @Component
 public class ShoppingCartInterceptor implements HandlerInterceptor {
-
-    private final ShoppingCartService shoppingCartService;
-
-    public ShoppingCartInterceptor(ShoppingCartService shoppingCartService) {
-        this.shoppingCartService = shoppingCartService;
-    }
-
+    @Autowired
+    private ShoppingCartService shoppingCartService;
 
 
     /**
