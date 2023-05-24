@@ -12,36 +12,40 @@
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
 <main>
-    <h1>Administration</h1>
     <br>
-    <a th:href="@{/admin/orders}">
-        <button class="white-outlined-btn-big">ALL ORDERS</button>
-    </a>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+    <h1>ADMINISTRATION PAGE</h1>
     <br>
+    <H2>RESTOCK PRODUCTS :</H2>
     <br>
-    <div>
-    <tbody>
+    <div >
+    <table>
         <tr th:each="product : ${products}">
-            <b  th:text="'ID: ' +${product.productId}"></b>
-            <td th:text="'Item: ' +${product.productName}"></td>
-            <b th:text="'In Stock: ' +${product.getProductAmountInStock()}"></b>
+            <br>
+            <h3  th:text="'ID: ' +${product.productId}"></h3>
+            <h4 th:text="'Item: ' +${product.productName}"></h4>
+            <h3 th:text="'In Stock: ' +${product.getProductAmountInStock()}"></h3>
             <br>
         </tr>
-    </tbody>
+    </table>
     </div>
     <br>
     <p th:if="${errorMessage != null}" class="alert" th:text="${errorMessage}"></p>
     <form method="post" action="/admin/restock">
         <label for="product_id" class="input-label">Product ID:</label>
-        <input type="number" min="1" name="product_id" id="product_id" required>
-
-        <label for="quantity" class="input-label">Quantity:</label>
-        <input type="number" min="1" name="quantity" id="quantity" required>
+        <input type="number" min="1" name="product_id" id="product_id" class="number-input"  required>
+        <label  for="quantity" class="input-label">Quantity:</label>
+        <input type="number" min="1" name="quantity" id="quantity" class="number-input"  required>
         <br>
-        <br>
-        <button class="white-outlined-btn-big" type="submit">RESTOCK</button>
     </form>
-
+    <br>
+        <button class="white-outlined-btn-big" type="submit">RESTOCK</button>
+        <br>
+    <a th:href="@{/admin/orders}">
+        <button class="white-outlined-btn-big">ALL ORDERS</button>
+    </a>
+    </div>
+    <br>
 </main>
 </body>
 <footer th:replace="components/footer"></footer>

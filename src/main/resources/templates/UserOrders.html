@@ -6,13 +6,53 @@
     <link rel="stylesheet" th:href="@{/styles/register.css}">
     <link rel="stylesheet" th:href="@{/styles/footer.css}">
     <link rel="stylesheet" th:href="@{/styles/header.css}">
+
+    <style>
+        .table-container {
+            width: 120rem; /* Specify a fixed width for the table container */
+            margin: 0 auto; /* Center the table horizontally */
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 12px; /* Adjust the font size to make it smaller */
+        }
+
+        th, td {
+            padding: 4px; /* Adjust the padding to make the cells smaller */
+            text-align: left;
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        ul {
+            list-style-type: none; /* Remove the dot from the list */
+            margin: 0;
+            padding: 0;
+        }
+        .table-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+
 </head>
 <body>
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
 
 <main>
-<h1>User Orders</h1>
+    <br>
+    <div class="table-title">
+        <h1>User Orders</h1>
+    </div>
+    <div class="table-container">
 <table>
     <thead>
     <tr>
@@ -44,6 +84,7 @@
         </td>
         <td th:text="${order.getAddress()?.streetAddress}"></td>
         <td th:text="${order.getAddress()?.city}"></td>
+        <td th:text="${order.getAddress()?.postalCode}"></td>
         <td th:text="${order.getAddress()?.firstName}"></td>
         <td th:text="${order.getAddress()?.lastName}"></td>
         <td th:text="${order.getAddress()?.phoneNumber}"></td>
@@ -51,6 +92,7 @@
     </tr>
     </tbody>
 </table>
+    </div>
 </main>
 </body>
 <footer th:replace="components/footer"></footer>

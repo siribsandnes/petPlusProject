@@ -80,6 +80,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             ProductCategory bird = new ProductCategory("Bird");
             ProductCategory indoors = new ProductCategory("Indoors");
             ProductCategory winter = new ProductCategory("Winter");
+            ProductCategory small = new ProductCategory("Small Pets");
+            ProductCategory sale = new ProductCategory("Sale");
 
 
             //Make Products
@@ -145,6 +147,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             categoryList.add(bird);
             categoryList.add(winter);
             categoryList.add(indoors);
+            categoryList.add(small);
+            categoryList.add(sale);
 
             //Apply Product to Category
             dog.addProduct(dogWinterWearSet);
@@ -158,13 +162,16 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
 
             dog.addProduct(ecoFriendlyDogLeash);
             dogAccessories.addProduct(ecoFriendlyDogLeash);
+            sale.addProduct(ecoFriendlyDogLeash);
 
             cat.addProduct(sweaterForCats);
             catClothing.addProduct(sweaterForCats);
             indoors.addProduct(sweaterForCats);
 
             bird.addProduct(birdCage);
+            small.addProduct(birdCage);
             indoors.addProduct(birdCage);
+            sale.addProduct(birdCage);
 
             cat.addProduct(catHoodie);
             catClothing.addProduct(catHoodie);
@@ -181,6 +188,7 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
 
             ecoFriendlyDogLeash.addProductCategory(dog);
             ecoFriendlyDogLeash.addProductCategory(dogAccessories);
+            ecoFriendlyDogLeash.addProductCategory(sale);
 
             sweaterForCats.addProductCategory(cat);
             sweaterForCats.addProductCategory(catClothing);
@@ -188,6 +196,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
 
             birdCage.addProductCategory(bird);
             birdCage.addProductCategory(indoors);
+            birdCage.addProductCategory(small);
+            birdCage.addProductCategory(sale);
 
             catHoodie.addProductCategory(cat);
             catHoodie.addProductCategory(catClothing);

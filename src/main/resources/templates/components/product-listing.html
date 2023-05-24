@@ -1,4 +1,5 @@
 <div class="top-pick-card" th:each="product: ${products}">
+    <a th:href="@{'/products/' + ${product.productId}}">
     <div class="top-pick-card-picture">
         <img th:src='${product.productPicture}'
              onerror="this.onerror=null; this.src='../img/products/No-Image-Placeholder.png'"/>
@@ -13,4 +14,5 @@
         <div class="top-pick-card-price" id="Price" th:text="${product.productPrice} + ',-'">
         </div>
     </div>
+        </a>
 </div>
