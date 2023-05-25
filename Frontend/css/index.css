@@ -1,110 +1,40 @@
 /*****************************
-    Resetting default styles
- *****************************/
-html{
-    font-size: 62.5%;
-    box-sizing: border-box;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@400;500;600;800&display=swap');
-/*****************************
-    Base Styles
-    (colors, fonts and such)
- *****************************/
-body{
-    background-color: #58E8E6;
-}
-
-*{
-    font-family: 'Outfit', sans-serif;
-    color: #094A4F;
-}
-
-button{              /*Ha denne her?*/
-    border:none;
-    background: none;
-    cursor: pointer;
-}
-
-a{
-    text-decoration: none;
-}
-
-/*****************************
-    Body Layout (Grid)
- *****************************/
-body{
-    display: grid;
-    grid-template-rows: 2.5rem 10rem 1fr 30rem;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas:
-            "top-color top-color top-color top-color"
-            "header nav nav nav"
-            "main main main main"
-            "footer footer footer footer";
-    min-height: 100vh;
-}
-
-header{
-    grid-area: header;
-}
-
-nav{
-    grid-area: nav;
-}
-
-main{
-    grid-area: main;
-}
-
-footer{
-    grid-area: footer;
-}
-#top-color{
-    grid-area: top-color;
-}
-
-/*****************************
-    Main
+   HERO SECTION
  *****************************/
 
 #hero-section {
-    background-image: url("../img/hero-section-1600*800.jpg");
-    background-size: 100%;
-    min-width: 100vw;
-    height: 40vw;
-    background-size: 100%;
-    min-height: 42rem;
-    max-height: 80rem;
-    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 70rem;
 
 }
 
-/**Hero section*/
-#hero-section h2{
+.hero-section-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero-section-img{
+    background: url("../img/hero-img-720-450.png") no-repeat left;
+    background-blend-mode: overlay;
+    background-size: auto;
+}
+
+.hero-section-container h2{
     font-size: 6rem;
     font-weight: bolder;
-    position: absolute;
-    top: 30%;
-    left:15%;
 }
 
 #hero-buttons-container{
-    position: absolute;
-    top: 58%;
-    left:15%;
-    width: 30rem;
+    margin-top:3rem;
 }
 
 .hero-btn{
-    background: #DCFFFD;
-    border: #DCFFFD;
+    background: white;
+    border: white;
     padding: 1.5rem 3rem;
     border-radius: 2rem;
     font-weight: bold;
@@ -112,7 +42,7 @@ footer{
 }
 
 .hero-btn:hover{
-    background: rgba(255, 255, 255, 0.61);
+    background: rgba(255, 255, 255, 0.9);
 
 }
 
@@ -126,7 +56,28 @@ footer{
     border: #fac6d5;
 }
 
-/**TOP PICKS*/
+@media(max-width:56.25em){
+    #hero-section{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-section-container{
+        height:100%;
+        background: url("../img/hero-img-720-450.png") no-repeat center, linear-gradient(rgba(88, 232, 230, 0.9), rgba(88, 232, 230, 0.9));
+        background-blend-mode: overlay;
+        background-repeat: no-repeat;
+
+    }
+
+    #hero-section-img{
+        display: none;
+    }
+}
+
+/*****************************
+      TOP PICKS SECTION
+ *****************************/
 
 #top-picks-section{
     background-color: #DCFFFD;
@@ -153,13 +104,11 @@ footer{
 .btn-left{
     top:50%;
     left:2%;
-    z-index: 2;
 }
 
 .btn-right{
     top:50%;
     right: 2%;
-    z-index: 2;
 }
 
 #top-picks-container{
@@ -236,10 +185,9 @@ footer{
     font-size: 2.4rem;
 }
 
-
-
-
-/**TESTIMONIALS*/
+/*****************************
+    TESTIMONIALS SECTION
+ *****************************/
 
 #testimonials-section{
     background-color: #5AE9E5;
@@ -304,7 +252,9 @@ footer{
     font-weight: 600;
 }
 
-/**POPULAR CATEGORIES*/
+/*****************************
+   POPULAR CATEGORIES SECTION
+ *****************************/
 
 #popular-categories-sections{
     background-color: #DCFFFD;
@@ -375,8 +325,5 @@ footer{
     position: relative;
 
 }
-
-
-
 
 
