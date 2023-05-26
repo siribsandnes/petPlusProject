@@ -2,35 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/styles/checkout.css}">
-    <link rel="stylesheet" th:href="@{/styles/input-form-design.css}">
-    <link rel="stylesheet" th:href="@{/styles/footer.css}">
-    <link rel="stylesheet" th:href="@{/styles/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/input-form-design-v3.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/footer.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/checkout.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Shopping Cart</title>
 </head>
 <body>
-<header th:replace="components/header"></header>
-<nav th:replace="components/navigation"></nav>
+<header th:replace="components/newHeader :: header"></header>
+<nav th:replace="components/newNav :: nav"></nav>
 <main>
-    <div id="main-container">
-        <div class="header-container">
+    <div id="main-container" th:if="${!products.entrySet().isEmpty()}">
+        <div class="header2-container">
             <h2>CHECK OUT</h2>
         </div>
-        <div th:if="${!products.entrySet().isEmpty()}">
         <div class="section-container">
+            <h3>Your items</h3>
             <div id="items-container">
                 <div class="item-element" th:each="product: ${products.entrySet()}">
                         <button class="item-img-btn">
-                            <img class="item-stamp" th:src='${product.getKey().productPicture}'
+                            <img      width="150"
+                                      height="200" class="item-stamp" th:src='${product.getKey().productPicture}'
                                  onerror="this.onerror=null; this.src='../img/products/No-Image-Placeholder.png'"/>
                         </button>
                         <div class="item-info">
-                            <h1><a class="item-name" th:text="${product.getKey().productName}" th:href="@{'/products/' + ${product.getKey().productId}}"></a></h1>
-                            </div>
-                            <div class="item-select-container">
+                            <div class="item-name" th:text="${product.getKey().productName}" th:href="@{'/products/' + ${product.getKey().productId}}"></div>
 
+                            <div th:inline="text" class="item-price">[[${product.getKey().productPrice}]],- stk</div>
+
+                            <div class="item-select-container">
                                 <div class="select-quantity">
-                                    <h3>Quantity: [[${product.getValue()}]]</h3>
+                                    <div class="item-price">Quantity: [[${product.getValue()}]]</div>
                                     <br>
                                     <div>
                                         <a th:href="@{'/shoppingCart/removeProduct/{id}'(id=${product.getKey().productId})}" class="col-md-1">
@@ -42,10 +46,9 @@
                                             <svg width="10px" height="10px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C12.5523 4 13 4.44772 13 5V11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H13V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H11V5C11 4.44772 11.4477 4 12 4Z" fill="#000000"></path> </g></svg>
                                         </a>
                                     </div>
+                                    </div>
                                 </div>
-
                             </div>
-                    <div th:inline="text" class="item-price">Price: [[${product.getKey().productPrice}]],- NOK</div>
                 </div>
                 <div id="price-container">
 
@@ -63,6 +66,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="section-container">
             <h3>Your information</h3>
             <form action="/shoppingCart/checkout" method="POST" id="information-form">
@@ -74,28 +79,11 @@
                     <label for="lastName" class="input-label">Last Name:</label>
                     <input type="text" class="text-input" id="lastName" name="lastName" placeholder="Last Name" th:value="${#objects.nullSafe(user?.getAddress()?.lastName,'')}" required>
                 </div>
-<!--                <div class="form-cell" id="birth-cell">-->
-<!--                    <label for="birth" class="input-label">Date of birth:</label>-->
-<!--                    <div id="date-select-container">-->
-<!--                        <select id="">-->
-<!--                            <option selected hidden>Date</option>-->
-<!--                            <option>1</option>-->
-<!--                        </select>-->
-<!--                        <select id="">-->
-<!--                            <option selected hidden>Month</option>-->
-<!--                            <option>1</option>-->
-<!--                        </select>-->
-<!--                        <select id="">-->
-<!--                            <option selected hidden>Year</option>-->
-<!--                            <option>1</option>-->
-<!--                        </select>-->
-<!--                    </div>-->
-<!--                </div>-->
                 <div class="form-cell">
                     <label for="phoneNumber" class="input-label">Phone Number:</label>
                     <input type="text" class="text-input" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" th:value="${#objects.nullSafe(user?.getAddress()?.phoneNumber,'')}" required>
                 </div>
-                <div class="form-cell">
+                <div id="email-cell" class="form-cell">
                     <label for="username" class="input-label">Email:</label>
                     <input type="email" class="text-input" id="username" name="username" placeholder="Email" th:value="${#objects.nullSafe(user?.username,'')}" required>
                 </div>
@@ -111,61 +99,69 @@
                     <label for="city" class="input-label">City:</label>
                     <input type="text" name="city" class="text-input" id="city" placeholder="City" th:value="${#objects.nullSafe(user?.getAddress()?.city,'')}" required>
                 </div>
+                <div class="form-cell">
+                    <label for="country" class="input-label">Country:</label>
+                    <input type="text" id="country" name="mail" class="text-input">
+                </div>
             </form>
         </div>
-<!--        <div class="section-container">-->
-<!--            <h3>Shipping</h3>-->
-<!--            <div id="shipping-container">-->
-<!--                <div class="shipping-selector">-->
-<!--                    <div class="shipping-selector-box-left">-->
-<!--                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>-->
-<!--                        <div class="shipping-information">-->
-<!--                            <h4>Standard Shipping</h4>-->
-<!--                            <p>5-10 working days</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="shipping-selector-box-right">-->
-<!--                        <div class="shipping-price">FREE</div>-->
-<!--                        <input type="radio" name="shipping" class="radio-item">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="shipping-selector">-->
-<!--                    <div class="shipping-selector-box-left">-->
-<!--                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>-->
-<!--                        <div class="shipping-information">-->
-<!--                            <h4>Standard Shipping</h4>-->
-<!--                            <p>5-10 working days</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="shipping-selector-box-right">-->
-<!--                        <div class="shipping-price">FREE</div>-->
-<!--                        <input type="radio" name="shipping" class="radio-item">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="shipping-selector">-->
-<!--                    <div class="shipping-selector-box-left">-->
-<!--                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>-->
-<!--                        <div class="shipping-information">-->
-<!--                            <h4>Standard Shipping</h4>-->
-<!--                            <p>5-10 working days</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="shipping-selector-box-right">-->
-<!--                        <div class="shipping-price">FREE</div>-->
-<!--                        <input type="radio" name="shipping" class="radio-item">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+
+
+
+            <div class="section-container">
+                <h3>Shipping</h3>
+                <div id="shipping-container">
+                    <div class="shipping-selector">
+                        <div class="shipping-selector-box-left">
+                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>
+                            <div class="shipping-information">
+                                <h4>Posten</h4>
+                                <p>5-10 working days</p>
+                            </div>
+                        </div>
+                        <div class="shipping-selector-box-right">
+                            <div class="shipping-price">[[${shipping}]],-</div>
+                            <input type="radio" name="shipping" class="radio-item" checked="checked">
+                        </div>
+                    </div>
+                    <div class="shipping-selector">
+                        <div class="shipping-selector-box-left">
+                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>
+                            <div class="shipping-information">
+                                <h4>PostNord</h4>
+                                <p>5-10 working days</p>
+                            </div>
+                        </div>
+                        <div class="shipping-selector-box-right">
+                            <div class="shipping-price">[[${shipping}]],-</div>
+                            <input type="radio" name="shipping" class="radio-item">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <h1 class="alert alert-info" th:if="${outOfStockMessage}" th:utext="${outOfStockMessage}"></h1>
+
         <div class="button-container">
-            <button type="submit" class="white-outlined-btn-big" form="information-form">CONTINUE TO PAYMENT</button>
+            <button type="submit" class="coloured-square-btn" form="information-form">CONTINUE TO PAYMENT</button>
         </div>
+
+
     </div>
     </div>
-    <div th:if="${products.entrySet().isEmpty()}" style="display: flex; justify-content: center;">
-        <h2> Your cart seems to be empty. Go take a look at our <a th:href="@{'/products'}"> products</a>!</h2>
+
+
+    <div th:if="${products.entrySet().isEmpty()}" id="main-container">
+        <br>
+        <h2> Your cart seems to be empty. Go take a look at our  products</h2>
+        <a th:href="@{'/products'}">
+            <button type="button"  class="coloured-square-btn">PRODUCTS</button>
+        </a>
+
     </div>
+
+
 </main>
 <footer th:replace="components/footer"></footer>
 </body>

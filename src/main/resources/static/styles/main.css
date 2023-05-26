@@ -18,9 +18,6 @@ html{
     BASE STYLES
  *****************************/
 
-body{
-    background-color: #58E8E6;
-}
 
 *{
     font-family: 'Outfit', sans-serif;
@@ -37,6 +34,8 @@ button{
     background: none;
     border: none;
 }
+
+
 
 /*****************************
     BODY LAYOUT
