@@ -29,7 +29,7 @@ public class AuthenticationController {
      */
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("products", productService.getFirst(4));
+        model.addAttribute("products", productService.getFirst(5));
         return "index";
     }
 

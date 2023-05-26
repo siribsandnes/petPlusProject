@@ -3,52 +3,46 @@
     Footer
  *****************************/
 footer{
+    min-height: 30rem;
     background-color: #094A4F;
     color: white;
     display:grid;
     grid-template-rows: 2fr 1em 1fr;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
-            "logo links links"
+            "content content content"
             "border border border"
             "socialmedia socialmedia socialmedia";
+
+}
+
+#footer-container{
+    padding: 0 5%;
+    grid-area: content;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #footer-logo{
     color: white;
     font-size: 3rem;
     font-weight: 600;
-    grid-area: logo;
-
     display:flex;
     align-items: center;
     justify-content: center;
 }
 
-#footer-column-container{
-    grid-area: links;
-    width:100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
 
 .footer-column{
-    min-width: 10%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: start;
-
-}
-
-#footer-text {
-    font-size: 12px;
-    margin: 0;
+    justify-content:center;
+    align-items: center;
     text-align: center;
-    padding: 10px;
-    color: white;
-    grid-area: socialmedia;
+
 }
 
 .footer-column-header{
@@ -75,7 +69,6 @@ footer{
 #footer-border-line{
     width:90%;
     border: 0.05rem solid white;
-
 }
 
 #socialmedia-container{
@@ -91,4 +84,91 @@ footer{
     height: 4rem;
     width: 4rem;
     margin: 0 1rem;
+}
+
+/*****************************
+   FOOTER HOVER
+ *****************************/
+
+.footer-column a:hover{
+    color: #A5FBF8;
+    transition: 0.4s;
+}
+
+/*****************************
+   DYNAMIC
+ *****************************/
+
+@media(max-width: 56.25em){
+
+    #footer-container{
+        padding:1rem 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 2fr;
+        grid-template-areas:
+                "header header header"
+                "column1 column2 column3";
+        justify-items: center;
+    }
+    #footer-logo{
+        grid-area: header;
+        margin:2rem 0;
+    }
+
+    #footer-column-about{
+        grid-area: column1;
+    }
+    #footer-column-help{
+        grid-area: column2;
+    }
+
+    #footer-column-contact{
+        grid-area: column3;
+    }
+
+    .footer-column{
+        height:100%;
+    }
+
+}
+
+@media(max-width: 37.5em){
+
+    footer{
+        grid-template-rows: 4fr 1em 1fr;
+    }
+
+    #footer-logo{
+        margin: 3rem 0;
+    }
+    #footer-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column{
+        min-width: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin:2rem 0;
+    }
+
+    .footer-border-mobile{
+        min-width: 15rem;
+        width: 40%;
+        border-bottom: 1px solid white;
+    }
+
+    #footer-border-line{
+        width:60%;
+        min-width: 20rem;
+        border:none;
+        border-bottom: 1px solid white;
+    }
+
+
 }

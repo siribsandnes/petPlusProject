@@ -6,10 +6,11 @@
     <link rel="stylesheet" th:href="@{/styles/about-us.css}">
     <link rel="stylesheet" th:href="@{/styles/footer.css}">
     <link rel="stylesheet" th:href="@{/styles/header.css}">
+    <link rel="stylesheet" th:href="@{/styles/main.css}">
 </head>
 <body>
-<header th:replace="components/header"></header>
-<nav th:replace="components/navigation"></nav>
+<header th:replace="components/newHeader :: header"></header>
+<nav th:replace="components/newNav :: nav"></nav>
 <main>
     <div id="about-container">
         <div class="about-us">
@@ -48,4 +49,6 @@
 </main>
 <footer th:replace="components/footer"></footer>
 </body>
+<script  th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/top-picks-slider.js}"></script>
 </html>

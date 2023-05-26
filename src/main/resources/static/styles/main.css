@@ -1,0 +1,65 @@
+/*****************************
+    Resetting default styles
+ *****************************/
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@400;500;600;800&display=swap');
+
+/*****************************
+    BASE STYLES
+ *****************************/
+
+body{
+    background-color: #58E8E6;
+}
+
+*{
+    font-family: 'Outfit', sans-serif;
+    color: #094A4F;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+button{
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/*****************************
+    BODY LAYOUT
+ *****************************/
+
+body{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+            "header"
+            "main"
+            "footer";
+    min-height: 100vh;
+}
+
+header{
+    grid-area: header;
+}
+
+main{
+    grid-area: main;
+}
+
+footer{
+    grid-area: footer;
+}

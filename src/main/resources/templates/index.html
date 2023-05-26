@@ -2,36 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
     <title>PetPlus shop</title>
-    <link rel="stylesheet" th:href="@{/styles/index.css}">
-    <link rel="stylesheet" th:href="@{/styles/input-form-design.css}">
-    <link rel="stylesheet" th:href="@{/styles/footer.css}">
-    <link rel="stylesheet" th:href="@{/styles/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/index.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/footer.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/header.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-<header th:replace="components/header"></header>
-<nav th:replace="components/navigation"></nav>
+<header th:replace="components/newHeader :: header"></header>
+<nav th:replace="components/newNav :: nav"></nav>
 <main>
     <section id="hero-section">
-        <h2>Treat Your<br>Pet Today!</h2>
-        <div id="hero-buttons-container">
-            <a th:href="@{/products}">
-                <button class="hero-btn" id="eye-catcher-btn">SHOP</button>
-            </a>
-
-            <a th:href="@{/about}">
-                <button class="hero-btn" type="button">ABOUT US</button>
-            </a>
+        <div class="hero-section-container">
+            <h2>Treat Your<br>Pet Today!</h2>
+            <div id="hero-buttons-container">
+                <a th:href="@{/products}">
+                    <button class="hero-btn" id="eye-catcher-btn">SHOP</button>
+                </a>
+                <a th:href="@{/about}">
+                    <button class="hero-btn" type="button">ABOUT US</button>
+                </a>
         </div>
+        </div>
+        <div class="hero-section-container" id="hero-section-img"></div>
     </section>
+
+
+
     <section id="top-picks-section">
         <h2>TOP PICKS</h2>
-        <div id="top-picks-container">
+        <div class="wrapper">
+            <button div class="top-picks-btn btn-left" id="btn-left">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+            </button>
+            <div class="slider">
                 <div class="top-pick-card" th:replace="components/product-listing"></div>
-
             </div>
+                <button div class="top-picks-btn btn-right" id="btn-right">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
         </div>
     </section>
     <section id="testimonials-section">
@@ -134,4 +148,6 @@
 </main>
 <footer th:replace="components/footer"></footer>
 </body>
+<script  th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/top-picks-slider.js}"></script>
 </html>
