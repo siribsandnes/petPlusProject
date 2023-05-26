@@ -11,8 +11,8 @@
     <title>Shopping Cart</title>
 </head>
 <body>
-<header th:replace="components/newHeader :: header"></header>
-<nav th:replace="components/newNav :: nav"></nav>
+<header th:replace="components/header :: header"></header>
+<nav th:replace="components/navigation :: nav"></nav>
 <main>
     <div id="main-container" th:if="${!products.entrySet().isEmpty()}">
         <div class="header2-container">
