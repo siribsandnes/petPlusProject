@@ -247,6 +247,9 @@ header{
     .hamburger{
         display: none;
     }
+    .mobile-nav{
+        display: none;
+    }
 }
 
 
