@@ -7,13 +7,14 @@
     <link rel="stylesheet" th:href="@{/styles/footer.css}">
     <link rel="stylesheet" th:href="@{/styles/header.css}">
     <link rel="stylesheet" th:href="@{/styles/main.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
 <header th:replace="components/newHeader :: header"></header>
 <nav th:replace="components/newNav :: nav"></nav>
 <main>
     <div id="about-container">
-        <div class="about-us">
+        <div class="about-box">
             <h2 class="about-title">About Us</h2>
             <p>
                 We are Pet Plus, the premier online store for pet fashion and accessories.
@@ -30,8 +31,12 @@
             </p>
             <br>
             <br>
+            <p>Find us here:</p>
+            <br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3688.166934184629!2d6.236135705032337!3d62.47101017474706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4616dac1b07f097d%3A0xf19494a5f0011856!2sLarsg%C3%A5rdsvegen%202%2C%206009%20%C3%85lesund!5e0!3m2!1sen!2sno!4v1685112998015!5m2!1sen!2sno" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <br>
         </div>
-        <div class="our-values">
+        <div class="about-box">
             <h2 class="about-title">Our Values</h2>
             <p>
                 At Pet Plus, we strive to bring our customers quality pet fashion and accessories that embody our three core values:
@@ -42,7 +47,9 @@
                 breaking the bank. Shop with us today for the best selection of pet clothing and accessories that offer style,
                 comfort, and affordability.
             </p>
-            <img src="../img/about-us-img400.png">
+            <picture>
+                <img alt="Dog with pink furry coat">
+            </picture>
         </div>
 
     </div>
