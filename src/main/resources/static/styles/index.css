@@ -274,6 +274,8 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-flow: row wrap;
+    gap: 6em 0;
 
 }
 
