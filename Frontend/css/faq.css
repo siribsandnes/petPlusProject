@@ -1,0 +1,171 @@
+/*****************************
+    Resetting default styles
+ *****************************/
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@400;500;600;800&display=swap');
+/*****************************
+    Base Styles
+    (colors, fonts and such)
+ *****************************/
+h1{
+    font-weight: normal;
+}
+
+h2{
+    margin: 15px;
+}
+
+body{
+    background-color:#EAFFFE;
+}
+
+*{
+    font-family: 'Outfit', sans-serif;
+    color: #094A4F;
+}
+
+button{              /*Ha denne her?*/
+    border:none;
+    background: none;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*****************************
+    Body Layout (Grid)
+ *****************************/
+body{
+    display: grid;
+    grid-template-rows: 2.5rem 10rem 1fr 30rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+            "top-color top-color top-color top-color"
+            "header nav nav nav"
+            "aside main main main"
+            "footer footer footer footer";
+    min-height: 100vh;
+}
+
+#top-color{
+    grid-area: top-color;
+}
+
+header{
+    grid-area: header;
+}
+
+nav{
+    grid-area: nav;
+}
+
+aside{
+    grid-area: aside;
+}
+
+main{
+    grid-area: main;
+}
+
+footer{
+    grid-area: footer;
+}
+
+li {
+    list-style-type: none;
+}
+/*****************************
+    Main layout
+ *****************************/
+
+#faq-navigation{
+    background-color: #EAFFFE;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.faq-button-order {
+    background-color: #EAFFFE;
+    width: 14rem;
+    height: 14rem;
+    margin: 1rem;
+}
+
+.faq-button-order:hover {
+    background-color: #f5f5f5;
+}
+
+.faq-button-shipping {
+    background-color: #EAFFFE;
+    width: 14rem;
+    height: 14rem;
+    margin: 1rem;
+}
+
+.faq-button-shipping:hover {
+    background-color: #f5f5f5;
+}
+
+.faq-button-returns {
+    background-color: #EAFFFE;
+    width: 14rem;
+    height: 14rem;
+    margin: 1rem;
+}
+
+.faq-button-returns:hover {
+    background-color: #f5f5f5;
+}
+
+#faq-section {
+    height: 90%;
+    width: 95%;
+    display: flex;
+    flex-flow: column wrap;
+    background-color: #FFFFFF;
+}
+
+.faq-border-container {
+    display: flex;
+    justify-content: center;
+}
+
+.faq-border-line {
+    border: 0.05rem solid #094A4F;
+    width: 98%;
+}
+
+.faq-header {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.faq-answers {
+    margin: 15px;
+    font-size: 14px;
+}
+
+
+/*****************************
+    Styling
+ *****************************/
+
+main{
+    background-color:#EAFFFE ;
+}

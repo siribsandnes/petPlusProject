@@ -1,3 +1,10 @@
+body{
+    background-color: #58E8E6;
+}
+
+header{
+    background-color: #58E8E6;
+}
 /*****************************
    HERO SECTION
  *****************************/
@@ -80,6 +87,7 @@
 
 #top-picks-section{
     background-color: #DCFFFD;
+    border:none;
     display: flex;
     flex-direction: column;
     align-items: center;
