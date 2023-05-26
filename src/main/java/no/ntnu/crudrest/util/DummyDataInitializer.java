@@ -70,18 +70,19 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             ProductCategory dogTreats = new ProductCategory("Dog Treats");
             ProductCategory dogFood = new ProductCategory("Dog Food");
             ProductCategory dogAccessories = new ProductCategory("Dog Accessories");
+            ProductCategory dogBeds = new ProductCategory("Dog Beds");
 
             ProductCategory cat = new ProductCategory("Cat");
             ProductCategory catClothing = new ProductCategory("Cat Clothing");
             ProductCategory catTreats = new ProductCategory("Cat Treats");
             ProductCategory catFood = new ProductCategory("Cat Food");
             ProductCategory catAccessories = new ProductCategory("Cat  Accessories");
+            ProductCategory catToys = new ProductCategory("Cat Toys");
 
             ProductCategory bird = new ProductCategory("Bird");
             ProductCategory indoors = new ProductCategory("Indoors");
             ProductCategory winter = new ProductCategory("Winter");
             ProductCategory small = new ProductCategory("Small Pets");
-            ProductCategory sale = new ProductCategory("Sale");
 
 
             //Make Products
@@ -122,7 +123,14 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
                     "hood that can be removed if desired. Whether you choose to keep the hood or not, this hoodie \n" +
                     "is sure to make your cat look great and be comfortable.",420, 15,"../img/products/6.png");
 
+            Product dogBed1 = new Product(7,"Orange Dog Bed", "Nice and comfy orange dog bed that is perfect for small to medium sized dogs.", 349, 50,"../img/products/7.png");
 
+            Product dogBed2 = new Product(8,"Gray Dog Bed", "Nice and comfy gray dog bed that is perfect for small to medium sized dogs.", 479, 30,"../img/products/8.png");
+
+
+            Product dogTreat1 = new Product(9,"Colorful dog food mix", "A mixture of colorful treats for your furry friend, no matter how big or small, young or old any dog will love this tasty treat.", 99, 100,"../img/products/9.png");
+
+            Product dogTreat2 = new Product(10,"Bone Shaped Treats", "We all know dogs and bones goes hand in hand so here are the perfect treat for your dog!", 129, 100,"../img/products/10.png");
 
 
             List<Product> productList = new ArrayList<>();
@@ -132,6 +140,10 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             productList.add(sweaterForCats);
             productList.add(birdCage);
             productList.add(catHoodie);
+            productList.add(dogBed1);
+            productList.add(dogBed2);
+            productList.add(dogTreat1);
+            productList.add(dogTreat2);
 
             List<ProductCategory> categoryList = new ArrayList<>();
             categoryList.add(dog);
@@ -139,16 +151,17 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             categoryList.add(dogAccessories);
             categoryList.add(dogTreats);
             categoryList.add(dogFood);
+            categoryList.add(dogBeds);
             categoryList.add(cat);
             categoryList.add(catClothing);
             categoryList.add(catAccessories);
             categoryList.add(catTreats);
             categoryList.add(catFood);
+            categoryList.add(catToys);
             categoryList.add(bird);
             categoryList.add(winter);
             categoryList.add(indoors);
             categoryList.add(small);
-            categoryList.add(sale);
 
             //Apply Product to Category
             dog.addProduct(dogWinterWearSet);
@@ -162,7 +175,18 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
 
             dog.addProduct(ecoFriendlyDogLeash);
             dogAccessories.addProduct(ecoFriendlyDogLeash);
-            sale.addProduct(ecoFriendlyDogLeash);
+
+            dog.addProduct(dogBed1);
+            dogBeds.addProduct(dogBed1);
+
+            dog.addProduct(dogBed2);
+            dogBeds.addProduct(dogBed2);
+
+            dog.addProduct(dogTreat1);
+            dogTreats.addProduct(dogTreat1);
+
+            dog.addProduct(dogTreat2);
+            dogTreats.addProduct(dogTreat2);
 
             cat.addProduct(sweaterForCats);
             catClothing.addProduct(sweaterForCats);
@@ -171,7 +195,6 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             bird.addProduct(birdCage);
             small.addProduct(birdCage);
             indoors.addProduct(birdCage);
-            sale.addProduct(birdCage);
 
             cat.addProduct(catHoodie);
             catClothing.addProduct(catHoodie);
@@ -186,9 +209,20 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             dogWinterBoots.addProductCategory(dogAccessories);
             dogWinterBoots.addProductCategory(winter);
 
+            dogBed1.addProductCategory(dog);
+            dogBed1.addProductCategory(dogBeds);
+
+            dogBed2.addProductCategory(dog);
+            dogBed2.addProductCategory(dogBeds);
+
+            dogTreat1.addProductCategory(dog);
+            dogTreat1.addProductCategory(dogTreats);
+
+            dogTreat2.addProductCategory(dog);
+            dogTreat2.addProductCategory(dogTreats);
+
             ecoFriendlyDogLeash.addProductCategory(dog);
             ecoFriendlyDogLeash.addProductCategory(dogAccessories);
-            ecoFriendlyDogLeash.addProductCategory(sale);
 
             sweaterForCats.addProductCategory(cat);
             sweaterForCats.addProductCategory(catClothing);
@@ -197,7 +231,6 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             birdCage.addProductCategory(bird);
             birdCage.addProductCategory(indoors);
             birdCage.addProductCategory(small);
-            birdCage.addProductCategory(sale);
 
             catHoodie.addProductCategory(cat);
             catHoodie.addProductCategory(catClothing);
