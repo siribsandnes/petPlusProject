@@ -24,7 +24,7 @@
                 <div class="item-element" th:each="product: ${products.entrySet()}">
                         <button class="item-img-btn">
                             <img      width="150"
-                                      height="200" class="item-stamp" th:src='${product.getKey().productPicture}'
+                                      height="225" class="item-stamp" th:src='${product.getKey().productPicture}' th:alt="${product.getKey().productPictureAlt}"
                                  onerror="this.onerror=null; this.src='../img/products/No-Image-Placeholder.png'"/>
                         </button>
                         <div class="item-info">
