@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>No access!</title>
-    <link rel="stylesheet" th:href="@{/styles/index.css}">
+    <link rel="stylesheet" th:href="@{/styles/register.css}">
+    <link rel="stylesheet" th:href="@{/styles/input-form-design.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/header.css}">
@@ -12,9 +13,20 @@
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
 <main>
-<p>You don't have access to this page!</p>
-<a th:href="@{/}">Back to main page</a>
+    <main>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <br>
+            <h1>You don't have access to this page!</h1>
+            <br>
+            <a th:href="@{/}">
+                <button class="white-outlined-btn-big" >BACK TO SAFETY</button>
+            </a>
+            <br>
+        </div>
+    </main>
 </main>
-</body>
 <footer th:replace="components/footer"></footer>
+</body>
+<script  th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/top-picks-slider.js}"></script>
 </html>

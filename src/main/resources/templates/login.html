@@ -18,7 +18,7 @@
         <form class="log-in-container" method="post" th:action="@{/login}">
             <h2>Welcome Back!</h2>
             <label for="username" class="input-label">E-mail:</label>
-            <input type="text" id="username" class="text-input" name="username">
+            <input type="email" id="username" class="text-input" name="username">
             <label for="password" class="input-label">Password:</label>
             <input type="password" id="password" name="password" class="text-input" >
             <p th:if="${param.error}" class="alert">Invalid email or password</p>
@@ -39,4 +39,6 @@
 </main>
 <footer th:replace="components/footer"></footer>
 </body>
+<script  th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/top-picks-slider.js}"></script>
 </html>

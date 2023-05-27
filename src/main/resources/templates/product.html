@@ -10,11 +10,9 @@
     <link rel="stylesheet" type="text/css" th:href="@{/styles/header.css}">
     <link rel="stylesheet" th:href="@{/styles/input-form-design-v2.css}">
 </head>
+<body>
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
-
-
-
 <main>
         <div id="main-container">
                 <div id="product-container">
@@ -37,6 +35,9 @@
         </div>
 </main>
 <footer th:replace="components/footer"></footer>
+</body>
+<script  th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/top-picks-slider.js}"></script>
 </html>
 
 

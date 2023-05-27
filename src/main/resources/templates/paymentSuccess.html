@@ -10,8 +10,6 @@
 <body>
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
-<main>
-<body>
   <main>
     <div style="display: flex; flex-direction: column; align-items: center;">
       <br>
@@ -25,7 +23,8 @@
       <br>
     </div>
   </main>
-</main>
-</body>
 <footer th:replace="components/footer"></footer>
+</body>
+<script  th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/top-picks-slider.js}"></script>
 </html>

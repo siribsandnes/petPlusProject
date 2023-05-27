@@ -14,10 +14,19 @@
 <nav th:replace="components/navigation"></nav>
 
 <main>
-    <h1>Sign up successful!</h1>
-    <p>The account has been created successfully. Go <a th:href="@{/}">Back to main page</a>.</p>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <br>
+        <h1>Sign up successful!</h1>
+        <p>The account has been created successfully.</p>
+        <br>
+        <a th:href="@{/login}">
+            <button class="white-outlined-btn-big" >BACK TO LOGIN PAGE</button>
+        </a>
+        <br>
+    </div>
 </main>
-
-</body>
 <footer th:replace="components/footer"></footer>
+</body>
+<script  th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/top-picks-slider.js}"></script>
 </html>

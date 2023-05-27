@@ -19,7 +19,7 @@
         <div id="register-container">
             <h2>Create an account</h2>
             <label for="username" class="input-label">E-mail:</label>
-            <input type="email" class="input-label" id="username" name="username">
+            <input type="email" class="text-input" id="username" name="username">
             <label for="password" class="input-label">Password:</label>
             <input type="password" id="password" name="password" class="text-input" >
             <label for="repeat" class="input-label">Repeat password:</label>
@@ -34,9 +34,12 @@
             </p>
             <button class="white-outlined-btn-big" type="submit">SUBMIT</button>
         </div>
+        </form>
     </div>
 </main>
-
-</body>
 <footer th:replace="components/footer"></footer>
+</body>
+
+<script  th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/top-picks-slider.js}"></script>
 </html>

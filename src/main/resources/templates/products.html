@@ -19,24 +19,32 @@
             flex-flow: row wrap;
             gap: 1em 1em;
         }
+
+        .wrapper .slider {
+            font-size: initial;
+        }
+
+        .slider .top-pick-card:first-child{
+            margin-left: 1.5rem;
+        }
+
     </style>
 </head>
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
-
+<body>
 <main>
-    <section id="top-picks-section">
-        <div class="wrapper">
-        <div id="products-container" class="slider">
-            <div th:if="${products.isEmpty()}">
-                <H2>Oops, this is empty.</H2>
+    <section id="top-picks-section" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="wrapper" >
+        <div id="products-container" class="slider" >
+            <div th:if="${products.isEmpty()}" >
+                <H2>Oops, this page is empty.</H2>
+                <H3>We might not have this in stock.</H3>
                 <br>
-                <H1>We might not have this in stock.</H1>
-                <br>
-                <h1>Please check back later.</h1>
+                <h3>Please check back later.</h3>
                 <br>
                 <a th:href="@{/}">
-                    <button class="white-outlined-btn-big">BACK TO SAFETY</button>
+                    <button class="white-outlined-btn-big" >BACK TO SAFETY</button>
                 </a>
                 <br>
             </div>
@@ -46,6 +54,8 @@
         </div>
     </section>
 </main>
-
 <footer th:replace="components/footer"></footer>
+</body>
+<script  th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/top-picks-slider.js}"></script>
 </html>
