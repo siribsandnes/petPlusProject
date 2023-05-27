@@ -92,7 +92,7 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
                     "the turtleneck features a ribbed, stretchy knit material. Both pieces are machine-washable, so \n" +
                     "you can keep them looking fresh all season. Our Winter Wear Set for Dogs is the perfect way to \n" +
                     "keep your pup warm and stylish during the colder months. Get your pup the ultimate winter \n" +
-                    "look with our Winter Wear Set today",1000,50,"../img/products/1.png");
+                    "look with our Winter Wear Set today",1000,50,"../img/products/1.png", "Dog wearing a black winter suit and black winter hat");
 
             Product dogWinterBoots = new Product(2,"Dog Winter Boots","Our Leather Winter Boots are perfect for keeping your pup's paws warm and \n" +
                     "protected during the colder months. The boots are made of soft and durable leather and come \n" +
@@ -100,37 +100,37 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
                     "for extra traction on slippery surfaces. Our Leather Winter Boots are best for poodles, but could \n" +
                     "also fit other types of dogs. The boots are lined with cozy and comfy fleece, so your pup will stay \n" +
                     "warm and stylish all winter long. Get your pup the perfect winter look with our Leather Winter \n" +
-                    "Boots today!",800,40,"../img/products/2.png");
+                    "Boots today!",800,40,"../img/products/2.png", "White dog wearing leather winter boots");
 
             Product ecoFriendlyDogLeash = new Product(3,"Eco-Friendly Dog Leash"," This eco-friendly dog leash is the perfect accessory for your pup! Made from fabric, \n" +
                     "this leash comes with calm ornaments for a stylish and subtle look. Available in three sizes, you \n" +
                     "can find the perfect fit for your pup - from the smallest dogs like Chihuahuas to very large dogs \n" +
                     "such as Great Danes. With this eco-friendly leash, you can show your pup some love while also \n" +
-                    "helping the environment.",229,30,"../img/products/3.png");
+                    "helping the environment.",229,30,"../img/products/3.png", "Dog with eco friendly dog leash");
 
             Product sweaterForCats = new Product(4,"Sweater for cats","This white ceramic bowl is perfect for cats! It has a low profile, making it easy for \n" +
                     "your cat to access the food inside. The bowl is also quite large, allowing you to put in larger \n" +
                     "amounts of food for your pet. With its white ceramic material, it is easy to clean and maintain \n" +
-                    "and will look great in any pet-friendly home.",79,20,"../img/products/4.png");
+                    "and will look great in any pet-friendly home.",79,20,"../img/products/4.png", "Cat wearing sweater");
 
             Product birdCage = new Product(5,"Bird Cage","This beautiful small cage for birds is the perfect accessory for any bird lover. It is \n" +
                     "formed in the shape of a sphere, made from gold-coated metal that is sure to stand out in any \n" +
                     "home. This cage is especially well-suited to small, white birds as its design is perfect for their size \n" +
-                    "and coloring. It will make a great addition to any bird-lover's home.\n", 2800, 10,"../img/products/5.png");
+                    "and coloring. It will make a great addition to any bird-lover's home.\n", 2800, 10,"../img/products/5.png","Bird in rounded shaped golden birdcage");
 
             Product catHoodie = new Product(6, "Hoodie for cats", "This cozy hoodie for cats is the perfect way to keep your furry friend warm and \n" +
                     "stylish. Available in three trendy colors – red, green, and blue – this hoodie features a white \n" +
                     "hood that can be removed if desired. Whether you choose to keep the hood or not, this hoodie \n" +
-                    "is sure to make your cat look great and be comfortable.",420, 15,"../img/products/6.png");
+                    "is sure to make your cat look great and be comfortable.",420, 15,"../img/products/6.png","Cat wearing red hoodie with white hood");
 
-            Product dogBed1 = new Product(7,"Orange Dog Bed", "Nice and comfy orange dog bed that is perfect for small to medium sized dogs.", 349, 50,"../img/products/7.png");
+            Product dogBed1 = new Product(7,"Orange Dog Bed", "Nice and comfy orange dog bed that is perfect for small to medium sized dogs.", 349, 50,"../img/products/7.png","Dog in orange dog bed, medium sized");
 
-            Product dogBed2 = new Product(8,"Gray Dog Bed", "Nice and comfy gray dog bed that is perfect for small to medium sized dogs.", 479, 30,"../img/products/8.png");
+            Product dogBed2 = new Product(8,"Gray Dog Bed", "Nice and comfy gray dog bed that is perfect for small to medium sized dogs.", 479, 30,"../img/products/8.png", "Dog in gray dog bed, medium sized");
 
 
-            Product dogTreat1 = new Product(9,"Colorful dog food mix", "A mixture of colorful treats for your furry friend, no matter how big or small, young or old any dog will love this tasty treat.", 99, 100,"../img/products/9.png");
+            Product dogTreat1 = new Product(9,"Colorful dog food mix", "A mixture of colorful treats for your furry friend, no matter how big or small, young or old any dog will love this tasty treat.", 99, 100,"../img/products/9.png", "Colorful dog food mix");
 
-            Product dogTreat2 = new Product(10,"Bone Shaped Treats", "We all know dogs and bones goes hand in hand so here are the perfect treat for your dog!", 129, 100,"../img/products/10.png");
+            Product dogTreat2 = new Product(10,"Bone Shaped Treats", "We all know dogs and bones goes hand in hand so here are the perfect treat for your dog!", 129, 100,"../img/products/10.png", "Colorful bone shaped dog treats");
 
 
             List<Product> productList = new ArrayList<>();

@@ -21,6 +21,8 @@ public class Product {
 
   private String productPicture;
 
+  private String productPictureAlt;
+
 
   @ManyToMany(mappedBy = "products")
   private Set<ProductCategory> productCategories = new HashSet<>();
@@ -30,13 +32,14 @@ public class Product {
   public Product() {
   }
 
-  public Product(int productId, String productName, String productDescription, float productPrice, int productAmountInStock, String productPicture) {
+  public Product(int productId, String productName, String productDescription, float productPrice, int productAmountInStock, String productPicture, String productPictureAlt) {
     this.productId = productId;
     this.productName = productName;
     this.productAmountInStock = productAmountInStock;
     this.productPrice = productPrice;
     this.productDescription = productDescription;
     this.productPicture = productPicture;
+    this.productPictureAlt = productPictureAlt;
   }
 
   /**
@@ -106,6 +109,11 @@ public class Product {
   public String getProductPicture(){return productPicture;}
 
   public void setProductPicture(String pictureFilePath){this.productPicture = pictureFilePath;}
+
+  public String getProductPictureAlt(){return productPictureAlt;}
+
+  public void setProductPictureAlt(String pictureDescription){this.productPictureAlt = pictureDescription;}
+
 
 
   @Override

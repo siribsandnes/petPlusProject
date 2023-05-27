@@ -1,7 +1,7 @@
 <div class="top-pick-card" th:each="product: ${products}">
     <a th:href="@{'/products/' + ${product.productId}}">
     <div class="top-pick-card-picture">
-        <img th:src='${product.productPicture}'
+        <img th:src='${product.productPicture}' th:alt="${product.productPictureAlt}"
              onerror="this.onerror=null; this.src='../img/products/No-Image-Placeholder.png'"/>
         <div class="card-overlay"></div>
         <form th:action="@{/shoppingCart/addProduct/{id}(id=${product.productId})}" method="post">
