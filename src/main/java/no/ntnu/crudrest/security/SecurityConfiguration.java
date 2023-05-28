@@ -4,6 +4,7 @@ package no.ntnu.crudrest.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -56,6 +57,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/shoppingCart/**").permitAll()
                 .requestMatchers("/shoppingCart/removeProduct/**").permitAll()
                 .requestMatchers("/shoppingCart/addProduct/**").permitAll()
+                .requestMatchers(HttpMethod.DELETE, "/products/delete/**").hasRole("ADMIN")
                 .requestMatchers("/products").permitAll()
                 .requestMatchers("/products/**").permitAll()
                 .requestMatchers("/api/products").permitAll()

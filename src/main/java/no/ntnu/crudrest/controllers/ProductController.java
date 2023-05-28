@@ -2,16 +2,21 @@ package no.ntnu.crudrest.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import no.ntnu.crudrest.exception.CouldNotRemoveException;
 import no.ntnu.crudrest.models.Product;
 import no.ntnu.crudrest.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.Optional;
+
 @Controller
 @Tag(name = "ProductController", description = "Handles product-related operations")
 public class ProductController {
@@ -114,5 +119,33 @@ public class ProductController {
         model.addAttribute("products", products);
         return "products";
     }
+
+
+
+
+
+    @DeleteMapping(path = "/products/delete/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            summary = "Delete product",
+            description = "Deletes product with specified ID"
+    )
+    /**
+     * Deletes a product.
+     *
+     * @param id the id of the product.
+     * @return
+     * @throws CouldNotRemoveException gets thrown if the product could not be removed.
+     */
+    public RedirectView deleteProduct(@PathVariable(value = "id") int productId)
+            throws CouldNotRemoveException {
+        Product prod = productService.findById(productId)
+                .orElseThrow(() -> new CouldNotRemoveException("Product not found for this id :: " + productId));
+
+        productService.delete(prod);
+        return new RedirectView("/products", true);
+    }
+
+
 
 }
