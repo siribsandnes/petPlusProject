@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ERROR</title>
+  <link rel="stylesheet" th:href="@{/styles/register.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/styles/footer.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/styles/header.css}">
+  <link rel="stylesheet" th:href="@{/styles/input-form-design.css}">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+<header th:replace="components/header"></header>
+<nav th:replace="components/navigation"></nav>
+<main>
+
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <br>
+    <h1>Encountered an error!</h1>
+    <br>
+    <h2>Oops! Something went wrong :( </h2>
+    <br>
+    <h3>Please check the URL and try again. If you think this is an error, please contact our customer support!</h3>
+    <br>
+
+    <a th:href="@{/}">
+      <button class="white-outlined-btn-big">BACK TO SAFETY</button>
+    </a>
+
+    <br>
+  </div>
+
+</main>
+<footer th:replace="components/footer"></footer>
+</body>
+<script  th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/top-picks-slider.js}"></script>
+</html>
