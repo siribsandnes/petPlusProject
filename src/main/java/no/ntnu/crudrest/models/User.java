@@ -1,5 +1,6 @@
 package no.ntnu.crudrest.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 import java.util.Iterator;
@@ -8,23 +9,29 @@ import java.util.Set;
 
 
 @Entity(name = "users")
+@Schema(description = "Represents a user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "The id of the user")
     private Long id;
+    @Schema(description = "The username of the user")
     private String username;
+    @Schema(description = "The password of the user")
     private String password;
 
 
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
+    @Schema(description = "Flag indicating if the user is active")
     private boolean active = true;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
+    @Schema(description = "The roles assigned to the user")
     private Set<Role> roles = new LinkedHashSet<>();
 
     /**

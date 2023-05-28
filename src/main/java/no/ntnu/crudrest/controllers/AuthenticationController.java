@@ -1,10 +1,11 @@
 package no.ntnu.crudrest.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import no.ntnu.crudrest.dto.SignupDto;
 import no.ntnu.crudrest.dto.UserProfileDto;
 import no.ntnu.crudrest.models.User;
 import no.ntnu.crudrest.service.AccessUserService;
-import no.ntnu.crudrest.service.OrderService;
 import no.ntnu.crudrest.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 @Controller
+@Tag(name = "AuthenticationController", description = "Takes care of user registration and authentication")
 public class AuthenticationController {
 
     @Autowired
@@ -28,17 +30,29 @@ public class AuthenticationController {
      * @return the index.html Thymeleaf template name
      */
     @GetMapping("/")
+    @Operation(
+            summary = "Show homepage",
+            description = "Shows the homepage and adds 5 products to the top category list."
+    )
     public String home(Model model) {
         model.addAttribute("products", productService.getFirst(5));
         return "index";
     }
 
     @GetMapping("/login")
+    @Operation(
+            summary = "Show login form",
+            description = "Displays the login form"
+    )
     public String loginForm() {
         return "login";
     }
 
     @GetMapping("/forgotPassword")
+    @Operation(
+            summary = "Show password reset form",
+            description = "Displays the password reset form"
+    )
     public String resetPassword(Model model){return "reset-password";}
 
 
@@ -48,6 +62,10 @@ public class AuthenticationController {
      * @return NAme of Thymeleaf template to use
      */
     @GetMapping("/signup")
+    @Operation(
+            summary = "Show sign-up form",
+            description = "Displays the sign-up form"
+    )
     public String signupForm() {
         return "signup-form";
     }
@@ -58,6 +76,10 @@ public class AuthenticationController {
      * @return NAme of the template for the result page
      */
     @PostMapping("/signup")
+    @Operation(
+            summary = "Process sign-up form",
+            description = "Processes the data received from the sign-up form (HTTP POST)"
+    )
     public String signupProcess(@ModelAttribute SignupDto signupData, Model model) {
         model.addAttribute("signupData", signupData);
         if (!signupData.getPassword().equals(signupData.getRepeat())) {
@@ -84,6 +106,10 @@ public class AuthenticationController {
      */
 
     @GetMapping("users/{username}")
+    @Operation(
+            summary = "Show user profile",
+            description = "Displays the profile page for a user"
+    )
     public String userPage(Model model, @PathVariable String username) {
         return handleProfilePageRequest(username, null, model);
     }
@@ -96,6 +122,10 @@ public class AuthenticationController {
      * @return name of the Thymeleaf template to render the result
      */
     @PostMapping("users/{username}")
+    @Operation(
+            summary = "Update user profile",
+            description = "Handles HTTP POST - user submits changes to his/her profile"
+    )
     public String userPagePost(@ModelAttribute UserProfileDto profileData, @PathVariable String username, Model model) {
         return handleProfilePageRequest(username, profileData, model);
     }
@@ -112,6 +142,7 @@ public class AuthenticationController {
      * @return Name of the template to render: user on success, no-access if the request
      * is unauthorized.
      */
+
     private String handleProfilePageRequest(String username, UserProfileDto postData, Model model) {
         User authenticatedUser = userService.getSessionUser();
         if (authenticatedUser != null && authenticatedUser.getUsername().equals(username)) {

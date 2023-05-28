@@ -1,6 +1,8 @@
 package no.ntnu.crudrest.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -9,18 +11,26 @@ import java.util.Set;
 
 
 @Entity
+@Schema(description = "The product entity")
 public class Product {
+
   @Id
   @GeneratedValue
+  @Schema(description = "The unique identifier of the product")
   private int productId;
+  @Schema(description = "The name of the product")
   private String productName;
+  @Schema(description = "The price of the product")
   private float productPrice;
+
   @Column(columnDefinition = "TEXT")
+  @Schema(description = "The description of the product")
   private String productDescription;
+  @Schema(description = "The amount of the product in stock")
   private int productAmountInStock;
-
+  @Schema(description = "The filepath to the picture of the product")
   private String productPicture;
-
+  @Schema(description = "The alternative description of the product picture")
   private String productPictureAlt;
 
 
