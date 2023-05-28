@@ -18,5 +18,17 @@
     align-items: center;
     justify-content: center;
     width: 50%;
-    min-width: 60rem;
+    min-width: 55rem;
+}
+
+
+@media(max-width:  56.25em){
+    #main-container {
+        padding:10rem 0;
+    }
+    #register-container{
+        width: 80%;
+        min-width: 20rem;
+    }
+
 }

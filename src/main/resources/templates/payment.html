@@ -22,14 +22,14 @@
       <input type="hidden" name="orderId" value="${order.orderId}">
 
       <label for="cardNumber" class="input-label">Card Number:</label>
-      <input type="text" name="cardNumber" id="cardNumber" class="text-input"required>
+      <input type="tel" inputmode="numeric" name="cardNumber" id="cardNumber" pattern="[0-9\s]{13,19}" autocomplete="cc-number" class="text-input" maxlength="19" placeholder="  XXXX XXXX XXXX XXXX" required>
 
       <label for="expiryDate" class="input-label">Expiry Date:</label>
-      <input type="text" name="expiryDate" id="expiryDate" class="text-input" required>
+      <input type="text" name="expiryDate" id="expiryDate" class="text-input" placeholder="  MM / YY" maxlength='7' required>
 
 
       <label for="cvv" class="input-label">CVV:</label>
-      <input type="text" name="cvv" id="cvv" class="text-input" required>
+      <input type="password" name="cvv" id="cvv" class="text-input" placeholder="  CVV" required>
 
     <br>
 

@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/styles/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/header.css}">
     <link rel="stylesheet" th:href="@{/styles/input-form-design-v2.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
 <header th:replace="components/header"></header>
@@ -23,13 +24,17 @@
                         <div id="product-information">
                                 <h2 id="Name" th:text="${product.productName}"></h2>
                                 <h3 id="Price" th:text="${product.productPrice} + ',-'"></h3>
+                            <div class="product-description-container">
                                 <h4>Product description</h4>
                                 <p class="product-description" id="Description" th:text="${product.productDescription}"></p>
+                            </div>
+                            <div class="product-button-container">
                                 <form th:action="@{/shoppingCart/addProduct/{id}(id=${product.productId})}" method="post">
 
                                         <input type="hidden" name="productId" th:value="${product.productId}" />
                                         <button type="submit" class="coloured-square-btn">ADD TO CART</button>
                                 </form>
+                            </div>
                         </div>
                 </div>
         </div>
