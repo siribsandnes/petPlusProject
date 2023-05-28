@@ -15,7 +15,7 @@ header{
     justify-content: center;
     align-items: center;
     height: 100%;
-    padding:10rem;
+    padding:10rem 5rem;
 }
 
 #contact-us-container{
@@ -25,4 +25,21 @@ header{
     justify-content: center;
     width: 50%;
     min-width: 60rem;
+}
+
+@media(max-width: 43.75em) {
+    #contact-us-container{
+        min-width: 40rem;
+        width: 80%;
+    }
+}
+
+@media(max-width: 31.25em){
+    #main-container{
+        padding: 10rem 2rem;
+    }
+    #contact-us-container{
+        width: 100%;
+        min-width: 20rem;
+    }
 }
