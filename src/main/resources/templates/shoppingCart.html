@@ -52,11 +52,11 @@
                 </div>
                 <div id="price-container">
 
-                    <div class="shipping-price" th:inline="text">
+                    <div class="total-price" th:inline="text">
                         Price of shipping: [[${shipping}]],-
                     </div>
 
-                    <div class="shipping-price" th:inline="text">
+                    <div class="total-price" th:inline="text">
                         Price of products: [[${total}]],-
                     </div>
 
@@ -112,28 +112,28 @@
                 <h3>Shipping</h3>
                 <div id="shipping-container">
                     <div class="shipping-selector">
-                        <div class="shipping-selector-box-left">
+                        <div class="price-box-left">
                             <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>
-                            <div class="shipping-information">
+                            <div class="price-information">
                                 <h4>Posten</h4>
                                 <p>5-10 working days</p>
                             </div>
                         </div>
-                        <div class="shipping-selector-box-right">
-                            <div class="shipping-price">[[${shipping}]],-</div>
+                        <div class="price-box-right">
+                            <div class="total-price">[[${shipping}]],-</div>
                             <input type="radio" name="shipping" class="radio-item" checked="checked">
                         </div>
                     </div>
                     <div class="shipping-selector">
-                        <div class="shipping-selector-box-left">
+                        <div class="price-box-left">
                             <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>
-                            <div class="shipping-information">
+                            <div class="price-information">
                                 <h4>PostNord</h4>
                                 <p>5-10 working days</p>
                             </div>
                         </div>
-                        <div class="shipping-selector-box-right">
-                            <div class="shipping-price">[[${shipping}]],-</div>
+                        <div class="price-box-right">
+                            <div class="total-price">[[${shipping}]],-</div>
                             <input type="radio" name="shipping" class="radio-item">
                         </div>
                     </div>

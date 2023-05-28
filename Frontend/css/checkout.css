@@ -191,7 +191,7 @@ body{
     max-width: 30rem;
 }
 
-@media(max-width: 37.5em){
+@media(max-width: 56.25em){
     #information-form{
         display: grid;
         grid-template-rows: repeat(4,1fr);
@@ -200,7 +200,7 @@ body{
             "first-name last-name"
             "phone-number mail"
             "post-code adress"
-            "country contry";
+            "city contry";
 
     }
     .section-container{
@@ -222,6 +222,25 @@ body{
 
 }
 
+@media (max-width: 37.5em) {
+    #information-form{
+        display: grid;
+        grid-template-rows: repeat(8,1fr);
+        grid-template-columns:  1fr;
+        grid-template-areas:
+            "first-name"
+            "last-name"
+            "phone-number"
+            "mail"
+            "post-code"
+            "adress"
+            "city"
+            "contry";
+
+    }
+    
+}
+
 @media(max-width: 25em){
 
     .item-element{
@@ -229,6 +248,7 @@ body{
         justify-content: center;
         align-items: center;
         padding-bottom: 2rem;
+
     }
     .item-info{
         margin: 0;
@@ -267,5 +287,16 @@ body{
         text-align: center;
     }
 
-}
+    #items-container{
+        margin:0;
+    }
 
+    .form-cell{
+        margin: 0;
+    }
+
+    #shipping-container{
+        margin: 0;
+    }
+
+}

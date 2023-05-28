@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/input-form-design-v3.css">
     <link rel="stylesheet" href="../css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
 <header>
@@ -84,6 +85,80 @@
         </ul>
     </div>
 </nav>
+<main>
+    <div id="main-container">
+        <div class="section-container">
+            <div id="price-container">
+                <div class="price-element">
+                    <div class="price-box-left">
+                        <div class="payment-svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                            </svg>
+                        </div>
+                        <div class="price-information">
+                            <h4>CART</h4>
+                        </div>
+                    </div>
+                    <div class="price-box-right">
+                        <div class="price-sum">FREE</div>
+                    </div>
+                </div>
+                <div class="price-element">
+                    <div class="price-box-left">
+                        <div class="payment-svg">
+                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>
+                        </div>
+                        <div class="price-information">
+                            <h4>SHIPPING</h4>
+                        </div>
+                    </div>
+                    <div class="price-box-right">
+                        <div class="price-sum">FREE</div>
+                    </div>
+                </div>
+                <div class="price-element">
+                    <div class="price-box-left">
+                        <div class="price-information">
+                            <h4>TOTAL</h4>
+                        </div>
+                    </div>
+                    <div class="price-box-right">
+                        <div class="price-sum">FREE</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="header2-container">
+            <h2>SECURE CARD PAYMENT</h2>
+        </div>
+        <div class="section-container" id="payment-container">
+            <form id="payment-form">
+                <div class="form-cell">
+                    <label for="card-name" class="input-label">Cardholder name:</label>
+                    <input type="text" id="card-name" name="card-name" class="text-input">
+                </div>
+                <div class="form-cell">
+                    <label for="card-number" class="input-label">Card Number:</label>
+                    <input type="text" id="card-number" name="card-number" class="text-input">
+                </div>
+                <div class="form-cell">
+                    <label for="expiry-date" class="input-label">Expiry date:</label>
+                    <input type="text" id="expiry-date" name="expiry-date" class="text-input">
+                </div>
+                <div class="form-cell">
+                    <label for="ccv" class="input-label">CCV:</label>
+                    <input type="email" id="ccv" name="ccv" class="text-input">
+                </div>
+
+            </form>
+        </div>
+        <div class="button-container">
+            <button onclick="location.href='payment.html'" class="coloured-square-btn">CONTINUE</button>
+        </div>
+    </div>
+</main>
 <footer>
     <div id="footer-container">
         <div id="footer-logo">

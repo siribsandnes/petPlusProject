@@ -156,23 +156,23 @@ body{
     border-bottom: 1px solid rgba(9, 74, 79, 0.49);
 }
 
-.shipping-information{
+.price-information{
     margin-left: 5rem;
 }
 
-.shipping-price{
+.total-price{
     margin-right: 5rem;
     font-size: 1.4rem;
 }
 
-.shipping-selector-box-left{
+.price-box-left{
     display: flex;
     flex-direction: row;
     width: 50%;
 
 }
 
-.shipping-selector-box-right{
+.price-box-right{
     display: flex;
     flex-direction: row;
     width: 50%;
@@ -208,15 +208,15 @@ body{
 
     }
 
-    .shipping-information{
+    .price-information{
         margin-left: 2rem;
     }
 
-    .shipping-selector-box-left{
+    .price-box-left{
         width: 60%;
     }
 
-    .shipping-selector-box-right{
+    .price-box-right{
         width: 40%;
     }
 
@@ -236,33 +236,33 @@ body{
         width: 15rem;
     }
 
-    .shipping-information {
+    .price-information {
         margin-left: 2rem;
     }
 
-    .shipping-selector-box-left{
+    .price-box-left{
         flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;
     }
 
-    .shipping-selector-box-right{
+    .price-box-right{
         flex-direction: column;
         width: 100%;
         justify-content: center;
         align-items: center;
         text-align: center;
     }
-    .shipping-information h4{
+    .price-information h4{
         padding-top: 2rem;
     }
 
-    .shipping-price{
+    .total-price{
         margin: 0;
         padding-bottom: 1rem;
     }
-    .shipping-information{
+    .price-information{
         margin: 0;
         text-align: center;
     }
