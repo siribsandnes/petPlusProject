@@ -15,6 +15,7 @@
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
 <main>
+    <div class="total-price">[[${shipping}]],-</div>
   <br>
   <form action="/shoppingCart/payment" method="post" style="display: flex; justify-content: center;">
   <div id="register-container">

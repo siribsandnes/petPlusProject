@@ -60,7 +60,6 @@ public class ShoppingCartController {
     @PostMapping("/shoppingCart/checkout")
     public String checkout(HttpServletRequest request, HttpSession session)  {
         //session set attribute so it can be used in the processPayment() in ShoppingCartService
-        //TODO: ADD PHONE NUMBER , FIRST NAME AND LAST NAME TO ORDERS
         session.setAttribute("streetAddress", request.getParameter("streetAddress"));
         session.setAttribute("postalCode", request.getParameter("postalCode"));
         session.setAttribute("city", request.getParameter("city"));
@@ -92,7 +91,11 @@ public class ShoppingCartController {
     }
 
     @GetMapping("/shoppingCart/payment")
-    public String payment() {
+    public String payment(Model model) {
+        model.addAttribute("total", shoppingCartService.getTotal().toString());
+        model.addAttribute("shipping", shoppingCartService.checkShippingCost(shoppingCartService.getTotal()).toString());
+        model.addAttribute("finalPrice", shoppingCartService.getTotal().add(shoppingCartService.checkShippingCost(shoppingCartService.getTotal())).toString());
+
         // check if there are any products in the shopping cart, if so can go to payment else get sent back to shopping cart
         if (shoppingCartService.getProductsInCart().isEmpty()) {
             return "redirect:/shoppingCart";
