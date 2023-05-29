@@ -459,6 +459,9 @@ header{
         max-width: 38.5rem;
         padding-top: 2rem;
     }
+    #small-img-container button:first-child{
+        margin-bottom: 0rem;
+    }
 }
 
 
