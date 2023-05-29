@@ -11,8 +11,8 @@
 	<groupId>no.ntnu</groupId>
 	<artifactId>crudrest-jdbc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>JDBC connection + CRUD REST</name>
-	<description>Connect to DB with JDBC - live coding</description>
+	<name>PetPlus</name>
+	<description>Pet Plus Webstore</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

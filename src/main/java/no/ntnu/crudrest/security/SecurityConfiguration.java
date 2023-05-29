@@ -69,7 +69,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/forgotPassword").permitAll()
                 .requestMatchers("/css/**").permitAll()
                 .requestMatchers("/js/**").permitAll()
-                .requestMatchers("/favicon.ico").permitAll()
+                .requestMatchers("/static/favicon.ico").permitAll()
                 .requestMatchers("/").permitAll()
                 .requestMatchers("/img/**").permitAll()
                 .requestMatchers("/styles/**").permitAll()
