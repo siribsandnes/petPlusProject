@@ -37,12 +37,12 @@
                                     <div class="item-price">Quantity: [[${product.getValue()}]]</div>
                                     <br>
                                     <div>
-                                        <a th:href="@{'/shoppingCart/removeProduct/{id}'(id=${product.getKey().productId})}" class="col-md-1">
-                                            <button type="button" ></button>
+                                        <a th:href="@{'/shoppingCart/removeProduct/{id}'(id=${product.getKey().productId})}" aria-label="Remove product">
+                                            <button type="button" aria-label="Shopping-cart-remove-one-product-button"></button>
                                             <svg width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title></title> <g id="Complete"> <g id="minus"> <line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="4" x2="20" y1="12" y2="12"></line> </g> </g> </g></svg>
                                         </a>
-                                        <a th:href="@{'/shoppingCart/addProduct/{id}'(id=${product.getKey().productId})}">
-                                            <button type="button"></button>
+                                        <a th:href="@{'/shoppingCart/addProduct/{id}'(id=${product.getKey().productId})}" aria-label="Add product">
+                                            <button type="button" aria-label="Shopping-cart-add-one-product-button"></button>
                                             <svg width="10px" height="10px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C12.5523 4 13 4.44772 13 5V11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H13V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H11V5C11 4.44772 11.4477 4 12 4Z" fill="#000000"></path> </g></svg>
                                         </a>
                                     </div>
@@ -121,7 +121,7 @@
                         </div>
                         <div class="price-box-right">
                             <div class="total-price">[[${shipping}]],-</div>
-                            <input type="radio" name="shipping" class="radio-item" checked="checked">
+                            <input type="radio" name="shipping" class="radio-item" checked="checked" aria-label="Shipping-option1">
                         </div>
                     </div>
                     <div class="shipping-selector">
@@ -134,7 +134,7 @@
                         </div>
                         <div class="price-box-right">
                             <div class="total-price">[[${shipping}]],-</div>
-                            <input type="radio" name="shipping" class="radio-item">
+                            <input type="radio" name="shipping" class="radio-item" aria-label="Shipping-option2">
                         </div>
                     </div>
                 </div>
@@ -166,5 +166,4 @@
 <footer th:replace="components/footer"></footer>
 </body>
 <script  th:src="@{/js/main.js}"></script>
-<script th:src="@{/js/top-picks-slider.js}"></script>
 </html>
