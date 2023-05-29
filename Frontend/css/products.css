@@ -1,0 +1,114 @@
+#products{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EAFFFE;
+    padding-top: 4rem;
+}
+
+.products-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 4rem 0;
+}
+
+main h2{
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+/*************************************
+        PRODUCT CARD
+ **************************************/
+
+.product-card{
+    height: 38rem;
+    width: 25rem;
+    background-color: white;
+    margin: 2rem 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card img{
+    width: 100%;
+    height: auto;
+}
+
+.product-card:hover .card-overlay{
+    display: block;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.card-overlay{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0);
+    transition: background 0.5s ease;
+
+}
+
+.add-to-cart-btn{
+    position: absolute;
+    left:25%;
+    top: 45%;
+    text-align: center;
+    border:2px solid #094A4F;
+    background-color: white;
+    border-radius: 10rem;
+    font-size: 2rem;
+    width:50%;
+    height: 10%;
+    opacity: 0;
+    transition: opacity .35s ease;
+
+}
+
+.product-card-picture:hover .add-to-cart-btn{
+    opacity: 1;
+}
+
+.product-card-text{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.product-card-name{
+    width: 50%;
+    text-align: left;
+    margin-left: 1rem;
+}
+
+.product-card-price{
+    font-size: 2.4rem;
+    width: 50%;
+    text-align: right;
+    margin-right: 1rem;
+}
+
+@media(max-width: 37.5em){
+    .product-card{
+        height: 43rem;
+        width: 30rem;
+        background-color: white;
+        margin: 2rem 2rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+}
