@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
 
   <title>Payment Page</title>
-  <link rel="stylesheet" th:href="@{/styles/register.css}">
-  <link rel="stylesheet" th:href="@{/styles/input-form-design.css}">
+  <link rel="stylesheet" th:href="@{/styles/payment.css}">
+  <link rel="stylesheet" th:href="@{/styles/input-form-design-v3.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/header.css}">
@@ -17,33 +17,81 @@
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
 <main style="background-color: #EAFFFE;">
-    <div class="total-price">[[${shipping}]],-</div>
-  <br>
-  <form action="/shoppingCart/payment" method="post" style="display: flex; justify-content: center;">
-  <div id="register-container">
-      <h1>Payment Page</h1>
+    <div id="main-container">
+        <div class="section-container">
+            <div id="price-container">
+            <div class="price-element">
+                <div class="price-box-left">
+                    <div class="payment-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                        </svg>
+                    </div>
+                    <div class="price-information">
+                        <h4>CART</h4>
+                    </div>
+                </div>
+                <div class="price-box-right">
+                    <div class="price-sum">[[${total}]],-</div>
+                </div>
+            </div>
+            <div class="price-element">
+                <div class="price-box-left">
+                    <div class="payment-svg">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#094A4F"><path d="M3 18h-2c-.552 0-1-.448-1-1v-2h15v-9h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.121-.728 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-6c0 1.656-1.344 3-3 3s-3-1.344-3-3zm3-1.2c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm12 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-4-2.8h-14v-10c0-.552.448-1 1-1h12c.552 0 1 .448 1 1v10zm3-6v3h4.715l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.42z"/></svg>
+                    </div>
+                    <div class="price-information">
+                        <h4>SHIPPING</h4>
+                    </div>
+                </div>
+                <div class="price-box-right">
+                    <div class="price-sum">[[${shipping}]],-</div>
+                </div>
+            </div>
+            <div class="price-element">
+                <div class="price-box-left">
+                    <div class="price-information">
+                        <h4>TOTAL</h4>
+                    </div>
+                </div>
+                <div class="price-box-right">
+                    <div class="price-sum">[[${finalPrice}]],-</div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="header2-container">
+            <h2>SECURE CARD PAYMENT</h2>
+        </div>
+        <div class="section-container" id="payment-container">
+  <form action="/shoppingCart/payment" method="post" id="payment-form">
       <input type="hidden" name="orderId" value="${order.orderId}">
 
+      <div class="form-cell">
+          <label for="card-name" class="input-label">Cardholder name:</label>
+          <input type="text" id="card-name" name="card-name" class="text-input">
+      </div>
+        <div class="form-cell">
       <label for="cardNumber" class="input-label">Card Number:</label>
       <input type="tel" inputmode="numeric" name="cardNumber" id="cardNumber" pattern="[0-9\s]{13,19}" autocomplete="cc-number" class="text-input" maxlength="19" placeholder="  XXXX XXXX XXXX XXXX" required>
-
+        </div>
+      <div class="form-cell">
       <label for="expiryDate" class="input-label">Expiry Date:</label>
       <input type="text" name="expiryDate" id="expiryDate" class="text-input" placeholder="  MM / YY" maxlength='7' required>
-
-
+      </div>
+      <div class="form-cell">
       <label for="cvv" class="input-label">CVV:</label>
       <input type="password" name="cvv" id="cvv" class="text-input" placeholder="  CVV" required>
-
+      </div>
     <br>
-
-    <input type="submit" class="white-outlined-btn-big" value="Pay">
+      <div class="button-container">
+        <input type="submit" class="coloured-square-btn" value="Pay">
+      </div>
+  </form>
   </div>
 
-    </form>
 
-
-
-
+    </div>
   </main>
 <footer th:replace="components/footer"></footer>
 </body>
