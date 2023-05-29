@@ -94,7 +94,7 @@ header{
     justify-content: center;
     padding: 0 10rem 10rem 10rem;
     min-height: 70vh;
-    max-width: 100vw;
+    width: 100%;
 }
 
 .wrapper .slider{
@@ -259,31 +259,44 @@ header{
 
 #testimonials-section{
     background-color: #5AE9E5;
+    margin: 6rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #testimonials-section h2{
     font-size: 3.5rem;
     text-align: center;
-    margin-top: 6rem;
+
 }
 
-.testimonials-container{
-    margin: 4rem 0;
-    padding-bottom: 10rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+#testimonial-header-decoration{
+    border: 2px solid #DCFFFD;
+    width: 20rem;
+    margin-top: 3rem;
+}
 
+
+.testimonials-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 4rem;
+    flex-wrap: wrap;
 }
 
 .testimonial-card{
     background-color: #DCFFFD;
     display: flex;
     flex-direction: column;
-    width: 35rem;
-    border-radius: 2rem;
-    padding: 5rem 2rem;
-    position: relative;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 32rem;
+    height: 40rem;
+    padding: 2rem;
+    margin:0 2rem 6rem 2rem;
 }
 
 .quotation-mark{
@@ -293,25 +306,21 @@ header{
 }
 
 .testimonial-text{
-    font-size:1.6rem ;
+    font-size:1.6rem;
+    padding: 0 1rem;
+    text-align: center;
 }
 
 .testimonial-img{
     border:0.1rem solid #094A4F;
-    width:5rem;
-    padding:0.4rem;
-    position: absolute;
+    width:10rem;
     border-radius: 10rem;
     background-color:#DCFFFD ;
-    top: 90%;
-    left: 15rem;
 }
 
 .testimonial-person-text{
     width: 10rem;
-    position: absolute;
-    top:110%;
-    left: 12.5rem;
+    font-size: 1.6rem;
     text-align: center;
     padding-top: 0.5rem;
 }
@@ -410,10 +419,9 @@ header{
 
 @media(max-width: 56.25em){
     #popular-categories-sections{
+        padding: 6rem 0;
         flex-direction: column;
-        height: 50%;
-        padding-top: 0;
-        padding-bottom: 8rem;
+
     }
     #popular-categories-header-container{
         width: 100%;
@@ -426,6 +434,10 @@ header{
     #small-img-container{
         height: 100%;
         align-items: center;
+    }
+
+    #small-img-container button:first-child{
+        margin-bottom: 3rem;
     }
 
 }
