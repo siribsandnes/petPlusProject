@@ -156,7 +156,6 @@ header{
     left: -2rem;
 }
 
-
 .top-picks-btn svg{
     height: 2.5rem;
     width: 2.5rem;
@@ -327,33 +326,40 @@ header{
 
 #popular-categories-sections{
     background-color: #DCFFFD;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas:
-            "header large-img small-img";
+    display: flex;
+    flex-direction: row;
     padding: 8rem 0;
+    width: 100%;
 }
 
 #popular-categories-header-container{
-    padding: 0 10rem;
+    width: 40%;
     display: flex;
     align-items: center;
-
+    justify-content: center;
 }
 
 #popular-categories-sections h2{
+    max-width: 30rem;
     font-size: 3.5rem;
     border-top: 0.35rem solid #094A4F;
     border-bottom: 0.35rem solid #094A4F;
     text-align: center;
 }
 
+#image-container{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
 #large-img-container{
-    grid-area:large-img;
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     padding:0 2rem;
 }
 
@@ -366,11 +372,22 @@ header{
     width: 100%;
 }
 
+#small-img-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+#small-img-container button{
+    position: relative;
+}
+
 .img-text{
     position: absolute;
-    top:75%;
     width: 90%;
-    height: 20%;
     left: 5%;
     font-size: 2.8rem;
     background-color: rgba(255, 255, 255, 0.80);
@@ -381,18 +398,56 @@ header{
 
 }
 
-#small-img-container{
-    grid-area:small-img;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-    padding: 0 2rem;
+.img-text-big{
+    top:75%;
+    height: 20%;
 }
 
-#small-img-container button{
-    position: relative;
+.img-text-small{
+    height: 30%;
+    top: 65%;
+}
+
+@media(max-width: 56.25em){
+    #popular-categories-sections{
+        flex-direction: column;
+        height: 50%;
+        padding-top: 0;
+        padding-bottom: 8rem;
+    }
+    #popular-categories-header-container{
+        width: 100%;
+        margin-bottom: 8rem;
+    }
+    #image-container{
+        width: 100%;
+    }
+
+    #small-img-container{
+        height: 100%;
+        align-items: center;
+    }
 
 }
+
+@media(max-width: 37.5em){
+    #image-container{
+        flex-direction: column;
+    }
+
+    #large-img-container{
+        padding: 0 1rem;
+    }
+
+    #small-img-container{
+        padding: 0 1rem;
+    }
+
+    #small-img-container img{
+        max-width: 38.5rem;
+        padding-top: 2rem;
+    }
+}
+
 
 
