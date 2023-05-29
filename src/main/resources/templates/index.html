@@ -33,7 +33,7 @@
     <section id="top-picks-section">
         <h2>TOP PICKS</h2>
         <div class="wrapper">
-            <button div class="top-picks-btn btn-left" id="btn-left">
+            <button div class="top-picks-btn btn-left" id="btn-left" aria-label="Top-picks-scroll-left-button">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                 </svg>
@@ -41,7 +41,7 @@
             <div class="slider">
                 <div class="top-pick-card" th:replace="components/product-listing"></div>
             </div>
-                <button div class="top-picks-btn btn-right" id="btn-right">
+                <button div class="top-picks-btn btn-right" id="btn-right" aria-label="Top-picks-scroll-right-button">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
@@ -50,87 +50,83 @@
     </section>
     <section id="testimonials-section">
         <h2>TESTIMONIALS</h2>
+        <div id="testimonial-header-decoration">
+        </div>
         <div class="testimonials-container">
             <div class="testimonial-card">
-                <div class="quotation-mark">
-                    "
+                <div class="testimonial-img">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                    </svg>
                 </div>
+
+                <div class="testimonial-person-text">
+                    <div class="testimonial-name">JOHN</div>
+                    <div class="testimonial-age">30</div>
+                </div>
+
                 <div class="testimonial-text">
                     <p>
-                        "I was looking for a winter coat for my pup and found the perfect fit at Pet Clothes Plus. The
-                        quality of the material is top-notch, and the coat is so warm and cozy. Thanks for making my doggo look
-                        so stylish!"
+                        "My pup's birthday is coming up and I found the perfect costume at Pet Clothes Plus. Their prices are reasonable, and the items are made with great care. Thanks for making my pup's birthday extra special!"
                     </p>
                 </div>
-                <div class="testimonial-person">
+                </div>
+
+                <div class="testimonial-card">
                     <div class="testimonial-img">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                         </svg>
                     </div>
+
                     <div class="testimonial-person-text">
-                        <div class="testimonial-name">John</div>
-                        <div class="testimonial-age">30</div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="quotation-mark">
-                    "
-                </div>
-                <div class="testimonial-text">
-                    <p>
-                        "I got a custom gown made for my cat and it fits like a glove! Pet Clothes Plus has such a
-                        great selection and the customer service was super helpful. Highly recommend!"
-                    </p>
-                </div>
-                <div class="testimonial-person">
-                    <div class="testimonial-img">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                        </svg>
-                    </div>
-                    <div class="testimonial-person-text">
-                        <div class="testimonial-name">Anna</div>
+                        <div class="testimonial-name">ANNA</div>
                         <div class="testimonial-age">24</div>
                     </div>
-                </div>
+
+                    <div class="testimonial-text">
+                        <p>
+                            "I was looking for a winter coat for my pup and found the perfect fit at Pet Clothes Plus. The
+                            quality of the material is top-notch, and the coat is so warm and cozy. Thanks for making my doggo look
+                            so stylish!"
+                        </p>
+                    </div>
             </div>
-            <div class="testimonial-card">
-                <div class="quotation-mark">
-                    "
-                </div>
-                <div class="testimonial-text">
-                    <p>
-                        "My pup's birthday is coming up and I found the perfect costume at Pet Clothes Plus. Their
-                        prices are reasonable, and the items are made with great care. Thanks for making my pup's birthday
-                        extra special!"
-                    </p>
-                </div>
-                <div class="testimonial-person">
+
+                <div class="testimonial-card">
                     <div class="testimonial-img">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                         </svg>
                     </div>
+
                     <div class="testimonial-person-text">
-                        <div class="testimonial-name">Sam</div>
+                        <div class="testimonial-name">SAM</div>
                         <div class="testimonial-age">50</div>
+                    </div>
+
+                    <div class="testimonial-text">
+                        <p>
+                            "My pup's birthday is coming up and I found the perfect costume at Pet Clothes Plus. Their
+                            prices are reasonable, and the items are made with great care. Thanks for making my pup's birthday
+                            extra special!"
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
+
     </section>
     <section id="popular-categories-sections">
         <div id="popular-categories-header-container">
             <h2>POPULAR CATEGORIES</h2>
         </div>
+        <div id="image-container">
         <div id="large-img-container">
             <form action="/products/search" method="get">
                 <input hidden id="searchQueryInput" type="text" name="searchQuery" placeholder="Search" value="dog beds" />
                 <button type="submit">
-                    <img src="../img/dog-bed.jpg">
-                    <div class="img-text">DOG BEDS</div>
+                    <img src="../img/dog-bed.jpg" alt="Dog in dog bed">
+                    <div class="img-text img-text-big">DOG BEDS</div>
                 </button>
             </form>
         </div>
@@ -138,16 +134,18 @@
             <form action="/products/search" method="get">
                 <input hidden id="searchQueryInput" type="text" name="searchQuery" placeholder="Search" value="dog treats" />
                 <button type="submit">
-                    <img src="../img/dog-treats.jpg"/>
-                    <div class="img-text">DOG TREATS</div>
+                    <img src="../img/dog-treats.jpg" alt="dog treats"/>
+                    <div class="img-text img-text-small">DOG TREATS</div>
                 </button>
             </form>
             <form action="/products/search" method="get">
                 <input hidden id="searchQueryInput" type="text" name="searchQuery" placeholder="Search" value="cat toys" />
                 <button type="submit">
-                    <img src="../img/cat-toys.jpg"/>
-                    <div class="img-text">CAT TOYS</div>
+                    <img src="../img/cat-toys.jpg" alt="cat toys"/>
+                    <div class="img-text img-text-small">CAT TOYS</div>
                 </button>
+            </form>
+        </div>
         </div>
     </section>
 </main>
