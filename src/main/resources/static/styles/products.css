@@ -38,8 +38,8 @@ main h2{
 }
 
 .top-pick-card img{
-    width: 250px;
-    height: 350px;
+    width: 100%;
+    height: auto;
 }
 
 .top-pick-card:hover .card-overlay{
@@ -83,6 +83,7 @@ main h2{
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    height: 25%;
 }
 
 .top-pick-card-name{
