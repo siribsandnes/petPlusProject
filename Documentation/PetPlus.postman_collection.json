@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "89aec4a0-50b5-4554-af35-a64b2047d9ed",
+		"name": "PetPlus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var responseBody = pm.response.text();\r",
+							"\r",
+							"var adminMenuExists = responseBody.includes('<li><a href=\"/admin\">ADMIN</a></li>');\r",
+							"\r",
+							"tests['Admin menu should exist on the page'] = adminMenuExists;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"removeRefererHeaderOnRedirect": true,
+				"insecureHTTPParser": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "root@root.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "petplusstore23!",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Go to User Page",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var welcomeUserExists = responseBody.includes(\"<h1>Welcome, root@root.com! Here you can see and modify your profile:</h1>\");\r",
+							"\r",
+							"tests['Welcome message should exsist'] = welcomeUserExists"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users/root@root.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"root@root.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Got to User Page of another user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var errorElementExists = responseBody.includes(\"<h1>You don't have access to this page!</h1>\");\r",
+							"\r",
+							"tests['Error page should be returned'] = errorElementExists"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users/notroot@root.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"notroot@root.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get non-exsistent product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var errorElementExists = responseBody.includes(\"<title>404 - Product Not Found</title>\");\r",
+							"\r",
+							"tests['Error page should be returned'] = errorElementExists"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/9999",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"9999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Dogs page",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"var dogElementExists = responseBody.includes('<h3 id=\"Name\" class=\"top-pick-card-name\">Eco-Friendly Dog Leash</h3>');\r",
+							"\r",
+							"tests['Dog Product on page'] = dogElementExists"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/dogs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"dogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"var loginElementExists = responseBody.includes('<a href=\"/login\" aria-label=\"Go to login page\">');\r",
+							"\r",
+							"tests['Login on page'] = loginElementExists"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make user",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.variables.set(\"username\", \"test\" + Math.random() + \"@example.com\");\r",
+							"pm.variables.set(\"password\", Math.random().toString(36).slice(-8));\r",
+							"pm.variables.set(\"repeat\", pm.variables.get(\"password\"));"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"var successElementExists = responseBody.includes('<meta name=\"description\" content=\"PetPlus sign up success page\">');\r",
+							"\r",
+							"tests['Success on page'] = successElementExists"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "repeat",
+							"value": "{{repeat}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "username",
+			"value": "root@root.com",
+			"type": "default"
+		},
+		{
+			"key": "password",
+			"value": "petplusstore23!",
+			"type": "default"
+		}
+	]
+}
