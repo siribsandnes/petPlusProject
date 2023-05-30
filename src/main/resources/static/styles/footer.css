@@ -7,12 +7,13 @@ footer{
     background-color: #094A4F;
     color: white;
     display:grid;
-    grid-template-rows: 2fr 1em 1fr;
+    grid-template-rows: 2fr 1em 1fr auto;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
             "content content content"
             "border border border"
-            "socialmedia socialmedia socialmedia";
+            "socialmedia socialmedia socialmedia"
+            "ntnu ntnu ntnu";
 
 }
 
@@ -25,6 +26,7 @@ footer{
     justify-content: space-evenly;
     align-items: center;
 }
+
 
 #footer-logo{
     color: white;
@@ -86,6 +88,15 @@ footer{
     margin: 0 1rem;
 }
 
+
+#footer-text{
+    grid-area: ntnu;
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0 2rem 2rem 2rem;
+}
+
 /*****************************
    FOOTER HOVER
  *****************************/
@@ -93,6 +104,10 @@ footer{
 .footer-column a:hover{
     color: #A5FBF8;
     transition: 0.4s;
+}
+
+#socialmedia-container path:hover{
+    fill: #A5FBF8;
 }
 
 /*****************************
