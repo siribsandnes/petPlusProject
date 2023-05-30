@@ -161,7 +161,7 @@ header{
     background-color: #58E8E6;
     z-index: 2;
     transition: 0.4s;
-
+    height: 100%;
 }
 
 .mobile-nav.is-active{
