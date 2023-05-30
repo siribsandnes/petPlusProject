@@ -157,6 +157,7 @@ header{
     left: 100%;
     width:100%;
     min-height: 100vh;
+    height: 100vh;
     display: block;
     background-color: #58E8E6;
     z-index: 2;
