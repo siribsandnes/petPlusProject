@@ -11,12 +11,31 @@ public class InformationController {
 
     @GetMapping("faq")
     @Operation(
-            summary = "Show FAQ page",
-            description = "Displays the Frequently Asked Questions (FAQ) page"
+            summary = "Show FAQ order page",
+            description = "Displays the Frequently Asked Questions (FAQ) page for orders"
     )
     public String faqPage(Model model) {
         return "faq";
     }
+
+    @GetMapping("faq/shipping")
+    @Operation(
+            summary = "Show FAQ shipping page",
+            description = "Displays the Frequently Asked Questions (FAQ) page for shipping"
+    )
+    public String faqShippingPage(Model model) {
+        return "faq-shipping";
+    }
+
+    @GetMapping("faq/return")
+    @Operation(
+            summary = "Show FAQ return page",
+            description = "Displays the Frequently Asked Questions (FAQ) page for refunds"
+    )
+    public String faqReturnPage(Model model) {
+        return "faq-refund";
+    }
+
 
     @GetMapping("about")
     @Operation(

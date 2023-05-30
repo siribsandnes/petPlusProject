@@ -3,71 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>FAQ</title>
-    <link rel="stylesheet" th:href="@{/styles/about-us.css}">
+    <link rel="stylesheet" th:href="@{/styles/faq.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/header.css}">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="PetPlus FAQ page">
-    <style>
-        #about-container {
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
-
-        .about-us {
-            text-align: left;
-            padding-left: 20px;
-        }
-
-        .about-title {
-            font-size: 24px;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .about-content {
-            text-align: left;
-        }
-
-        .faq-item {
-            margin-bottom: 10px;
-            text-align: left;
-        }
-
-        .faq-item h2 {
-            margin-bottom: 5px;
-            font-weight: bold;
-            text-align: left;
-        }
-    </style>
 </head>
 <body>
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
 <main>
-    <div id="about-container">
-        <div class="about-us">
-            <h2 class="about-title">Frequently Asked Questions</h2>
-            <div class="about-content">
-                <div class="faq-item">
-                    <h2>Q: What types of pets do you offer clothing and accessories for?</h2>
-                    <p>A: We mainly offer clothing and accessories for dogs and cats. However, we do also offer some accessories for other small pets too.</p>
-                </div>
-                <div class="faq-item">
-                    <h2>Q: What is your return policy?</h2>
-                    <p>A: If you're not satisfied with your purchase, you can return the unused and undamaged items within 30 days of receiving your order. Please refer to our Returns and Exchanges policy on our website for detailed instructions on how to initiate a return.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h2>Q: Do you offer free shipping?</h2>
-                    <p>A: Yes, we offer free shipping on orders over 750 NOK, allowing you to stock up on pet fashion and accessories without breaking the bank!</p>
-                </div>
-                <!-- Add more FAQ items as needed -->
-            </div>
+    <section id="faq-section">
+        <div class="faq-header">
+            <h1>FAQ</h1>
         </div>
-    </div>
+        <div id="faq-container">
+            <div id="faq-categories">
+                <button class="faq-btn" style="border-bottom: 4px solid #094A4F ; padding: 0.8rem;">
+                    <a th:href="@{/faq}">
+                    <div class="faq-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                    </div>
+                    <div>ORDERS</div>
+                    </a>
+                </button>
+                <button class="faq-btn" >
+                    <a th:href="@{/faq/shipping}">
+                    <div class="faq-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                        </svg>
+                    </div>
+                    <div>SHIPPING & DELIVERY</div>
+                    </a>
+                </button>
+                <button class="faq-btn">
+                    <a th:href="@{/faq/return}">
+                    <div class="faq-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                        </svg>
+                    </div>
+                    <div>RETURNS & REFUNDS</div>
+                    </a>
+                </button>
+            </div>
+            <ul id="faq-list">
+                <li>
+                    <h2>CAN I CANCEL/CHANGE MY ORDER?</h2>
+                    <div class="faq-answers">
+                        <p>
+                            Unfortunately, once an order is placed, it can not be cancelled or changed.
+                            As an alternative, you can reorder, and return your original order.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <H2>WHICH PAYMENT OPTIONS DO YOU OFFER?</H2>
+                    <div class="faq-answers">
+                        <p>
+                            For the time being, the payment options we offer are debit and credit cards.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
 </main>
 <footer th:replace="components/footer"></footer>
 </body>

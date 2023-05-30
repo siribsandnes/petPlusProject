@@ -77,7 +77,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/payment/**").permitAll()
                 .requestMatchers("/paymentSuccess/**").permitAll()
                 .requestMatchers("/about").permitAll()
-                .requestMatchers("/faq").permitAll()
+                .requestMatchers("/faq/**").permitAll()
                 .requestMatchers("/customerservice").permitAll()
                 .requestMatchers("/values").permitAll()
                 // /error is needed or else getting weird redirect on login, found solution here: https://github.com/spring-projects/spring-security/issues/12635#issuecomment-1429055478
