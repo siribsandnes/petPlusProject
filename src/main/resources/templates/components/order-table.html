@@ -1,0 +1,41 @@
+ <div class="order-history">
+    <table>
+      <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>User ID</th>
+        <th>Date</th>
+        <th>Total Cost</th>
+        <th>Products</th>
+        <th>Street Address</th>
+        <th>City</th>
+        <th>Postal Code</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="order : ${orders}">
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.getUser()?.getId()}"></td>
+        <td th:text="${order.createdTime.getDayOfMonth()} +'/' + ${order.createdTime.getMonthValue()}+ '/' +${order.createdTime.getYear()}"></td>
+        <td th:text="${order.totalCost}"></td>
+        <td>
+          <ul>
+            <li th:each="product : ${order.products}">
+              <span th:text="${product.productName} + ' x ' + ${order.getQuantity(product)}"></span>
+            </li>
+          </ul>
+        </td>
+        <td th:text="${order.getAddress()?.streetAddress}"></td>
+        <td th:text="${order.getAddress()?.city}"></td>
+        <td th:text="${order.getAddress()?.postalCode}"></td>
+        <td th:text="${order.getAddress()?.firstName}"></td>
+        <td th:text="${order.getAddress()?.lastName}"></td>
+        <td th:text="${order.getAddress()?.phoneNumber}"></td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>

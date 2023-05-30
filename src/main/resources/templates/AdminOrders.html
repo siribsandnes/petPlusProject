@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Orders</title>
+  <link rel="stylesheet" th:href="@{/styles/userOrders.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/styles/footer.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/styles/header.css}">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="PetPlus User Order page">
+
+
+</head>
+<body>
+<header th:replace="components/header"></header>
+<nav th:replace="components/navigation"></nav>
+
+<main>
+  <section id="user-section">
+    <div class="user-header">
+      <h1>HISTORY OF ALL ORDERS</h1>
+    </div>
+      <div th:replace="components/order-table" class="order-history"></div>
+  </section>
+</main>
+<footer th:replace="components/footer"></footer>
+</body>
+
+<script  th:src="@{/js/main.js}"></script>
+</html>

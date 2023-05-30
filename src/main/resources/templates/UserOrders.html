@@ -3,99 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Order</title>
-    <link rel="stylesheet" th:href="@{/styles/register.css}">
+    <link rel="stylesheet" th:href="@{/styles/userOrders.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/header.css}">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="PetPlus User Order page">
 
-    <style>
-        .table-container {
-            width: 120rem;
-            margin: 0 auto;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            font-size: 12px;
-        }
-
-        th, td {
-            padding: 4px;
-            text-align: left;
-            border: 1px solid black;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tbody tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-        .table-title {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-    </style>
 
 </head>
 <body>
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
 
-<main style="background-color: #EAFFFE;">
-    <br>
-    <div class="table-title">
-        <h1>User Orders</h1>
-    </div>
-    <div class="table-container">
-<table>
-    <thead>
-    <tr>
-        <th>Order ID</th>
-        <th>User ID</th>
-        <th>Date</th>
-        <th>Total Cost</th>
-        <th>Products</th>
-        <th>Street Address</th>
-        <th>City</th>
-        <th>Postal Code</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Phone Number</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="order : ${orders}">
-        <td th:text="${order.id}"></td>
-        <td th:text="${order.getUser()?.getId()}"></td>
-        <td th:text="${order.createdTime.getDayOfMonth()} +'/' + ${order.createdTime.getMonthValue()}+ '/' +${order.createdTime.getYear()}"></td>
-        <td th:text="${order.totalCost}"></td>
-        <td>
-            <ul>
-                <li th:each="product : ${order.products}">
-                    <span th:text="${product.productName} + ' x ' + ${order.getQuantity(product)}"></span>
-                </li>
-            </ul>
-        </td>
-        <td th:text="${order.getAddress()?.streetAddress}"></td>
-        <td th:text="${order.getAddress()?.city}"></td>
-        <td th:text="${order.getAddress()?.postalCode}"></td>
-        <td th:text="${order.getAddress()?.firstName}"></td>
-        <td th:text="${order.getAddress()?.lastName}"></td>
-        <td th:text="${order.getAddress()?.phoneNumber}"></td>
+<main>
+    <section id="user-section">
+        <div class="user-header">
+            <h1>ORDER HISTORY</h1>
+        </div>
+        <div id="user-container">
+            <div id="user-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            <div id="user-categories">
+                <button class="user-btn" type="submit">
+                    <a th:href="@{/users/} + ${user.username}">
+                        <div>PROFILE</div>
+                    </a>
+                </button>
 
-    </tr>
-    </tbody>
-</table>
-    </div>
+                <button class="user-btn" style="border-bottom: 2px solid #094A4F ;padding: 0.8rem;">
+                    <a th:href="@{/users/{username}/orders(username=${user.username})}" >
+                        <div>ORDER HISTORY</div>
+                    </a>
+                </button>
+            </div>
+            <div th:replace="components/order-table" class="order-history">
+            </div>
+        </div>
+    </section>
 </main>
 <footer th:replace="components/footer"></footer>
 </body>

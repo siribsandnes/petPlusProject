@@ -45,7 +45,7 @@ public class AdminController {
         model.addAttribute("products", productService.getAll());
         List<Order> orders = orderRepository.findAll();
         model.addAttribute("orders", orders);
-        return "UserOrders";
+        return "AdminOrders";
     }
 
     @PostMapping("admin/restock")
