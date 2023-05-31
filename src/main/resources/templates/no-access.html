@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>No access!</title>
-    <link rel="stylesheet" th:href="@{/styles/register.css}">
     <link rel="stylesheet" th:href="@{/styles/input-form-design.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/footer.css}">
@@ -15,14 +14,12 @@
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
 <main style="background-color: #EAFFFE;">
-    <main>
         <div id="feedback-container">
             <h1>You don't have access to this page!</h1>
             <a th:href="@{/}">
                 <button class="white-outlined-btn-big" >BACK TO SAFETY</button>
             </a>
         </div>
-    </main>
 </main>
 <footer th:replace="components/footer"></footer>
 </body>
