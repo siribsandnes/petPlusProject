@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/admin.css}">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="PetPlus administrator page">
 </head>
@@ -14,40 +15,41 @@
 <header th:replace="components/header"></header>
 <nav th:replace="components/navigation"></nav>
 <main style="background-color: #EAFFFE;">
-    <br>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-    <h1>ADMINISTRATION PAGE</h1>
-    <br>
-    <H2>RESTOCK PRODUCTS :</H2>
-    <br>
-    <div >
-    <table>
-        <tr th:each="product : ${products}">
-            <br>
-            <h3  th:text="'ID: ' +${product.productId}"></h3>
-            <h4 th:text="'Item: ' +${product.productName}"></h4>
-            <h3 th:text="'In Stock: ' +${product.getProductAmountInStock()}"></h3>
-            <br>
-        </tr>
-    </table>
-    </div>
-    <br>
-    <p th:if="${errorMessage != null}" class="alert" th:text="${errorMessage}"></p>
-    <form method="post" action="/admin/restock" id="restock">
-        <label for="product_id" class="input-label">Product ID:</label>
-        <input type="number" min="1" name="product_id" id="product_id" class="number-input"  required>
-        <label  for="quantity" class="input-label">Quantity:</label>
-        <input type="number" min="1" name="quantity" id="quantity" class="number-input"  required>
-        <br>
-    </form>
-    <br>
-        <button class="white-outlined-btn-big" type="submit" form="restock">RESTOCK</button>
-        <br>
-    <a th:href="@{/admin/orders}">
-        <button class="white-outlined-btn-big">ALL ORDERS</button>
-    </a>
-    </div>
-    <br>
+    <section id="admin-section">
+        <h1>ADMINISTRATION PAGE</h1>
+        <div id="table-container">
+            <H2>RESTOCK PRODUCTS:</H2>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Item</th>
+                    <th>In Stock</th>
+                </tr>
+                <tr th:each="product : ${products}">
+                    <td th:text="'' +${product.productId}"></td>
+                    <td th:text="'' +${product.productName}"></td>
+                    <td th:text="'' +${product.getProductAmountInStock()}"></td>
+                </tr>
+            </table>
+            <p th:if="${errorMessage != null}" class="alert" th:text="${errorMessage}"></p>
+            <form method="post" action="/admin/restock" id="restock">
+                <div class="form-section">
+                    <label for="product_id" class="admin-input-label">Product ID:</label>
+                    <input type="number" min="1" name="product_id" id="product_id" class="admin-number-input"  required>
+                </div>
+                <div class="form-section">
+                    <label  for="quantity" class="admin-input-label">Quantity:</label>
+                    <input type="number" min="1" name="quantity" id="quantity" class="admin-number-input"  required>
+                </div>
+            </form>
+        </div>
+        <div id="admin-btn-container">
+            <button class="white-outlined-btn-big" type="submit" form="restock">RESTOCK</button>
+            <a th:href="@{/admin/orders}">
+                <button class="white-outlined-btn-big">ALL ORDERS</button>
+            </a>
+        </div>
+    </section>
 </main>
 <footer th:replace="components/footer"></footer>
 </body>
