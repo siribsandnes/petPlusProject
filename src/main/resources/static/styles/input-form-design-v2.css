@@ -80,3 +80,7 @@
     width:60%;
     min-width: 20rem;
 }
+
+.coloured-square-btn:hover{
+    background-color: rgba(9, 74, 79, 0.7);
+}

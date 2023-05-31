@@ -79,3 +79,7 @@
     font-size: 1.6rem;
     padding: 1.6rem 2rem 1.6rem 2rem;
 }
+
+.coloured-square-btn:hover{
+    background-color: rgba(9, 74, 79, 0.7);
+}
