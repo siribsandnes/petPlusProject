@@ -22,7 +22,9 @@
 
 #product-image{
     grid-area: product-img;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #product-image img{
