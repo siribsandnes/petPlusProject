@@ -18,7 +18,6 @@ public class NewsletterController {
     @PostMapping("/newsletter/{mail}")
     @ResponseBody
     public String registerForNewsletter(@PathVariable String mail) {
-        System.out.println("INNEICONTROLLER");
         return newsletterService.registerForNewsletter(mail);
     }
 
