@@ -1,5 +1,4 @@
 #news-letter-section{
-    border:1px solid red;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,4 +33,19 @@
 .newsletter-input{
     height:4rem;
     width: 40rem;
+}
+
+#newsletter-lbl{
+    font-size: 1.5rem;
+}
+
+@media(max-width:37.5em){
+    #news-letter-section h2{
+        font-size: 3rem;
+    }
+
+    #news-letter-section h3{
+        font-size: 1.5rem;
+    }
+
 }

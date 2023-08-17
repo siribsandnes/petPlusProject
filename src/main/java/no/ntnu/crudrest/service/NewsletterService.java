@@ -19,15 +19,15 @@ public class NewsletterService {
     private JavaMailSender mailSender;
 
     public String registerForNewsletter(String mail) {
-        String responseText = "Du må registrere deg først";
+        String responseText = "You have to have a user to sign up for the newsletter";
         Optional<User> userOpt = userRepository.findByUsername(mail);
         if(userOpt.isPresent()) {
             User user = userOpt.get();
             if (user.isNewsletter()) {
-                responseText = "Du har fra før";
+                responseText = "You are already signed up for our newsletter";
             } else {
                 sendMail(user);
-                responseText = "Velkommen";
+                responseText = "Welcome! Check your inbox :)";
                 user.setNewsletter(true);
                 userRepository.save(user);
             }
@@ -40,7 +40,7 @@ public class NewsletterService {
         message.setFrom("petPlusStoreMailer@gmail.com");
         message.setTo(user.getUsername());
         message.setSubject("Welcome");
-        message.setText("Welcome to our newsletter");
+        message.setText("Welcome to our newsletter!");
         mailSender.send(message);
     }
 }
