@@ -20,6 +20,9 @@ public class User {
     @Schema(description = "The password of the user")
     private String password;
 
+    @Schema(description = "Represents wheter user subscribes to newsletter or not")
+    private boolean newsletter;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
@@ -136,5 +139,13 @@ public class User {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public boolean isNewsletter() {
+        return newsletter;
+    }
+
+    public void setNewsletter(boolean hasNewsletter) {
+        this.newsletter = hasNewsletter;
     }
 }

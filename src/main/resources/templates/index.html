@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/styles/footer.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/header.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/news-letter-section.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/input-form-design.css}">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="PetPlus frontpage">
 </head>
@@ -155,9 +156,9 @@
         <h2>STAY UP TO DATE WITH<br>THE LATEST TRENDS?</h2>
         <h3>JOIN OUR NEWSLETTER NOW!</h3>
         <div class="news-letter-container">
-            <input type="email"id="username" name="username" class="newsletter-input">
-            <button class="white-outlined-btn-big" type="submit">SUBMIT</button>
-            <label>Her kommer tilbakemelding</label>
+            <input type="email" id="subscribe" name="username" class="newsletter-input">
+            <button class="white-outlined-btn-big" type="submit" onclick="registerForNewsletter()">REGISTER</button>
+            <label id="newsletter-lbl">Her kommer tilbakemelding</label>
         </div>
     </section>
 </main>

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class NewsletterController {
@@ -15,8 +15,10 @@ public class NewsletterController {
     @Autowired
     private NewsletterService newsletterService;
 
-    @PutMapping("/newsletter/{mail}")
+    @PostMapping("/newsletter/{mail}")
+    @ResponseBody
     public String registerForNewsletter(@PathVariable String mail) {
+        System.out.println("INNEICONTROLLER");
         return newsletterService.registerForNewsletter(mail);
     }
 
